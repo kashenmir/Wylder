@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmkc8jlntfo65"]
+
+[ext_resource type="Texture2D" uid="uid://bmithjubn338t" path="res://wylder/scenes/wylder_character.png" id="1_dsk3h"]
+
+[node name="IroncladMerchant" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(10, -192)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_dsk3h")

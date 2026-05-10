@@ -1,0 +1,12 @@
+﻿{
+  "CHASE.description": "本回合下一张打出的牌是打击时，附加对应的效果",
+  "CHASE.title": "追加攻击",
+  "CHARGES.description": "只有充能进度满了才能打出，打出后消耗，你每打出一张牌都会为其积攒2点充能进度，达到上限后立即将其放回你的手牌。战斗开始时如果充能进度不满会直接被消耗。",
+  "CHARGES.title": "充能",
+  "NIGHTSPOWER.description": "共有野兽的围猎，无尽的食欲，智慧的聚集，融合的生命，恶魔的添翼，光辉骑士的祝福，冷冽的海市蜃楼以及废弃物的怨念8种",
+  "NIGHTSPOWER.title": "黑夜领主的能力",
+  "MAGICBUFF.description": "附魔无法共存，施加新的附魔会移除已有的附魔",
+  "MAGICBUFF.title": "附魔",
+  "TUCI.description": "如果目标的意图是攻击，造成的伤害提高50%",
+  "TUCI.title": "突刺反击"
+}

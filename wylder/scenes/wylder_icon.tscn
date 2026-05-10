@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpex1t1yrw5ic"]
+
+[ext_resource type="Texture2D" uid="uid://cq5jok7fl0g0w" path="res://wylder/images/wylder_icon.png" id="1_3iqfs"]
+
+[node name="IroncladMerchant" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(25, 27)
+scale = Vector2(1.0107143, 1.1107143)
+texture = ExtResource("1_3iqfs")

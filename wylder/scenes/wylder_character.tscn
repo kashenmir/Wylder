@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://myoyw517q41u"]
+
+[ext_resource type="Texture2D" uid="uid://bmithjubn338t" path="res://wylder/scenes/wylder_character.png" id="1_uknpj"]
+
+[node name="WylderCharacter" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8.700001, -125)
+scale = Vector2(0.1584961, 0.15)
+texture = ExtResource("1_uknpj")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -121.0
+offset_top = -205.0
+offset_right = 116.0
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -159)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -72)
