@@ -16,6 +16,12 @@ public class Entry
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.testmod");
         harmony.PatchAll();
+        var patchedMethods = harmony.GetPatchedMethods().ToArray();
+        Log.Info($"【Harmony调试】一共成功打上了 {patchedMethods.Length} 个补丁！");
+        foreach (var method in patchedMethods)
+        {
+            Log.Info($"【Harmony调试】补丁目标 -> 类: {method.DeclaringType.Name}, 方法: {method.Name}");
+        }
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         Log.Debug("Mod initialized!");

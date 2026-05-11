@@ -4,10 +4,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.dynamicVars;
 using wylder.Scripts.pools;
 using wylder.Scripts.powers;
+using wylder.Scripts.relics;
 
 namespace wylder.Scripts.cards;
 
@@ -38,6 +41,11 @@ public class Seppuku : TestCardModel
     {
         VfxCmd.PlayOnCreatureCenter(base.Owner.Creature, "vfx/vfx_bloody_impact");
         await CreatureCmd.Damage(choiceContext, base.Owner.Creature, base.DynamicVars["count"].IntValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
+        LordOfBloodsExultation? relic = Owner.Relics.OfType<LordOfBloodsExultation>().FirstOrDefault();
+        if (relic != null)
+        {
+            await PowerCmd.Apply<StrengthPower>(Owner.Creature, 2, Owner.Creature, null);
+        }
         await PowerCmd.Apply<BloodBuffPower>(Owner.Creature, 1, Owner.Creature, null);
     }
 

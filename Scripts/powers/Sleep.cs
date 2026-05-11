@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.ValueProps;
+using wylder.Scripts.cards;
 
 namespace wylder.Scripts.powers;
 
@@ -39,7 +40,7 @@ public class Sleep : CustomPowerModel
                     FollowUpStateId = nextMoveId,
                     MustPerformOnceBeforeTransitioning = true
                 };
-                Owner.Monster.SetMoveImmediate(state);
+                Owner.Monster.SetMoveImmediate(state, true);
             }
             async Task Wrapper(IReadOnlyList<Creature> c)
             {
@@ -92,7 +93,7 @@ public class Sleep : CustomPowerModel
         if (target == Owner && props.IsPoweredAttack() && result.UnblockedDamage != 0 && Owner.IsAlive)
         {
             Flash();
-            await CreatureCmd.Stun(Owner,(IReadOnlyList<Creature> _) => Task.CompletedTask, null);
+            await OnslaughtStake.Stun(Owner, null);
             await PowerCmd.Remove(this);
         }
     }
@@ -118,7 +119,7 @@ public class Sleep : CustomPowerModel
                         FollowUpStateId = nextMoveId,
                         MustPerformOnceBeforeTransitioning = true
                     };
-                    Owner.Monster.SetMoveImmediate(state);
+                    Owner.Monster.SetMoveImmediate(state, true);
                 }
                 async Task Wrapper(IReadOnlyList<Creature> c)
                 {
