@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -130,13 +131,49 @@ public class OnslaughtStake : TestCardModel
             NCreature nCreature = NCombatRoom.Instance?.GetCreatureNode(hittableEnemy);
             if (nCreature != null)
             {
-                stunTasks.Add(CreatureCmd.Stun(hittableEnemy));
+                stunTasks.Add(Stun(hittableEnemy, null));
             }
         }
         await Task.WhenAll(stunTasks);
         ClearCharge();
         (DeckVersion as OnslaughtStake)?.ClearCharge();
         await CardCmd.Exhaust(choiceContext,this, false, false);
+    }
+    
+    public static async Task Stun(Creature creature, String? nextMoveId)
+    {
+        if (creature.Monster == null)
+        {
+            throw new InvalidOperationException("Can't stun a player.");
+        }
+        if (creature.CombatState != null && !creature.IsDead)
+        {
+            if (nextMoveId == null)
+            {
+                List<MonsterState> stateLog = creature.Monster.MoveStateMachine.StateLog;
+                nextMoveId = stateLog.Last().Id;
+            }
+            creature.Monster.SetMoveImmediate(new MoveState("STUNNED", Wrapper, new AbstractIntent[1]
+            {
+                (AbstractIntent) new StunIntent()
+            })
+            {
+                FollowUpStateId = nextMoveId,
+                MustPerformOnceBeforeTransitioning = false
+            });
+        }
+        async Task Wrapper(IReadOnlyList<Creature> c)
+        {
+            // NStunnedVfx? vfx = NStunnedVfx.Create(Owner.Monster.Creature);
+            // if (vfx != null)
+            // {
+            //     Callable.From(delegate
+            //     {
+            //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(vfx);
+            //     }).CallDeferred();
+            // }
+            await Task.CompletedTask;
+        }
     }
 
     protected override void OnUpgrade()

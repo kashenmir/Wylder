@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.ValueProps;
+using wylder.Scripts.cards;
 
 namespace wylder.Scripts.powers;
 
@@ -32,7 +33,7 @@ public class BucklerParryPower : CustomPowerModel
                 Flash();
                 List<MonsterState> stateLog = dealer.Monster.MoveStateMachine.StateLog;
                 string nextMoveId = stateLog.Last().GetNextState(dealer.Monster.Creature, dealer.Monster.Rng);
-                await CreatureCmd.Stun(dealer, nextMoveId);
+                await OnslaughtStake.Stun(dealer, nextMoveId);
             }
             await PowerCmd.Remove(this);
         }

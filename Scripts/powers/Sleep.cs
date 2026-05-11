@@ -23,7 +23,7 @@ public class Sleep : CustomPowerModel
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (Owner.IsAlive && Owner.IsMonster)
+        if (Owner.IsAlive && Owner.IsMonster && applier == Owner)
         {
             Flash();
             if (Owner.Monster == null)
@@ -37,7 +37,7 @@ public class Sleep : CustomPowerModel
                 MoveState state = new MoveState("SLEEP", Wrapper, new SleepIntent())
                 {
                     FollowUpStateId = nextMoveId,
-                    MustPerformOnceBeforeTransitioning = true
+                    MustPerformOnceBeforeTransitioning = false
                 };
                 Owner.Monster.SetMoveImmediate(state);
             }
@@ -116,7 +116,7 @@ public class Sleep : CustomPowerModel
                     MoveState state = new MoveState("SLEEP", Wrapper, new SleepIntent())
                     {
                         FollowUpStateId = nextMoveId,
-                        MustPerformOnceBeforeTransitioning = true
+                        MustPerformOnceBeforeTransitioning = false
                     };
                     Owner.Monster.SetMoveImmediate(state);
                 }
