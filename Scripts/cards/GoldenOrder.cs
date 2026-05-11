@@ -31,7 +31,7 @@ public class GoldenOrder : AshWarModel
     protected override IEnumerable<DynamicVar> CanonicalVars => [new Chase(8),
         new CalculationBaseVar(0m),
         new ExtraDamageVar(8m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier(YourCalculationFunction)];
+        new CalculatedDamageVar(ValueProp.Unpowered).WithMultiplier(YourCalculationFunction)];
 
     public GoldenOrder() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {

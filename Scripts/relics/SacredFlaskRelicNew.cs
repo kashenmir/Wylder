@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Abstracts;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -15,7 +16,7 @@ namespace wylder.Scripts.relics;
 
 // 加入哪个遗物池，此处为通用
 [Pool(typeof(WylderRelicPool))]
-public class SacredFlaskRelicNew : SacredFlaskRelic
+public class SacredFlaskRelicNew : CustomRelicModel
 {
     // 稀有度
     public override RelicRarity Rarity => RelicRarity.Starter;

@@ -28,6 +28,8 @@ public class WylderDefend : TestCardModel
     // 卡牌的基础属性（例如这里是12点伤害）
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
     
+    protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Defend};
+    
     public override bool GainsBlock => true;
 
     public WylderDefend() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

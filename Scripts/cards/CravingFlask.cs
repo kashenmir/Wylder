@@ -67,15 +67,21 @@ public class CravingFlask : TestCardModel
             VfxCmd.PlayFullScreenInCombat("vfx/vfx_dramatic_entrance_fullscreen");
             await CardCmd.Exhaust(choiceContext,this, false, false);
             SacredFlaskRelic? relic = Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault();
+            SacredFlaskRelicNew? relicNew = Owner.Relics.OfType<SacredFlaskRelicNew>().FirstOrDefault();
             if (relic != null)
             {
                 relic.TotalAmount+=1;
                 relic.UseAmount++;
-            }
+            } 
             else
             {
                 await RelicCmd.Obtain<SacredFlaskRelic>(Owner);
             }
+            if (relicNew != null)
+            {
+                relicNew.TotalAmount+=1;
+                relicNew.UseAmount++;
+            } 
             (DeckVersion as CravingFlask)?.RemoveFromCurrentPile();
         }
     }

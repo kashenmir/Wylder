@@ -30,8 +30,10 @@ public class SacredFlask : TestCardModel
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
-    protected override bool IsPlayable => Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault() != null &&
-                                          Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault().UseAmount > 0;
+    protected override bool IsPlayable => (Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault() != null &&
+                                           Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault().UseAmount > 0) || 
+                                          (Owner.Relics.OfType<SacredFlaskRelicNew>().FirstOrDefault() != null &&
+                                           Owner.Relics.OfType<SacredFlaskRelicNew>().FirstOrDefault().UseAmount > 0);
 
     public SacredFlask() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -46,6 +48,11 @@ public class SacredFlask : TestCardModel
         if (relic != null)
         {
             relic.UseAmount-=1;
+        }
+        SacredFlaskRelicNew? relicNew = Owner.Relics.OfType<SacredFlaskRelicNew>().FirstOrDefault();
+        if (relicNew != null)
+        {
+            relicNew.UseAmount-=1;
         }
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
