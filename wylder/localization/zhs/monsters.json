@@ -1,0 +1,10 @@
+﻿{
+  "WYLDER-LIPULA.name": "持秤商人",
+  "WYLDER-LIPULA.name2": "黑夜之魔-利普拉",
+  "WYLDER-LIPULA.moves.DRAMATIC_OPEN.speakLine1": "做出选择",
+  "WYLDER-LIPULA.moves.DRAMATIC_OPEN.title": "",
+  "WYLDER-LIPULA.moves.DRAMATIC_OPEN.speakLine2": "此事已成",
+  "WYLDER-LIPULA.moves.BASIC_ATTACK.title": "杖击", 
+  "WYLDER-LIPULA.moves.BASIC_ATTACK.banter": "[jitter]接下这招！[/jitter]",
+  "WYLDER-LIPULA.moves.HEAVY_ATTACK.title": "法阵"
+}

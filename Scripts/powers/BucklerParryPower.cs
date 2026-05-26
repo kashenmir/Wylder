@@ -28,11 +28,14 @@ public class BucklerParryPower : CustomPowerModel
     {
         if (target == Owner && dealer!=null && dealer.Monster!=null && props.IsPoweredAttack())
         {
-            if (result.WasFullyBlocked) {
+            if (result.WasFullyBlocked && dealer.IsAlive) {
                 Flash();
-                List<MonsterState> stateLog = dealer.Monster.MoveStateMachine.StateLog;
-                string nextMoveId = stateLog.Last().GetNextState(dealer.Monster.Creature, dealer.Monster.Rng);
-                await CreatureCmd.Stun(dealer, nextMoveId);
+                if (dealer.Monster.MoveStateMachine!=null)
+                {
+                    List<MonsterState> stateLog = dealer.Monster.MoveStateMachine.StateLog;
+                    string nextMoveId = stateLog.Last().GetNextState(dealer.Monster.Creature, dealer.Monster.Rng);
+                    await CreatureCmd.Stun(dealer, nextMoveId);
+                }
             }
             await PowerCmd.Remove(this);
         }

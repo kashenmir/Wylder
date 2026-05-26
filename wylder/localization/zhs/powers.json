@@ -183,5 +183,17 @@
   "WYLDER-METALLICIZE_POWER.title": "金属化",
   "WYLDER-MALLABLE_POWER.description": "受到未被格挡的伤害时获得等于层数的格挡。",
   "WYLDER-MALLABLE_POWER.smartDescription": "受到未被格挡的伤害时获得{Amount}点格挡。",
-  "WYLDER-MALLABLE_POWER.title": "韧性"
+  "WYLDER-MALLABLE_POWER.title": "韧性",
+  "WYLDER-LIPULA_DEBUFF3_POWER.description": "由于精力下降，回合开始时少抽一张牌。",
+  "WYLDER-LIPULA_DEBUFF3_POWER.smartDescription": "由于精力下降，回合开始时少抽一张牌。",
+  "WYLDER-LIPULA_DEBUFF3_POWER.title": "精力下降",
+  "WYLDER-LIPULA_DEBUFF4_POWER.description": "正在蒙受苦难。。。",
+  "WYLDER-LIPULA_DEBUFF4_POWER.smartDescription": "{count:choose(0):蒙受苦难者的荣耀！！！|在{count:diff()}回合内蒙受苦难。。。}",
+  "WYLDER-LIPULA_DEBUFF4_POWER.title": "蒙受苦难",
+  "WYLDER-LIPULA_DEBUFF6_POWER.description": "在危机时刻可以回复大量生命。",
+  "WYLDER-LIPULA_DEBUFF6_POWER.smartDescription": "在危机时刻可以回复大量生命。",
+  "WYLDER-LIPULA_DEBUFF6_POWER.title": "逃离死亡",
+  "WYLDER-LIPULA_DEBUFF7_POWER.description": "每次打出非能力牌失去一点最大生命。",
+  "WYLDER-LIPULA_DEBUFF7_POWER.smartDescription": "每次打出非能力牌失去一点最大生命。",
+  "WYLDER-LIPULA_DEBUFF7_POWER.title": "贪心的代价"
 }

@@ -23,7 +23,7 @@ public class ChaseMaster : TestCardModel
     // 是否在卡牌图鉴中显示
     private const bool shouldShowInCardLibrary = true;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
     
     public ChaseMaster() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -37,6 +37,6 @@ public class ChaseMaster : TestCardModel
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(2);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }

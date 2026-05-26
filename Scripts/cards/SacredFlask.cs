@@ -26,7 +26,7 @@ public class SacredFlask : TestCardModel
     // 是否在卡牌图鉴中显示
     private const bool shouldShowInCardLibrary = true;
     // 卡牌的基础属性（例如这里是12点伤害）
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(15m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(12m)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 

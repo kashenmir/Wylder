@@ -47,6 +47,6 @@ public class ShotRain : AshWarModel
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Damage.UpgradeValueBy(1m);
     }
 }

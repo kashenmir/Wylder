@@ -208,5 +208,19 @@
   "WYLDER-WEAPON_MASTER.title": "武器大师",
   "WYLDER-WEAPON_MASTER.description": "每消耗一张牌，就将一张随机[gold]战技[/gold]牌加入手牌。",
   "WYLDER-BALANCE_THE_WORLD.title": "安定世界的护佑",
-  "WYLDER-BALANCE_THE_WORLD.description": "所有[gold]战技[/gold]和[gold]打击[/gold]造成的伤害提高40%。每回合第一次遭受敌人攻击时抽一张牌，如果抽到的是诅咒或者稀有牌，免疫本次伤害（这个效果无法多次叠加）。"
+  "WYLDER-BALANCE_THE_WORLD.description": "所有[gold]战技[/gold]和[gold]打击[/gold]造成的伤害提高40%。每回合第一次遭受敌人攻击时抽一张牌，如果抽到的是诅咒或者稀有牌，免疫本次伤害（这个效果无法多次叠加）。",
+  "WYLDER-LIPULA_CHOOSE1.title": "想要力量变得更强",
+  "WYLDER-LIPULA_CHOOSE1.description": "经过恶魔的评估，力量会变得更为突出。",
+  "WYLDER-LIPULA_CHOOSE2.title": "想要敏捷变得更强",
+  "WYLDER-LIPULA_CHOOSE2.description": "经过恶魔的评估，敏捷会变得更为突出。",
+  "WYLDER-LIPULA_CHOOSE3.title": "想要抵抗异常状态",
+  "WYLDER-LIPULA_CHOOSE3.description": "以精力为代价，变得能抵抗异常状态。",
+  "WYLDER-LIPULA_CHOOSE4.title": "想要大器晚成",
+  "WYLDER-LIPULA_CHOOSE4.description": "在一定时间内经受磨难的考验，然后变强。",
+  "WYLDER-LIPULA_CHOOSE5.title": "想要强大的武器",
+  "WYLDER-LIPULA_CHOOSE5.description": "以血量为代价，获得强力武器。",
+  "WYLDER-LIPULA_CHOOSE6.title": "想要死亡远离我",
+  "WYLDER-LIPULA_CHOOSE6.description": "以能量为代价，变得能抵御死亡。",
+  "WYLDER-LIPULA_CHOOSE7.title": "想要大幅度升级",
+  "WYLDER-LIPULA_CHOOSE7.description": "大幅提升能力，但是每次行动都会受到惩罚。"
 }

@@ -34,6 +34,8 @@
         <Content Include="wylder\localization\zhs\cards.json" />
         <Content Include="wylder\localization\zhs\card_keywords.json" />
         <Content Include="wylder\localization\zhs\characters.json" />
+        <Content Include="wylder\localization\zhs\encounters.json" />
+        <Content Include="wylder\localization\zhs\monsters.json" />
         <Content Include="wylder\localization\zhs\potions.json" />
         <Content Include="wylder\localization\zhs\powers.json" />
         <Content Include="wylder\localization\zhs\relics.json" />
