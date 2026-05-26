@@ -222,5 +222,7 @@
   "WYLDER-LIPULA_CHOOSE6.title": "想要死亡远离我",
   "WYLDER-LIPULA_CHOOSE6.description": "以能量为代价，变得能抵御死亡。",
   "WYLDER-LIPULA_CHOOSE7.title": "想要大幅度升级",
-  "WYLDER-LIPULA_CHOOSE7.description": "大幅提升能力，但是每次行动都会受到惩罚。"
+  "WYLDER-LIPULA_CHOOSE7.description": "大幅提升能力，但是每次行动都会受到惩罚。",
+  "WYLDER-MAD.title": "发狂",
+  "WYLDER-MAD.description": "[gold]积累[/gold]3，拥有至少{Energy:energyIcons()}才能打出。\n被[gold]消耗[/gold]时，失去{Energy:energyIcons()}，受到3点伤害。"
 }

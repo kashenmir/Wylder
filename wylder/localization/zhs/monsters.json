@@ -4,7 +4,11 @@
   "WYLDER-LIPULA.moves.DRAMATIC_OPEN.speakLine1": "做出选择",
   "WYLDER-LIPULA.moves.DRAMATIC_OPEN.title": "",
   "WYLDER-LIPULA.moves.DRAMATIC_OPEN.speakLine2": "此事已成",
-  "WYLDER-LIPULA.moves.BASIC_ATTACK.title": "杖击", 
+  "WYLDER-LIPULA.moves.BASIC_ATTACK.title": "法阵连射-初级", 
   "WYLDER-LIPULA.moves.BASIC_ATTACK.banter": "[jitter]接下这招！[/jitter]",
-  "WYLDER-LIPULA.moves.HEAVY_ATTACK.title": "法阵"
+  "WYLDER-LIPULA.moves.BASIC_STAND.title": "观望",
+  "WYLDER-LIPULA.moves.HEAVY_ATTACK.title": "杖击",
+  "WYLDER-LIPULA.moves.CHANGE_STATE.title": "阶段转换",
+  "WYLDER-LIPULA.moves.CALL_GUILTY.title": "召唤罪人",
+  "WYLDER-LIPULA.moves.CALL_GUILTY.speakLine1": "受到恶魔的召唤，罪人现身！"
 }
