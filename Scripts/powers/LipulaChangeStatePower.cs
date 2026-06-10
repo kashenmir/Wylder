@@ -14,8 +14,8 @@ public class LipulaChangeStatePower : CustomPowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
     
     // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
-    public override string? CustomPackedIconPath => "res://wylder/powers/lipula_change_state_power.png";
-    public override string? CustomBigIconPath => "res://wylder/powers/lipula_change_state_power.png";
+    public override string? CustomPackedIconPath => "res://wylder/powers/lipula_debuff_power.png";
+    public override string? CustomBigIconPath => "res://wylder/powers/lipula_debuff_power.png";
     
     public override decimal ModifyHpLostBeforeOstyLate(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {

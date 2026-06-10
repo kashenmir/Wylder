@@ -199,8 +199,8 @@
   "WYLDER-LIPULA_CHANGE_STATE_POWER.description": "黑夜之魔利普拉的生命值下降到最大生命四分之三时，它将会暂时锁血，紧接着发动强力攻击并进入二阶段。",
   "WYLDER-LIPULA_CHANGE_STATE_POWER.smartDescription": "黑夜之魔利普拉的生命值下降到{Amount}时，它将会暂时锁血，紧接着发动强力攻击并进入二阶段。",
   "WYLDER-LIPULA_CHANGE_STATE_POWER.title": "阶段转换",
-  "WYLDER-DEMON_FORM_POWER.description": "黑夜狂战士回合开始时会获得{Amount}点[gold]力量[gold/]。",
-  "WYLDER-DEMON_FORM_POWER.smartDescription": "黑夜狂战士回合开始时会获得{Amount}点[gold]力量[gold/]。",
+  "WYLDER-DEMON_FORM_POWER.description": "黑夜狂战士在回合结束时会获得{Amount}点[gold]力量[/gold]。",
+  "WYLDER-DEMON_FORM_POWER.smartDescription": "黑夜狂战士在回合结束时会获得{Amount}点[gold]力量[/gold]。",
   "WYLDER-DEMON_FORM_POWER.title": "恶魔形态",
   "WYLDER-RUPTURE_POWER.description": "每当有玩家失去生命时，黑夜狂战士获得{Amount}点[gold]力量[gold/]。",
   "WYLDER-RUPTURE_POWER.smartDescription": "每当有玩家失去生命时，黑夜狂战士获得{Amount}点[gold]力量[gold/]。",
@@ -210,5 +210,9 @@
   "WYLDER-SERPENT_FORM_POWER.title": "群蛇形态",
   "WYLDER-AFTERIMAGE_POWER.description": "玩家每打出一张牌，黑夜猎手获得{Amount}点[gold]格挡[gold/]。",
   "WYLDER-AFTERIMAGE_POWER.smartDescription": "玩家每打出一张牌，黑夜猎手获得{Amount}点[gold]格挡[gold/]。",
-  "WYLDER-AFTERIMAGE_POWER.title": "余像"
+  "WYLDER-AFTERIMAGE_POWER.title": "余像",
+  "WYLDER-HATRED_POWER.description": "{target}",
+  "WYLDER-HATRED_POWER.title": "仇恨",
+  "WYLDER-HATRED2_POWER.description": "{target}",
+  "WYLDER-HATRED2_POWER.title": "仇恨"
 }

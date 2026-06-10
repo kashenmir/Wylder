@@ -11,7 +11,9 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -87,8 +89,18 @@ public class Lipula : CustomMonsterModel
 	private int BasicMad => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
 	// 意图2的数值，重击伤害，根据进阶提高伤害
 	private int HeavyDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 30, 27);
-	
-	
+
+	private readonly Queue<string> _freeNodes = new(
+		new[]
+		{
+			"first",
+			"second",
+			"third",
+			"forth"
+		});
+
+	private readonly Dictionary<string, MonsterModel> _nodeMonsters = new();
+	private readonly Dictionary<string, string> _nodeTargets = new();
 	// 怪物场景，如果你的场景没有挂载脚本，参考这个
 	public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://wylder/scenes/Lipula/lipula.tscn");
 
@@ -160,6 +172,10 @@ public class Lipula : CustomMonsterModel
 
 		var callGuilty = new MoveState("CALL_GUILTY", CallGuilty, new SummonIntent(), new DebuffIntent());
 		
+		ConditionalBranchState conditionalBranchState = new ConditionalBranchState("lipulaBranch");
+		conditionalBranchState.AddState(callGuilty, () => IsChangeState);
+		conditionalBranchState.AddState(basicAttack, () => !IsChangeState);
+		
 		_changeState = changeState;
 		// 或者你也可以创建RandomBranchState（随机意图分支）和ConditionalBranchState（条件意图分支）来实现更复杂的状态转换逻辑
 
@@ -167,16 +183,57 @@ public class Lipula : CustomMonsterModel
 		open.FollowUpState = basicAttack;
 		basicAttack.FollowUpState = heavyAttack;
 		heavyAttack.FollowUpState = basicStand;
-		basicStand.FollowUpState = IsChangeState?callGuilty:basicAttack;
+		basicStand.FollowUpState = conditionalBranchState;
 		changeState.FollowUpState = callGuilty;
 		callGuilty.FollowUpState = basicAttack;
 		
 		// 添加2个意图，并且初始意图设成 basicAttack
-		return new MonsterMoveStateMachine([open, basicAttack, heavyAttack, basicStand, changeState, callGuilty], open);
+		return new MonsterMoveStateMachine([open, basicAttack, heavyAttack, basicStand, changeState, callGuilty, conditionalBranchState], open);
 	}
 	
 	private async Task DramaticOpenMove(IReadOnlyList<Creature> targets)
 	{
+		foreach (Creature creature in targets)
+		{
+			Log.Warn("note " + _nodeMonsters.Count);
+			if (!creature.IsPlayer || creature.Player is null)
+			{
+				continue;
+			}
+		
+			if (creature.Player.Character is Ironclad)
+			{
+				MonsterModel testMonster = ModelDb.Monster<NightIronclad>();
+				if (_freeNodes.Count == 0)
+					continue;
+
+				string node = _freeNodes.Dequeue();
+
+				_nodeMonsters[node] = testMonster;
+				_nodeTargets[node] = creature.Player.Creature.Name;
+			} else if (creature.Player.Character is Silent)
+			{
+				MonsterModel testMonster = ModelDb.Monster<NightSilent>();
+				if (_freeNodes.Count == 0)
+					continue;
+
+				string node = _freeNodes.Dequeue();
+
+				_nodeMonsters[node] = testMonster;
+				_nodeTargets[node] = creature.Player.Creature.Name;
+			}
+			else
+			{
+				MonsterModel testMonster = ModelDb.Monster<NightIronclad>();
+				if (_freeNodes.Count == 0)
+					continue;
+
+				string node = _freeNodes.Dequeue();
+
+				_nodeMonsters[node] = testMonster;
+				_nodeTargets[node] = creature.Player.Creature.Name;
+			}
+		}
 		TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.DRAMATIC_OPEN.speakLine1"), base.Creature, VfxColor.Gold);
 		await Cmd.CustomScaledWait(1.5f, 1.7f);
 		List<Task> chooseList = new List<Task>();
@@ -233,6 +290,7 @@ public class Lipula : CustomMonsterModel
 		SfxCmd.Play(AttackSfx);
 		await PowerCmd.Apply<IntangiblePower>(base.Creature, 2, Creature, null);
 		await PowerCmd.Apply<ThornsPower>(Creature, 30, Creature, null);
+		await PowerCmd.Apply<HatredPower>(Creature, 1, Creature, null);
 		PowerModel? power = base.Creature.GetPower<LipulaChangeStatePower>();
 		if (power != null)
 		{
@@ -246,9 +304,33 @@ public class Lipula : CustomMonsterModel
 	{
 		TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine1"), base.Creature, VfxColor.Gold);
 		await Cmd.CustomScaledWait(1.5f, 1.7f);
-		MonsterModel testMonster = ModelDb.Monster<Guardbot>();
-		await PowerCmd.Apply<MinionPower>(await CreatureCmd.Add(testMonster.ToMutable(), 
-			base.CombatState, CombatSide.Enemy, base.CombatState.Encounter.GetNextSlot(base.CombatState)), 1m, base.Creature, null);
+		foreach (String slotName in CombatState.Encounter.Slots)
+		{
+			if (!_nodeMonsters.ContainsKey(slotName))
+			{
+				continue;
+			}
+			Creature? creature = CombatState.Enemies
+				.FirstOrDefault(c => c.SlotName == slotName);
+			if (creature == null)
+			{
+				MonsterModel testMonster = _nodeMonsters[slotName];
+				Creature newMonster = await CreatureCmd.Add(testMonster.ToMutable(), base.CombatState, CombatSide.Enemy, slotName);
+				await PowerCmd.Apply<MinionPower>(newMonster, 1m, base.Creature, null);
+				Hatred2Power? hatred2Power = await PowerCmd.Apply<Hatred2Power>(newMonster, 1m, base.Creature, null);
+				if (hatred2Power != null) 
+				{
+					hatred2Power.TargetPlayer = _nodeTargets[slotName];
+				}
+			}
+			else
+			{
+				await CreatureCmd.Heal(creature, 99999);
+				await PowerCmd.Apply<StrengthPower>(creature, 3, Creature,  null);
+			}
+		}
+		//MonsterModel testMonster = ModelDb.Monster<NightIronclad>();
+		//await PowerCmd.Apply<MinionPower>(await CreatureCmd.Add(testMonster.ToMutable(), base.CombatState, CombatSide.Enemy, base.CombatState.Encounter.GetNextSlot(base.CombatState)), 1m, base.Creature, null);
 		PowerModel? power = base.Creature.GetPower<ThornsPower>();
 		if (power != null)
 		{

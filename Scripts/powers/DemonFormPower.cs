@@ -2,12 +2,13 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace wylder.Scripts.powers;
 
-public class DemoFormPower : CustomPowerModel
+public class DemonFormPower : CustomPowerModel
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -18,7 +19,7 @@ public class DemoFormPower : CustomPowerModel
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
         if (side == base.Owner.Side)
         {

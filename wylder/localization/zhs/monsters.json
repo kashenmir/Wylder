@@ -10,5 +10,13 @@
   "WYLDER-LIPULA.moves.HEAVY_ATTACK.title": "杖击",
   "WYLDER-LIPULA.moves.CHANGE_STATE.title": "阶段转换",
   "WYLDER-LIPULA.moves.CALL_GUILTY.title": "召唤罪人",
-  "WYLDER-LIPULA.moves.CALL_GUILTY.speakLine1": "受到恶魔的召唤，罪人现身！"
+  "WYLDER-LIPULA.moves.CALL_GUILTY.speakLine1": "受到恶魔的召唤，罪人现身！",
+  "WYLDER-NIGHT_IRONCLAD.name": "黑夜狂战士",
+  "WYLDER-NIGHT_IRONCLAD.moves.BASH.title": "痛击",
+  "WYLDER-NIGHT_IRONCLAD.moves.TWIN_STRIKE.title": "双重打击",
+  "WYLDER-NIGHT_IRONCLAD.moves.CONFLAGRATION.title": "焚烧",
+  "WYLDER-NIGHT_SILENT.name": "黑夜猎手",
+  "WYLDER-NIGHT_SILENT.moves.DASH.title": "冲刺",
+  "WYLDER-NIGHT_SILENT.moves.NEUTRALIZE.title": "中和",
+  "WYLDER-NIGHT_SILENT.moves.LEVEL_UP.title": "群蛇形态强化"
 }
