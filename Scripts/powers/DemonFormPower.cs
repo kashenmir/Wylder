@@ -14,6 +14,8 @@ public class DemonFormPower : CustomPowerModel
 
     public override PowerStackType StackType => PowerStackType.Counter;
     
+    private bool IsActive = false;
+    
     public override string? CustomPackedIconPath => "res://wylder/powers/night_demon_form_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/night_demon_form_power.png";
 
@@ -23,8 +25,14 @@ public class DemonFormPower : CustomPowerModel
     {
         if (side == base.Owner.Side)
         {
-            Flash();
-            await PowerCmd.Apply<StrengthPower>(base.Owner, base.Amount, base.Owner, null);
+            if (IsActive) {
+                Flash();
+                await PowerCmd.Apply<StrengthPower>(base.Owner, base.Amount, base.Owner, null);
+            }
+            else
+            {
+                IsActive = true;
+            }
         }
     }
 }

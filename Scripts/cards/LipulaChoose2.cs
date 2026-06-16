@@ -25,7 +25,7 @@ public class LipulaChoose2 : TestCardModel, KnowledgeDemon.IChoosable
     private const bool shouldShowInCardLibrary = true;
     public override bool CanBeGeneratedInCombat => true;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("s", -6m), new IntVar("d", 2m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("s", -4m), new IntVar("d", 2m)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>()];
 

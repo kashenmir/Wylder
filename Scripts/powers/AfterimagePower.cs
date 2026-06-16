@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -40,7 +41,10 @@ public class AfterimagePower : CustomPowerModel
     {
         if (cardPlay.Card.Owner.Creature.IsPlayer && cardPlay.Card.Owner.Creature.IsAlive && GetInternalData<Data>().amountsForPlayedCards.Remove(cardPlay.Card, out var value) && value > 0)
         {
-            await CreatureCmd.GainBlock(base.Owner, value, ValueProp.Unpowered, null, fast: true);
+            foreach (Creature enemy in CombatState.Enemies.ToList())
+            {
+                await CreatureCmd.GainBlock(enemy, value, ValueProp.Unpowered, null, fast: true);
+            }
         }
     }
 }

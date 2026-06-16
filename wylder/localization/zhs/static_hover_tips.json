@@ -9,6 +9,6 @@
   "MAGICBUFF.title": "附魔",
   "TUCI.description": "如果目标的意图是攻击，造成的伤害提高50%",
   "TUCI.title": "突刺反击",
-  "COUNTS.description": "抽牌后手中如果有超过3张发狂，消耗手中的所有发狂",
-  "COUNTS.title": "积累"
+  "COUNTS.description": "手中累计持有至少3张发狂后，失去2点能量并受到10点伤害",
+  "COUNTS.title": "发狂积累"
 }

@@ -22,7 +22,7 @@ public class MadnessBase : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/madness_base.png";
     public override string? CustomBigIconPath => "res://wylder/powers/madness_base.png";
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Unpowered), new IntVar("max", 10)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(30, ValueProp.Unpowered), new IntVar("max", 15)];
     
     private static readonly Dictionary<Creature, int> _globalData = new Dictionary<Creature, int>();
 
@@ -58,12 +58,12 @@ public class MadnessBase : CustomPowerModel
         }
         
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner,
-            (int)(base.DynamicVars.Damage.IntValue + Owner.MaxHp * 0.3m), ValueProp.Unblockable | ValueProp.Unpowered,
+            (int)(base.DynamicVars.Damage.IntValue), ValueProp.Unblockable | ValueProp.Unpowered,
             null, null);
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<StrengthPower>(Owner, 5, Owner, null);
+            await PowerCmd.Apply<StrengthPower>(Owner, 2, Owner, null);
         }
         else
         {

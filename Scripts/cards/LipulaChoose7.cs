@@ -28,7 +28,7 @@ public class LipulaChoose7 : TestCardModel, KnowledgeDemon.IChoosable
     
     public async Task OnChosen()
     {
-        await CreatureCmd.GainMaxHp(Owner.Creature, Owner.Creature.MaxHp*0.33m);
+        await CreatureCmd.GainMaxHp(Owner.Creature, Owner.Creature.MaxHp*0.5m);
         await PowerCmd.Apply<LipulaDebuff7Power>(Owner.Creature, 1, Owner.Creature, this);
     }
     

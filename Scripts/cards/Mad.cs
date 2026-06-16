@@ -10,11 +10,11 @@ using wylder.Scripts.dynamicVars;
 
 namespace wylder.Scripts.cards;
 
-[Pool(typeof(TokenCardPool))]
+[Pool(typeof(StatusCardPool))]
 public class Mad : TestCardModel
 {
     // 基础耗能
-    private const int energyCost = 0;
+    private const int energyCost = 1;
     // 卡牌类型
     private const CardType type = CardType.Status;
     // 卡牌稀有度
@@ -23,8 +23,6 @@ public class Mad : TestCardModel
     private const TargetType targetType = TargetType.None;
     // 是否在卡牌图鉴中显示
     private const bool shouldShowInCardLibrary = true;
-
-    protected override bool IsPlayable => Owner.PlayerCombatState is { Energy: > 0 };
     
     public override bool CanBeGeneratedInCombat => true;
     
@@ -36,17 +34,17 @@ public class Mad : TestCardModel
     {
     }
     
-    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
-    {
-        if (card != this)
-        {
-            return;
-        }
-        await PlayerCmd.LoseEnergy(1, Owner);
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, new DamageVar(3, ValueProp.Unpowered), this);
-    }
+    // public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
+    // {
+    //     if (card != this)
+    //     {
+    //         return;
+    //     }
+    //     await PlayerCmd.LoseEnergy(1, Owner);
+    //     await CreatureCmd.Damage(choiceContext, Owner.Creature, new DamageVar(2, ValueProp.Unpowered), this);
+    // }
 
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
         if (card != this || card.Pile == null || card.Pile.Type != PileType.Hand)
         {
@@ -58,10 +56,29 @@ public class Mad : TestCardModel
             await Cmd.Wait(0.25f);
             foreach (CardModel c in cards)
             {
-                await CardCmd.Exhaust(choiceContext, c);
+                await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), c);
             }
+            await PlayerCmd.LoseEnergy(2, Owner);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature, new DamageVar(10, ValueProp.Unpowered), this);
         }
     }
+
+    // public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    // {
+    //     if (card != this || card.Pile == null || card.Pile.Type != PileType.Hand)
+    //     {
+    //         return;
+    //     }
+    //     List<CardModel> cards = PileType.Hand.GetPile(base.Owner.Creature.Player).Cards.Where((CardModel c) => c is Mad).ToList();
+    //     if (cards.Count() >= 3)
+    //     {
+    //         await Cmd.Wait(0.25f);
+    //         foreach (CardModel c in cards)
+    //         {
+    //             await CardCmd.Exhaust(choiceContext, c);
+    //         }
+    //     }
+    // }
 
     protected override void OnUpgrade()
     {

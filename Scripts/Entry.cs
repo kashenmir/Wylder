@@ -1,7 +1,11 @@
+using System.Reflection;
 using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using STS2RitsuLib;
+using STS2RitsuLib.Audio;
+using STS2RitsuLib.Interop;
 
 namespace wylder.Scripts;
 
@@ -9,6 +13,8 @@ namespace wylder.Scripts;
 [ModInitializer("Init")]
 public class Entry
 {
+    public const string ModId = "wylder";
+    public static readonly Logger Logger = RitsuLibFramework.CreateLogger(ModId);
     // 初始化函数
     public static void Init()
     {
@@ -25,5 +31,11 @@ public class Entry
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         Log.Debug("Mod initialized!");
+        var assembly = Assembly.GetExecutingAssembly();
+        RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
+        // 自动注册内容
+        ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
+        FmodStudioDeferredBankRegistration.RegisterBank("res://wylder/audios/Wylder.bank");
+        FmodStudioDeferredBankRegistration.RegisterStudioGuidMappings("res://wylder/audios/GUIDs.txt");
     }
 }

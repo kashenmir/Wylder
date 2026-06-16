@@ -29,7 +29,10 @@ public class HatredPower : CustomPowerModel
             LocString fixedString = new LocString("powers", base.Id.Entry + ".description");
         
             // 2. 把真实的文本塞进变量中
-            if (TargetPlayer != "")
+            if (CombatState.Enemies.Count <= 1)
+            {
+                fixedString.Add("target", "本回合"+Owner.Monster.Title.GetFormattedText()+"的攻击会命中所有玩家！");
+            } else if (TargetPlayer != "")
             {
                 fixedString.Add("target", "本回合"+Owner.Monster.Title.GetFormattedText()+"被"+TargetPlayer+"吸引了仇恨，不会对其他玩家造成攻击伤害。");
             }
@@ -53,6 +56,10 @@ public class HatredPower : CustomPowerModel
     
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
+        if (CombatState.Enemies.Count <= 1)
+        {
+            return 1m;
+        }
         if (dealer != Owner || !props.IsPoweredAttack())
         {
             return 1m;

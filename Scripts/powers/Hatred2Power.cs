@@ -75,7 +75,7 @@ public class Hatred2Power: CustomPowerModel
             .ToList();
         if (filteredNames.Count > 0)
         {
-            TargetPlayer = Owner.Monster.Rng.NextItem(filteredNames);
+            TargetPlayer = CombatState.RunState.Rng.MonsterAi.NextItem(filteredNames);
         }
         return Task.CompletedTask;
     }

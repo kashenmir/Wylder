@@ -11,13 +11,15 @@ namespace wylder.Scripts.monsters;
 public class LipulaBoss : CustomEncounterModel
 {
     // 所有可能出现的怪物
-    public override IEnumerable<MonsterModel> AllPossibleMonsters => [ModelDb.Monster<Lipula>(), ModelDb.Monster<Guardbot>(), ModelDb.Monster<NightIronclad>()];
+    public override IEnumerable<MonsterModel> AllPossibleMonsters => [ModelDb.Monster<Lipula>(), ModelDb.Monster<Guardbot>(), ModelDb.Monster<NightIronclad>()
+    ,ModelDb.Monster<NightSilent>(), ModelDb.Monster<NightRegent>(), ModelDb.Monster<NightNecrobinder>(), ModelDb.Monster<NightDefect>()];
 
     // 这个遭遇在那些层级出现
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 1; // 只在第一幕出现
     
     public override string? CustomScenePath => "res://wylder/scenes/Lipula/lipula_boss_encounter.tscn";
 
+    public override string CustomBgm => "event:/Wylder/music/act4_boss_lipula";
     public override RoomType RoomType => RoomType.Monster;
     
     // 这个遭遇是否是弱怪池

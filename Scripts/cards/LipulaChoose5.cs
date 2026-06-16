@@ -39,7 +39,7 @@ public class LipulaChoose5 : TestCardModel, KnowledgeDemon.IChoosable
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, addedByPlayer: true));
         }
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            Owner.Creature.MaxHp - Owner.Creature.CurrentHp * 0.75m, true);
+            Owner.Creature.MaxHp - Owner.Creature.CurrentHp * 0.8m, true);
     }
     
     protected override void OnUpgrade()

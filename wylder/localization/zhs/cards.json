@@ -224,5 +224,7 @@
   "WYLDER-LIPULA_CHOOSE7.title": "想要大幅度升级",
   "WYLDER-LIPULA_CHOOSE7.description": "大幅提升能力，但是每次行动都会受到惩罚。",
   "WYLDER-MAD.title": "发狂",
-  "WYLDER-MAD.description": "[gold]积累[/gold]3，拥有至少{Energy:energyIcons()}才能打出。\n被[gold]消耗[/gold]时，失去{Energy:energyIcons()}，受到3点伤害。"
+  "WYLDER-MAD.description": "[gold]发狂积累[/gold]3。",
+  "WYLDER-NIGHT_SOUL.title": "怨魂",
+  "WYLDER-NIGHT_SOUL.description": "抽{Cards:diff()}张牌，受到{Damage:diff()}点伤害。"
 }
