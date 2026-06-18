@@ -104,16 +104,9 @@ public class Lipula : CustomMonsterModel
 	private Dictionary<string, MonsterModel> _nodeMonsters = new();
 	private Dictionary<string, string> _nodeTargets = new();
 
-	private static IReadOnlyList<int> _originalList = new[]
-	{
-		0,
-		1,
-		2,
-		3,
-		4
-	};
+	public List<int> OriginalList = [0, 1, 2, 3, 4]; 
 
-	public List<int> ChooseList = new List<int>(_originalList);
+	public List<int> ChooseList = [];
 	// 怪物场景，如果你的场景没有挂载脚本，参考这个
 	public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://wylder/scenes/Lipula/lipula.tscn");
 
@@ -146,7 +139,7 @@ public class Lipula : CustomMonsterModel
 			"BASIC_ATTACK", // 状态ID
 			BasicAttackMove, // 执行函数，或者直接用lambda也可
 			// 以下是可变参数，可以填写任意数量的意图，全部展示
-			new MultiAttackIntent(BasicDamage,IsChangeState?5:3),
+			new MultiAttackIntent(BasicDamage,3),
 			new StatusIntent(BasicMad)
 		);
 
@@ -191,7 +184,7 @@ public class Lipula : CustomMonsterModel
 						}
 					} 
 					int strengthPower = this.Creature.GetPowerAmount<StrengthPower>();
-					await PowerCmd.Apply<MagicShotPower>(targets, 24+strengthPower, Creature, null);
+					await PowerCmd.Apply<MagicShotPower>(targets, 15+strengthPower, Creature, null);
 				}
 			}, new DefendIntent(), new BuffIntent()
 			);
@@ -221,6 +214,13 @@ public class Lipula : CustomMonsterModel
 	
 	private async Task DramaticOpenMove(IReadOnlyList<Creature> targets)
 	{
+		if (targets.Count > 1)
+		{
+			OriginalList.Add(5);
+		}
+		Log.Warn("chooselist:"+OriginalList);
+		ChooseList = new List<int>(OriginalList);
+		
 		_freeNodes = new(
 			new[]
 			{
@@ -321,7 +321,7 @@ public class Lipula : CustomMonsterModel
 		}
 		base.Creature.ShowsInfiniteHp = false;
 		UpdateVisual(_picture2);
-		await PowerCmd.Apply<HardenedShellPower>(base.Creature, 200m, base.Creature, null);
+		await PowerCmd.Apply<HardenedShellPower>(base.Creature, 300m, base.Creature, null);
 		await PowerCmd.Apply<LipulaChangeStatePower>(Creature, Creature.MaxHp * 0.75m, Creature, null);
 		await Cmd.CustomScaledWait(0.2f, 0.6f);
 		NRunMusicController.Instance?.UpdateMusicParameter("Progress", 2f);
@@ -334,7 +334,7 @@ public class Lipula : CustomMonsterModel
 	{
 		await DamageCmd
 			.Attack(BasicDamage)
-			.WithHitCount(IsChangeState?5:3)
+			.WithHitCount(3)
 			.FromMonster(this)
 			// .WithAttackerAnim("Attack", 0.5f) // 如果有攻击动画，可以取消注释并替换成实际动画名称和延迟
 			.WithAttackerFx(null, AttackSfx) // 攻击音效
@@ -415,7 +415,7 @@ public class Lipula : CustomMonsterModel
 		}
 		if (ChooseList.Count == 0)
 		{
-			ChooseList = new List<int>(_originalList);
+			ChooseList = new List<int>(OriginalList);
 		}
 
 		int index = this.Rng.NextInt(0, ChooseList.Count);
@@ -452,6 +452,12 @@ public class Lipula : CustomMonsterModel
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
 				await PowerCmd.Apply<TrialSufferedPower>(targets, 1, base.Creature, null);
+				break;
+			case 5:
+				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine5"), base.Creature, VfxColor.Gold);
+				await Cmd.CustomScaledWait(1.5f, 1.7f);
+				await cleanCurse(targets);
+				await PowerCmd.Apply<InvisiblePlayerPower>(targets, 1, base.Creature, null);
 				break;
 			default:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine0"), base.Creature, VfxColor.Gold);

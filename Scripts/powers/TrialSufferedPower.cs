@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -12,7 +10,7 @@ public class TrialSufferedPower : LipulaCurseBasePower
 {
     private int _cardsPlayedThisTurn;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("limit", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("limit", 4)];
 
     public override int DisplayAmount => _cardsPlayedThisTurn;
 

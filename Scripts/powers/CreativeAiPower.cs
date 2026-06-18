@@ -25,7 +25,7 @@ public class CreativeAiPower : CustomPowerModel
         for (int i = 0; i < base.Amount; i++)
         {
             CardModel? cardModel = CardFactory.GetDistinctForCombat(player, from c in ModelDb.CardPool<StatusCardPool>().GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
-                where c.Type == CardType.Power
+                where c.Type == CardType.Status
                 select c, 1, player.RunState.Rng.CombatCardGeneration).FirstOrDefault();
             if (cardModel != null)
             {
