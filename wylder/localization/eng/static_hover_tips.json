@@ -1,0 +1,14 @@
+﻿{
+  "CHASE.description": "When the next card played this turn is a Strike, apply the corresponding effect",
+  "CHASE.title": "Chase",
+  "CHARGES.description": "Can only be played when Charge progress is full. Playing it consumes the charge. Each card you play adds 2 Charge progress. When the maximum is reached, it is immediately returned to your hand. At the start of combat, if Charge progress is not full, it is consumed directly.",
+  "CHARGES.title": "Charge",
+  "NIGHTSPOWER.description": "There are 8 types: Beast's Hunt, Endless Appetite, Gathering of Wisdom, Fused Life, Demon's Wings, Blessing of the Radiant Knight, Chilly Mirage, and Grudge of the Discarded",
+  "NIGHTSPOWER.title": "Night Lord's Power",
+  "MAGICBUFF.description": "Enchantments cannot coexist. Applying a new Enchantment removes the existing one",
+  "MAGICBUFF.title": "Enchantment",
+  "TUCI.description": "If the target's intent is to attack, damage dealt is increased by 50%",
+  "TUCI.title": "Thrust Counter",
+  "COUNTS.description": "When you have at least 3 Madness cards in hand, lose 2 Energy and take 10 damage",
+  "COUNTS.title": "Madness Accumulation"
+}

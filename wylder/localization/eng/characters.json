@@ -1,0 +1,17 @@
+﻿{
+  "WYLDER-WYLDER.aromaPrinciple": "[sine][blue]...waiting...[/blue][/sine]",
+  "WYLDER-WYLDER.banter.alive.endTurnPing": "...",
+  "WYLDER-WYLDER.banter.dead.endTurnPing": "...",
+  "WYLDER-WYLDER.cardsModifierDescription": "The Wylder's cards will now appear in rewards and shops.",
+  "WYLDER-WYLDER.cardsModifierTitle": "The Wylder Cards",
+  "WYLDER-WYLDER.description": "A youth who ceaselessly tracks the Night King.\nBlessed with an extraordinary sixth sense, a swordsman who has walked through countless life-and-death trials.\nHis clan was slaughtered; to lay their restless spirits to rest, he set out to hunt down the Night.",
+  "WYLDER-WYLDER.eventDeathPrevention": "I still have to keep waiting...",
+  "WYLDER-WYLDER.goldMonologue": "[sine]These coins... might come in handy...[/sine]",
+  "WYLDER-WYLDER.possessiveAdjective": "his",
+  "WYLDER-WYLDER.pronounObject": "him",
+  "WYLDER-WYLDER.pronounPossessive": "his",
+  "WYLDER-WYLDER.pronounSubject": "he",
+  "WYLDER-WYLDER.title": "The Wylder",
+  "WYLDER-WYLDER.titleObject": "The Wylder",
+  "WYLDER-WYLDER.unlockText": "Play a run with [pink]{Prerequisite}[/pink] to unlock this character."
+}

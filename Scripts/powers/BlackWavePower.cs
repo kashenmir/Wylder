@@ -5,7 +5,7 @@ namespace wylder.Scripts.powers;
 
 public class BlackWavePower : CustomTemporaryStrengthPower
 {
-    public override AbstractModel OriginModel => ModelDb.Card<Gravitas>();
+    public override AbstractModel OriginModel => ModelDb.Card<BlackWave>();
 
     protected override bool IsPositive => false;
     

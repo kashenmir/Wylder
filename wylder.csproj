@@ -35,6 +35,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="wylder\localization\eng\ancients.json" />
+        <Content Include="wylder\localization\eng\cards.json" />
+        <Content Include="wylder\localization\eng\card_keywords.json" />
+        <Content Include="wylder\localization\eng\characters.json" />
+        <Content Include="wylder\localization\eng\encounters.json" />
+        <Content Include="wylder\localization\eng\monsters.json" />
+        <Content Include="wylder\localization\eng\potions.json" />
+        <Content Include="wylder\localization\eng\powers.json" />
+        <Content Include="wylder\localization\eng\relics.json" />
+        <Content Include="wylder\localization\eng\static_hover_tips.json" />
         <Content Include="wylder\localization\zhs\ancients.json" />
         <Content Include="wylder\localization\zhs\cards.json" />
         <Content Include="wylder\localization\zhs\card_keywords.json" />
