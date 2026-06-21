@@ -70,7 +70,7 @@ public class PoisonBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Poison>(Owner, 10, Owner, null);
+            await PowerCmd.Apply<Poison>(new ThrowingPlayerChoiceContext(), Owner, 10, Owner, null);
         }
         else
         {

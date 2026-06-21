@@ -50,7 +50,7 @@ public class OrbitPower : CustomPowerModel
             {
                 Flash();
                 await PlayerCmd.LoseEnergy(base.Amount * triggers, card.Owner);
-                await PowerCmd.Apply<VigorPower>(Owner, 4*triggers, Owner, null);
+                await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, 4*triggers, Owner, null);
                 data.triggerCount += triggers;
             }
             InvokeDisplayAmountChanged();

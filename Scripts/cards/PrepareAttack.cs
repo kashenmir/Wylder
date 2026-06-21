@@ -31,7 +31,7 @@ public class PrepareAttack : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<PrepareAttackPower>(Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<PrepareAttackPower>(choiceContext, Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

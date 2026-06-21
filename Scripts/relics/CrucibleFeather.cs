@@ -34,7 +34,7 @@ public class CrucibleFeather : CustomRelicModel
         if (cardPlay.Card.Owner == base.Owner && cardPlay.Card.Type == CardType.Skill)
         {
             Flash();
-            await PowerCmd.Apply<CrucibleFeatherPower>(base.Owner.Creature, 1, base.Owner.Creature, null);
+            await PowerCmd.Apply<CrucibleFeatherPower>(context, base.Owner.Creature, 1, base.Owner.Creature, null);
         }
     }
     

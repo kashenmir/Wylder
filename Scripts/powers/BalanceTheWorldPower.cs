@@ -77,7 +77,7 @@ public class BalanceTheWorldPower : CustomPowerModel
                 if (card != null && (card.Rarity == CardRarity.Rare || card.Type == CardType.Curse))
                 {
                     Flash();
-                    await PowerCmd.Apply<TempIntangiblePower>(Owner, 1, Owner, null);
+                    await PowerCmd.Apply<TempIntangiblePower>(new ThrowingPlayerChoiceContext(), Owner, 1, Owner, null);
                 }
             } else
             {

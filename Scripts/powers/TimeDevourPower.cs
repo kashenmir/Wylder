@@ -58,7 +58,7 @@ public class TimeDevourPower : CustomPowerModel
         {
             if (creature.IsPlayer && creature.IsAlive)
             {
-                await PowerCmd.Apply<ClockCountPower>(creature, DynamicVars["clockAmount"].IntValue, Owner, null);
+                await PowerCmd.Apply<ClockCountPower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars["clockAmount"].IntValue, Owner, null);
             }
         }
     }

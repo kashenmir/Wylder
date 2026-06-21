@@ -34,8 +34,8 @@ public class LipulaDebuff4Power : CustomPowerModel
         }
 
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner, Amount-1, true);
-        await PowerCmd.Apply<StrengthPower>(Owner, -2, Owner, null);
-        await PowerCmd.Apply<DexterityPower>(Owner, -2, Owner, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, -2, Owner, null);
+        await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner, -2, Owner, null);
     }
     
     public override decimal ModifyHandDraw(Player player, decimal count)
@@ -54,8 +54,8 @@ public class LipulaDebuff4Power : CustomPowerModel
             if (DynamicVars["count"].IntValue <= 1)
             {
                 await CreatureCmd.GainMaxHp(Owner, Amount*1.6m);
-                await PowerCmd.Apply<StrengthPower>(Owner, 4, Owner, null);
-                await PowerCmd.Apply<DexterityPower>(Owner, 4, Owner, null);
+                await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, 4, Owner, null);
+                await PowerCmd.Apply<DexterityPower>(choiceContext, Owner, 4, Owner, null);
             }
             DynamicVars["count"].UpgradeValueBy(-1);
             InvokeDisplayAmountChanged();

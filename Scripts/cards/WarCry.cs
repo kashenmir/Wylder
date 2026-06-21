@@ -35,9 +35,9 @@ public class WarCry : AshWarModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<WarCryStrengthPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<WarCryDexPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<WarCryPower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<WarCryStrengthPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<WarCryDexPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<WarCryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     // 升级后的效果逻辑

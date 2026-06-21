@@ -44,7 +44,7 @@ public class BloodBoonRitual : TestCardModel
             List<Task> damageTasks = new List<Task>();
             foreach (Creature hittableEnemy in CombatState.HittableEnemies)
             {
-                damageTasks.Add(PowerCmd.Apply<BloodBase>(hittableEnemy, DynamicVars["blood"].IntValue, Owner.Creature, this));
+                damageTasks.Add(PowerCmd.Apply<BloodBase>(choiceContext, hittableEnemy, DynamicVars["blood"].IntValue, Owner.Creature, this));
             }
             await Task.WhenAll(damageTasks);
         }

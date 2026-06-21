@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -45,17 +46,17 @@ public class NightDefect : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<IntangiblePower>(Creature, 2, Creature, null);
-        await PowerCmd.Apply<ArtifactPower>(Creature, 3, Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+        await PowerCmd.Apply<ArtifactPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
         float num = CombatState.RunState.Rng.MonsterAi.NextFloat(2);
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<powers.CoolantPower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.CoolantPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.CreativeAiPower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.CreativeAiPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
     }
 
@@ -73,7 +74,7 @@ public class NightDefect : CustomMonsterModel
                     .WithHitFx(null, null, "blunt_attack.mp3")
                     .WithHitVfxNode(NGoopyImpactVfx.Create)
                     .Execute(null);
-                await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, 2, addedByPlayer: false);
+                await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, 2, null);
             }, new MultiAttackIntent(4, GunkUpHits), new StatusIntent(2)
         );
         
@@ -90,7 +91,7 @@ public class NightDefect : CustomMonsterModel
                         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
                     }
                 }
-                await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Draw, OverclockCount, addedByPlayer: false);
+                await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Draw, OverclockCount, null);
             }, new StatusIntent(OverclockCount)
         );
         
@@ -101,8 +102,8 @@ public class NightDefect : CustomMonsterModel
                 await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
                 await CreatureCmd.GainBlock(Creature, BoostBlock, ValueProp.Move, null);
                 List<Task> statusTasks = new List<Task>();
-                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, 2, addedByPlayer: false));
-                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, 2, addedByPlayer: false));
+                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, 2, null));
+                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, 2, null));
                 await Task.WhenAll(statusTasks);
             }, new DefendIntent(), new StatusIntent(4)
         );

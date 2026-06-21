@@ -63,7 +63,7 @@ public class MadnessBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<StrengthPower>(Owner, 2, Owner, null);
+            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, 2, Owner, null);
         }
         else
         {

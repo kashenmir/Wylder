@@ -35,7 +35,7 @@ public class GoldenBack : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<GoldenBackPower>(Owner.Creature, DynamicVars.Damage.IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<GoldenBackPower>(choiceContext, Owner.Creature, DynamicVars.Damage.IntValue, Owner.Creature, null);
     }
 
     protected override void OnUpgrade()

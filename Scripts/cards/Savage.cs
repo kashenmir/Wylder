@@ -31,7 +31,7 @@ public class Savage : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<SavagePower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<SavagePower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

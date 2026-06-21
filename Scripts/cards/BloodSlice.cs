@@ -53,8 +53,8 @@ public class BloodSlice : AshWarModel
                 intValue += 1;
             }
         }
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, (int)(intValue*0.5m*DynamicVars["Chase"].IntValue), Owner.Creature, null);
-        await PowerCmd.Apply<BloodBase>(cardPlay.Target, DynamicVars["blood"].IntValue, cardPlay.Target, null);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, (int)(intValue*0.5m*DynamicVars["Chase"].IntValue), Owner.Creature, null);
+        await PowerCmd.Apply<BloodBase>(choiceContext, cardPlay.Target, DynamicVars["blood"].IntValue, cardPlay.Target, null);
         Frost? frost = cardPlay.Target.GetPower<Frost>();
         if (frost != null)
         {

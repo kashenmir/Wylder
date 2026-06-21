@@ -33,7 +33,7 @@ public class UnendingHunger : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<UnendingHungerPower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<UnendingHungerPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

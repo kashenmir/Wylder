@@ -36,7 +36,7 @@ public class StampUpward : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
     }
 
     protected override void OnUpgrade()

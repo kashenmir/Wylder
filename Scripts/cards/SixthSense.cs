@@ -32,7 +32,7 @@ public class SixthSense : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<SixthSensePower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<SixthSensePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

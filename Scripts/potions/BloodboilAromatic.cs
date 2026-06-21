@@ -34,7 +34,7 @@ public class BloodboilAromatic : CustomPotionModel
     {
         if (target != null)
         {
-            await PowerCmd.Apply<BloodboilAromaticPower>(target, 3, Owner.Creature, null);
+            await PowerCmd.Apply<BloodboilAromaticPower>(choiceContext, target, 3, Owner.Creature, null);
         }
     }
 }

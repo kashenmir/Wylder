@@ -34,7 +34,7 @@ public class PoisonBuffPower : BasicBuffPower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            await PowerCmd.Apply<PoisonBase>(target, DynamicVars["count"].IntValue, Owner, null);
+            await PowerCmd.Apply<PoisonBase>(choiceContext, target, DynamicVars["count"].IntValue, Owner, null);
         }
     }
 }

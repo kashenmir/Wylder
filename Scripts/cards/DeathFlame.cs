@@ -41,8 +41,8 @@ public class DeathFlame : AshWarModel
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        await PowerCmd.Apply<FrostBase>(cardPlay.Target, DynamicVars["frost"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<FrostChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<FrostBase>(choiceContext, cardPlay.Target, DynamicVars["frost"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FrostChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
     }
 
     protected override void OnUpgrade()

@@ -23,7 +23,7 @@ public class ArsenalPower : CustomPowerModel
         if (addedByPlayer)
         {
             Flash();
-            await PowerCmd.Apply<StrengthPower>(base.Owner, base.Amount, base.Owner, null);
+            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Owner, base.Amount, base.Owner, null);
         }
     }
 }

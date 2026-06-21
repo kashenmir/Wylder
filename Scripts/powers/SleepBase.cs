@@ -70,7 +70,7 @@ public class SleepBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Sleep>(Owner, 3, Owner, null);
+            await PowerCmd.Apply<Sleep>(new ThrowingPlayerChoiceContext(), Owner, 3, Owner, null);
         }
         else
         {

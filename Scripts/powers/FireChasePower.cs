@@ -64,7 +64,7 @@ public class FireChasePower : ChasePowerModel
         if (dealer == Owner && props.IsPoweredAttack() && cardSource!=null && cardSource.Tags.Contains(CardTag.Strike))
         {
             Flash();
-            await PowerCmd.Apply<FireGreasePower>(Owner, DynamicVars["MagicBuff"].IntValue, Owner, null);
+            await PowerCmd.Apply<FireGreasePower>(choiceContext, Owner, DynamicVars["MagicBuff"].IntValue, Owner, null);
             Frost? frost = target.GetPower<Frost>();
             if (frost != null)
             {

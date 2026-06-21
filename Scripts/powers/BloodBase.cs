@@ -65,7 +65,7 @@ public class BloodBase : CustomPowerModel
                 {
                     if (relicModel is LordOfBloodsExultation)
                     {
-                        await PowerCmd.Apply<StrengthPower>(item, 2, item, null);
+                        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), item, 2, item, null);
                     }
                 }
             }
@@ -88,7 +88,7 @@ public class BloodBase : CustomPowerModel
         {
             if (cardSource is BloodBoonRitual)
             {
-                await PowerCmd.Apply<StrengthPower>(applier, 3, applier, null);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), applier, 3, applier, null);
             }
         }
     }

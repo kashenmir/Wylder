@@ -37,9 +37,9 @@ public class RevangeOath : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<StrengthPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<DexterityPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<EndurePower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<EndurePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         await CreatureCmd.GainMaxHp(base.Owner.Creature, base.DynamicVars.MaxHp.IntValue);
     }
 

@@ -44,9 +44,9 @@ public class MielosRoar : AshWarModel
         int amount = base.DynamicVars["count"].IntValue;
         foreach (Creature enemy in base.CombatState.HittableEnemies)
         {
-            await PowerCmd.Apply<VulnerablePower>(enemy, amount, base.Owner.Creature, this);
+            await PowerCmd.Apply<VulnerablePower>(choiceContext, enemy, amount, base.Owner.Creature, this);
         }
-        await PowerCmd.Apply<DoubleChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<DoubleChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
     }
 
     // 升级后的效果逻辑

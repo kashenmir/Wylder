@@ -38,7 +38,7 @@ public class CallOfVoidPower : CustomPowerModel
     {
         if (cardPlay.Card.Keywords.Contains(CardKeyword.Ethereal))
         {
-            await PowerCmd.Apply<VigorPower>(Owner, Amount, Owner, null);
+            await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner, null);
         }
     }
     

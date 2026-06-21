@@ -38,7 +38,7 @@ public class BloodGrease : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<BloodGreasePower>(Owner.Creature, DynamicVars["MagicBuff"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<BloodGreasePower>(choiceContext, Owner.Creature, DynamicVars["MagicBuff"].IntValue, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

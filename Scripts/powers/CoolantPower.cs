@@ -29,10 +29,10 @@ public class CoolantPower : CustomPowerModel
                 BufferPower? bufferPower = creature.GetPower<BufferPower>();
                 if (bufferPower == null)
                 {
-                    await PowerCmd.Apply<BufferPower>(creature, Amount, Owner, null);
+                    await PowerCmd.Apply<BufferPower>(new ThrowingPlayerChoiceContext(), creature, Amount, Owner, null);
                 } else if (bufferPower.Amount < Amount)
                 {
-                    await PowerCmd.Apply<BufferPower>(creature, Amount-bufferPower.Amount, Owner, null);
+                    await PowerCmd.Apply<BufferPower>(new ThrowingPlayerChoiceContext(), creature, Amount-bufferPower.Amount, Owner, null);
                 }
             }
         }

@@ -46,7 +46,7 @@ public class WildStrike : AshWarModel
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
         CardModel card = base.CombatState.CreateCard<Dazed>(base.Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, addedByPlayer: true));
         DynamicVars["count"].UpgradeValueBy(countDazed(base.Owner)-DynamicVars["count"].IntValue);

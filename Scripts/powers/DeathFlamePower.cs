@@ -40,7 +40,7 @@ public class DeathFlamePower : CustomPowerModel
             null
         );
 
-        await PowerCmd.Apply<FrostBase>(Owner, 8, Owner, null);
+        await PowerCmd.Apply<FrostBase>(new ThrowingPlayerChoiceContext(), Owner, 8, Owner, null);
 
         // 造成伤害后，消耗 1 层
         await PowerCmd.Decrement(this);

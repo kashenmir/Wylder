@@ -41,7 +41,7 @@ public class BloodBlade : AshWarModel
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        await PowerCmd.Apply<BloodBase>(cardPlay.Target, DynamicVars["blood"].IntValue, cardPlay.Target, null);
+        await PowerCmd.Apply<BloodBase>(choiceContext, cardPlay.Target, DynamicVars["blood"].IntValue, cardPlay.Target, null);
     }
 
     protected override void OnUpgrade()

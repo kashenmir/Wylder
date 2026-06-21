@@ -88,6 +88,6 @@ public class FrostChasePower : ChasePowerModel
     
     private Task<IReadOnlyList<DeathFlamePower>> DoPower(IEnumerable<Creature> targets, int damage)
     {
-        return PowerCmd.Apply<DeathFlamePower>(targets, damage, Owner, null);
+        return PowerCmd.Apply<DeathFlamePower>(new ThrowingPlayerChoiceContext(), targets, damage, Owner, null);
     }
 }

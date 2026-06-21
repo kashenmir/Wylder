@@ -37,7 +37,7 @@ public class SacredBlade : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await PowerCmd.Apply<SacredBuffPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<SacredBuffPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

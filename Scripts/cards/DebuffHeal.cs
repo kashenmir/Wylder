@@ -35,7 +35,7 @@ public class DebuffHeal : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<DebuffHealPower>(Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<DebuffHealPower>(choiceContext, Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

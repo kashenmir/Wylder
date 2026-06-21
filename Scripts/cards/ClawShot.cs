@@ -99,7 +99,7 @@ public class ClawShot : TestCardModel
     {
         if (dealer == Owner.Creature && props.IsPoweredAttack() && cardSource == this)
         {
-            await PowerCmd.Apply<BloodBase>(target, DynamicVars["blood"].IntValue, Owner.Creature, this);
+            await PowerCmd.Apply<BloodBase>(choiceContext, target, DynamicVars["blood"].IntValue, Owner.Creature, this);
         }
     }
     
@@ -110,7 +110,7 @@ public class ClawShot : TestCardModel
 			.Targeting(cardPlay.Target)
 			.WithHitFx("vfx/vfx_attack_slash")
 			.Execute(choiceContext);
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
         ClearCharge();
         (DeckVersion as ClawShot)?.ClearCharge();
         await CardCmd.Exhaust(choiceContext,this, false, false);

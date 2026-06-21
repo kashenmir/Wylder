@@ -29,7 +29,7 @@ public class BeastsHunt : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<BeastsHuntPower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<BeastsHuntPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

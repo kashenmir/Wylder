@@ -32,7 +32,7 @@ public class ChaseMaster : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<ChaseMasterPower>(Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<ChaseMasterPower>(choiceContext, Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

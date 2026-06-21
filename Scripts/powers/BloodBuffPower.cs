@@ -34,7 +34,7 @@ public class BloodBuffPower : BasicBuffPower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            await PowerCmd.Apply<BloodBase>(target, DynamicVars["count"].IntValue, Owner, null);
+            await PowerCmd.Apply<BloodBase>(choiceContext, target, DynamicVars["count"].IntValue, Owner, null);
         }
     }
 }

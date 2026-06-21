@@ -38,8 +38,8 @@ public class FrostStrike : TestCardModel
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
-        await PowerCmd.Apply<FrostBase>(base.CombatState.HittableEnemies, 3, base.Owner.Creature, this);
-        await PowerCmd.Apply<FrostStrikePower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<FrostBase>(choiceContext, base.CombatState.HittableEnemies, 3, base.Owner.Creature, this);
+        await PowerCmd.Apply<FrostStrikePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

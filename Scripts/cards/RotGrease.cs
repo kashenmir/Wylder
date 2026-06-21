@@ -38,7 +38,7 @@ public class RotGrease : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<RotGreasePower>(Owner.Creature, DynamicVars["MagicBuff"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<RotGreasePower>(choiceContext, Owner.Creature, DynamicVars["MagicBuff"].IntValue, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

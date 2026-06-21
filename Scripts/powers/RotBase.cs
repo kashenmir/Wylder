@@ -70,7 +70,7 @@ public class RotBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Rot>(Owner, 5, Owner, null);
+            await PowerCmd.Apply<Rot>(new ThrowingPlayerChoiceContext(), Owner, 5, Owner, null);
         }
         else
         {

@@ -3,6 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -38,17 +39,17 @@ public class NightIronclad : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<IntangiblePower>(Creature, 2, Creature, null);
-        await PowerCmd.Apply<RegenPower>(Creature, 6, Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+        await PowerCmd.Apply<RegenPower>(new ThrowingPlayerChoiceContext(), Creature, 6, Creature, null);
         float num = CombatState.RunState.Rng.MonsterAi.NextFloat(2);
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<DemonFormPower>(Creature, 5, Creature, null);
+            await PowerCmd.Apply<DemonFormPower>(new ThrowingPlayerChoiceContext(), Creature, 5, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.RupturePower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.RupturePower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
     }
 
@@ -64,7 +65,7 @@ public class NightIronclad : CustomMonsterModel
                     .FromMonster(this)
                     .WithHitFx("vfx/vfx_attack_blunt", null, "blunt_attack.mp3")
                     .Execute(null);
-                await PowerCmd.Apply<VulnerablePower>(targets, 4m, base.Creature, null);
+                await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, 4m, base.Creature, null);
             }, new SingleAttackIntent(HeavyDamage), new DebuffIntent()
         );
         

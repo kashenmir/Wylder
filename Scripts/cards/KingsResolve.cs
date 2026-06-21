@@ -28,7 +28,7 @@ public class KingsResolve : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ResolvePower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<ResolvePower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

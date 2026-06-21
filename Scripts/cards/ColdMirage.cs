@@ -37,10 +37,10 @@ public class ColdMirage : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<ColdMiragePower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<ColdMiragePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         if (IsUpgraded)
         {
-            await PowerCmd.Apply<IntangiblePower>(Owner.Creature, 1, Owner.Creature, this);
+            await PowerCmd.Apply<IntangiblePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         }
     }
 

@@ -4,6 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -42,17 +43,17 @@ public class NightSilent : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<IntangiblePower>(Creature, 2, Creature, null);
-        await PowerCmd.Apply<ThornsPower>(Creature, 3, Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+        await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
         float num = CombatState.RunState.Rng.MonsterAi.NextFloat(2);
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<SerpentFormPower>(Creature, 2, Creature, null);
+            await PowerCmd.Apply<SerpentFormPower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.AfterimagePower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.AfterimagePower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
     }
 
@@ -68,7 +69,7 @@ public class NightSilent : CustomMonsterModel
                     .FromMonster(this)
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-                await PowerCmd.Apply<WeakPower>(targets, 4m, base.Creature, null);
+                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, 4m, base.Creature, null);
             }, new SingleAttackIntent(HeavyDamage), new DebuffIntent()
         );
         
@@ -95,7 +96,7 @@ public class NightSilent : CustomMonsterModel
                 {
                     VfxCmd.PlayOnCreatureCenter(creature, "vfx/vfx_bite");
                 }
-                await PowerCmd.Apply<powers.PoisonPower>(targets, SnakebiteValue, base.Creature, null);
+                await PowerCmd.Apply<powers.PoisonPower>(new ThrowingPlayerChoiceContext(), targets, SnakebiteValue, base.Creature, null);
             }, new DebuffIntent()
         );
 

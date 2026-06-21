@@ -48,7 +48,7 @@ public class PoisonMoth : AshWarModel
         }
         else
         {
-            await PowerCmd.Apply<PoisonBase>(cardPlay.Target, 6, cardPlay.Target, null);
+            await PowerCmd.Apply<PoisonBase>(choiceContext, cardPlay.Target, 6, cardPlay.Target, null);
         }
     }
 

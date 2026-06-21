@@ -60,7 +60,7 @@ public class SixthSensePower : CustomPowerModel
         isActive = false;
         decimal amount = Math.Max(1m, hp);
         await CreatureCmd.Heal(creature, amount);
-        await PowerCmd.Apply<IntangiblePower>(Owner, 1, Owner, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Owner, 1, Owner, null);
     }
     
     public override async Task AfterCombatEnd(CombatRoom _)

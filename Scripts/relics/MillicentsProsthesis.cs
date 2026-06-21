@@ -101,12 +101,12 @@ public class MillicentsProsthesis : CustomRelicModel
         {
             Flash();
             AttackPlayed = 0;
-            await PowerCmd.Apply<DexterityPower>(Owner.Creature, 1, Owner.Creature, null);
+            await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, null);
             InvokeDisplayAmountChanged();
         }
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Player)
         {

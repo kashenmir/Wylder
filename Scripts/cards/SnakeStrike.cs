@@ -39,7 +39,7 @@ public class SnakeStrike : AshWarModel
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<PoisonBase>(cardPlay.Target, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<PoisonBase>(choiceContext, cardPlay.Target, DynamicVars["count"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

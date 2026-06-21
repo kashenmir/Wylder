@@ -22,7 +22,7 @@ public class RotGreasePower : BasicBuffPower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            await PowerCmd.Apply<RotBase>(target, DynamicVars["count"].IntValue, Owner, null);
+            await PowerCmd.Apply<RotBase>(choiceContext, target, DynamicVars["count"].IntValue, Owner, null);
         }
     }
 }

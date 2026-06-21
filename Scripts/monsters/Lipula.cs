@@ -120,7 +120,7 @@ public class Lipula : CustomMonsterModel
 		await base.AfterAddedToRoom();
 		OriginalHp = base.Creature.MaxHp;
 		await CreatureCmd.SetMaxAndCurrentHp(base.Creature, 999999999m);
-		base.Creature.ShowsInfiniteHp = true;
+		base.Creature.HpDisplay = HpDisplay.InfiniteWithoutNumbers;
 	}
 	
 
@@ -156,7 +156,7 @@ public class Lipula : CustomMonsterModel
 					.Execute(null);
 				await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 				SfxCmd.Play(AttackSfx);
-				await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Draw, 1, addedByPlayer: false);
+				await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Draw, 1, null);
 			}, new SingleAttackIntent(HeavyDamage),
 			new StatusIntent(1)
 		);
@@ -165,26 +165,26 @@ public class Lipula : CustomMonsterModel
 			"BASIC_STAND", async targets =>
 			{
 				await CreatureCmd.GainBlock(Creature, BasicBlock, ValueProp.Move, null);
-				await PowerCmd.Apply<StrengthPower>(Creature, 2, Creature, null);
+				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
 				if (IsChangeState)
 				{
-					await PowerCmd.Apply<IntangiblePower>(base.Creature, 2, Creature, null);
-					await PowerCmd.Apply<ThornsPower>(Creature, 10, Creature, null);
+				await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 2, Creature, null);
+				await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), Creature, 10, Creature, null);
 					foreach (PowerModel debuff in this.Creature.Powers.ToList())
 					{
 						if (debuff is PoisonPower)
 						{
-							await PowerCmd.Apply<PoisonPower>(base.Creature, -debuff.Amount*0.75m, base.Creature, null);
+							await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), base.Creature, -debuff.Amount*0.75m, base.Creature, null);
 						} else if (debuff is DoomPower)
 						{
-							await PowerCmd.Apply<DoomPower>(base.Creature, -debuff.Amount*0.75m, base.Creature, null);
+							await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), base.Creature, -debuff.Amount*0.75m, base.Creature, null);
 						} else if (debuff.Type == PowerType.Debuff)
 						{
 							await PowerCmd.Remove(debuff);
 						}
 					} 
 					int strengthPower = this.Creature.GetPowerAmount<StrengthPower>();
-					await PowerCmd.Apply<MagicShotPower>(targets, 15+strengthPower, Creature, null);
+					await PowerCmd.Apply<MagicShotPower>(new ThrowingPlayerChoiceContext(), targets, 15+strengthPower, Creature, null);
 				}
 			}, new DefendIntent(), new BuffIntent()
 			);
@@ -319,10 +319,10 @@ public class Lipula : CustomMonsterModel
 		{
 			await PowerCmd.Remove(item);
 		}
-		base.Creature.ShowsInfiniteHp = false;
+		base.Creature.HpDisplay = HpDisplay.Normal;
 		UpdateVisual(_picture2);
-		await PowerCmd.Apply<HardenedShellPower>(base.Creature, 300m, base.Creature, null);
-		await PowerCmd.Apply<LipulaChangeStatePower>(Creature, Creature.MaxHp * 0.75m, Creature, null);
+		await PowerCmd.Apply<HardenedShellPower>(new ThrowingPlayerChoiceContext(), base.Creature, 300m, base.Creature, null);
+		await PowerCmd.Apply<LipulaChangeStatePower>(new ThrowingPlayerChoiceContext(), Creature, Creature.MaxHp * 0.75m, Creature, null);
 		await Cmd.CustomScaledWait(0.2f, 0.6f);
 		NRunMusicController.Instance?.UpdateMusicParameter("Progress", 2f);
 	}
@@ -342,7 +342,7 @@ public class Lipula : CustomMonsterModel
 			.Execute(null);
 		await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 		SfxCmd.Play(AttackSfx);
-		await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Discard, BasicMad, addedByPlayer: false);
+		await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Discard, BasicMad, null);
 	}
 
 	public async Task ChangeStateMove(IReadOnlyList<Creature> targets)
@@ -356,9 +356,9 @@ public class Lipula : CustomMonsterModel
 			.Execute(null);
 		await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 		SfxCmd.Play(AttackSfx);
-		await PowerCmd.Apply<IntangiblePower>(base.Creature, 2, Creature, null);
-		await PowerCmd.Apply<ThornsPower>(Creature, 10, Creature, null);
-		await PowerCmd.Apply<HatredPower>(Creature, 1, Creature, null);
+		await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 2, Creature, null);
+		await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), Creature, 10, Creature, null);
+		await PowerCmd.Apply<HatredPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
 		PowerModel? power = base.Creature.GetPower<LipulaChangeStatePower>();
 		if (power != null)
 		{
@@ -400,8 +400,8 @@ public class Lipula : CustomMonsterModel
 					await CreatureCmd.SetMaxAndCurrentHp(newMonster, newMonster.MaxHp*GetMultiplayerScaling(playerCounts)/playerCounts+1);
 				}
 				await FaceDirection(newMonster);
-				await PowerCmd.Apply<MinionPower>(newMonster, 1m, base.Creature, null);
-				Hatred2Power? hatred2Power = await PowerCmd.Apply<Hatred2Power>(newMonster, 1m, base.Creature, null);
+			await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), newMonster, 1m, base.Creature, null);
+			Hatred2Power? hatred2Power = await PowerCmd.Apply<Hatred2Power>(new ThrowingPlayerChoiceContext(), newMonster, 1m, base.Creature, null);
 				if (hatred2Power != null) 
 				{
 					hatred2Power.TargetPlayer = _nodeTargets[slotName];
@@ -410,7 +410,7 @@ public class Lipula : CustomMonsterModel
 			else
 			{
 				await CreatureCmd.Heal(creature, 99999);
-				await PowerCmd.Apply<StrengthPower>(creature, 4, Creature,  null);
+				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, 4, Creature,  null);
 			}
 		}
 		if (ChooseList.Count == 0)
@@ -427,43 +427,43 @@ public class Lipula : CustomMonsterModel
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine0"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<FalseBlessingPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<FalseBlessingPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			case 1:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine1"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<ChaoticCostPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<ChaoticCostPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			case 2:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine2"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<DemonEyePower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<DemonEyePower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			case 3:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine3"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<AwakenedMadnessPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<AwakenedMadnessPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			case 4:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine4"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<TrialSufferedPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<TrialSufferedPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			case 5:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine5"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<InvisiblePlayerPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<InvisiblePlayerPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 			default:
 				TalkCmd.Play(MonsterModel.L10NMonsterLookup("WYLDER-LIPULA.moves.CALL_GUILTY.speakLine0"), base.Creature, VfxColor.Gold);
 				await Cmd.CustomScaledWait(1.5f, 1.7f);
 				await cleanCurse(targets);
-				await PowerCmd.Apply<FalseBlessingPower>(targets, 1, base.Creature, null);
+				await PowerCmd.Apply<FalseBlessingPower>(new ThrowingPlayerChoiceContext(), targets, 1, base.Creature, null);
 				break;
 		}
 		

@@ -39,7 +39,7 @@ public class StarCaller : AshWarModel
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
-        await PowerCmd.Apply<StarCallerPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<StarCallerPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
     }
 
     protected override void OnUpgrade()

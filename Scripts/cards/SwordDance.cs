@@ -57,8 +57,8 @@ public class SwordDance : AshWarModel
 			.Targeting(cardPlay.Target)
 			.WithHitFx("vfx/vfx_attack_slash")
 			.Execute(choiceContext);
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<StrengthPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
         TimesPlayedThisCombat++;
         DynamicVars["count"].UpgradeValueBy(1);
         base.EnergyCost.AddThisCombat(1);

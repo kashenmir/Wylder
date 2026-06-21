@@ -69,6 +69,6 @@ public class ResentmentOfDregsPower : CustomPowerModel
     
     private Task<IReadOnlyList<RotBase>> DoPower(IEnumerable<Creature> targets, int damage)
     {
-        return PowerCmd.Apply<RotBase>(targets, damage, Owner, null);
+        return PowerCmd.Apply<RotBase>(new ThrowingPlayerChoiceContext(), targets, damage, Owner, null);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -35,7 +36,7 @@ public class ChooseTough : TestCardModel, KnowledgeDemon.IChoosable
     
     public async Task OnChosen()
     {
-        await PowerCmd.Apply<MallablePower>(base.Owner.Creature, base.DynamicVars["count"].BaseValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<MallablePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["count"].BaseValue, base.Owner.Creature, this);
     }
     
     protected override void OnUpgrade()

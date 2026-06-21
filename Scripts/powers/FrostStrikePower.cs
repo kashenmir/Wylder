@@ -84,6 +84,6 @@ public class FrostStrikePower : CustomPowerModel
     
     private Task<IReadOnlyList<FrostBase>> DoPower(IEnumerable<Creature> targets, int damage)
     {
-        return PowerCmd.Apply<FrostBase>(targets, damage, Owner, null);
+        return PowerCmd.Apply<FrostBase>(new ThrowingPlayerChoiceContext(), targets, damage, Owner, null);
     }
 }

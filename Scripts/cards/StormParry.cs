@@ -42,7 +42,7 @@ public class StormParry : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<BucklerParryPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<BucklerParryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

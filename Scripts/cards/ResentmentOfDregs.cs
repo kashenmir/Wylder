@@ -34,7 +34,7 @@ public class ResentmentOfDregs : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<ResentmentOfDregsPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<ResentmentOfDregsPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

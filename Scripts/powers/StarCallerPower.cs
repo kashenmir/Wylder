@@ -35,7 +35,7 @@ public class StarCallerPower : CustomPowerModel
         {
             return;
         }
-        await PowerCmd.Apply<StarCallerStrenthPower>(base.CombatState.HittableEnemies, base.Amount, base.Owner, null);
+        await PowerCmd.Apply<StarCallerStrenthPower>(context, base.CombatState.HittableEnemies, base.Amount, base.Owner, null);
     }
     
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)

@@ -27,7 +27,7 @@ public class DemonFormPower : CustomPowerModel
         {
             if (IsActive) {
                 Flash();
-                await PowerCmd.Apply<StrengthPower>(base.Owner, base.Amount, base.Owner, null);
+                await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner, base.Amount, base.Owner, null);
             }
             else
             {

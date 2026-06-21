@@ -4,6 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -41,16 +42,16 @@ public class NightNecrobinder : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<IntangiblePower>(Creature, 3, Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
         float num = CombatState.RunState.Rng.MonsterAi.NextFloat(2);
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<powers.HauntPower>(Creature, 3, Creature, null);
+            await PowerCmd.Apply<powers.HauntPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.CallOfVoidPower>(Creature, 3, Creature, null);
+            await PowerCmd.Apply<powers.CallOfVoidPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
         }
     }
 
@@ -61,7 +62,7 @@ public class NightNecrobinder : CustomMonsterModel
             async targets =>
             {
                 await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
-                await PowerCmd.Apply<EnfeeblingTouchPower>(targets, EnfeeblingValue, base.Creature, null);
+                await PowerCmd.Apply<EnfeeblingTouchPower>(new ThrowingPlayerChoiceContext(), targets, EnfeeblingValue, base.Creature, null);
             }, new DebuffIntent()
         );
         
@@ -76,7 +77,7 @@ public class NightNecrobinder : CustomMonsterModel
                     .WithHitFx("vfx/vfx_attack_slash")
                     .WithHitVfxSpawnedAtBase()
                     .Execute(null);
-                await CardPileCmd.AddToCombatAndPreview<NightSoul>(targets, PileType.Draw, 4, addedByPlayer: false);
+                await CardPileCmd.AddToCombatAndPreview<NightSoul>(targets, PileType.Draw, 4, null);
             }, new SingleAttackIntent(DoubleDamage), new StatusIntent(4)
         );
         

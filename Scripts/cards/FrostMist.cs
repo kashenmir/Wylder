@@ -36,7 +36,7 @@ public class FrostMist : AshWarModel
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FrostBuffPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<FrostBuffPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);

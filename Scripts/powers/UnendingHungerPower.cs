@@ -42,7 +42,7 @@ public class UnendingHungerPower : CustomPowerModel
                 {
                     await CardCmd.Exhaust(choiceContext, item);
                 }
-                await PowerCmd.Apply<StrengthPower>(Owner, num * DynamicVars["Strength"].IntValue, Owner, null);
+                await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, num * DynamicVars["Strength"].IntValue, Owner, null);
             }
             if (Amount-num > 0)
             {

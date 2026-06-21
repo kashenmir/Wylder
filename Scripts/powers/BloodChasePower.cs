@@ -41,7 +41,7 @@ public class BloodChasePower : ChasePowerModel
         {
             Flash();
             await CardPileCmd.Draw(choiceContext, Amount, Owner.Player);
-            await PowerCmd.Apply<BloodBase>(target, DynamicVars["blood"].IntValue, Owner, null);
+            await PowerCmd.Apply<BloodBase>(choiceContext, target, DynamicVars["blood"].IntValue, Owner, null);
             await PowerCmd.Remove(this);
         }
     }

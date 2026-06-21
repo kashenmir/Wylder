@@ -64,7 +64,7 @@ public class IceSpear : AshWarModel
         {
             frostValue *= 2;
         }
-        await PowerCmd.Apply<FrostBase>(cardPlay.Target, frostValue, Owner.Creature, this);
+        await PowerCmd.Apply<FrostBase>(choiceContext, cardPlay.Target, frostValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

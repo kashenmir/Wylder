@@ -33,7 +33,7 @@ public class NightForm : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<NightFormPower>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<NightFormPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

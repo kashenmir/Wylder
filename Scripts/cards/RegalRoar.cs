@@ -38,7 +38,7 @@ public class RegalRoar : TestCardModel
         {
             await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
         }
-        await PowerCmd.Apply<RegalRoarPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<RegalRoarPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

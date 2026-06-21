@@ -62,7 +62,7 @@ public class HuntGrant : AshWarModel
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         if (cardPlay.Target != null && cardPlay.Target.Monster != null && cardPlay.Target.CurrentHp*Owner.Creature.MaxHp <= cardPlay.Target.MaxHp*Owner.Creature.CurrentHp)
         {
-            await PowerCmd.Apply<WeakPower>(cardPlay.Target, 1, base.Owner.Creature, this);
+            await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, 1, base.Owner.Creature, this);
         }
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")

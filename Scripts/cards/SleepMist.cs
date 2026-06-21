@@ -49,11 +49,11 @@ public class SleepMist : AshWarModel
             {
                 NGaseousImpactVfx child = NGaseousImpactVfx.Create(nCreature.VfxSpawnPosition, new Color("#D8BFD8"));
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(child);
-                damageTasks.Add(PowerCmd.Apply<SleepBase>(hittableEnemy, DynamicVars["count"].IntValue, Owner.Creature, this));
+                damageTasks.Add(PowerCmd.Apply<SleepBase>(choiceContext, hittableEnemy, DynamicVars["count"].IntValue, Owner.Creature, this));
             }
         }
         await Task.WhenAll(damageTasks);
-        await PowerCmd.Apply<SleepBuffPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<SleepBuffPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

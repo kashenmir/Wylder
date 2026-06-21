@@ -37,7 +37,7 @@ public class TurtleNeck : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        await PowerCmd.Apply<TurtleNeckPower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<TurtleNeckPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

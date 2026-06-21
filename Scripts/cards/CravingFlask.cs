@@ -61,7 +61,7 @@ public class CravingFlask : TestCardModel
     {
         updatePlaysSeen();
         (DeckVersion as CravingFlask)?.updatePlaysSeen();
-        await PowerCmd.Apply<WeakPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         if (playsSeen == maxPlays)
         {
             VfxCmd.PlayFullScreenInCombat("vfx/vfx_dramatic_entrance_fullscreen");

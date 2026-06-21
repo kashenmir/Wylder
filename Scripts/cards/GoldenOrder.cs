@@ -52,7 +52,7 @@ public class GoldenOrder : AshWarModel
             await PowerCmd.Remove(power);
             countDamage += DynamicVars["Chase"].IntValue;
         }
-        await PowerCmd.Apply<BasicChasePower>(Owner.Creature, countDamage, Owner.Creature, null);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, countDamage, Owner.Creature, null);
     }
     
     private static decimal YourCalculationFunction(CardModel card, Creature? target)

@@ -41,7 +41,7 @@ public class StormStep : AshWarModel
             .Execute(choiceContext);
         foreach (Creature enemy in base.CombatState.HittableEnemies)
         {
-            await PowerCmd.Apply<WeakPower>(enemy, DynamicVars["count"].BaseValue, base.Owner.Creature, this);
+            await PowerCmd.Apply<WeakPower>(choiceContext, enemy, DynamicVars["count"].BaseValue, base.Owner.Creature, this);
             VfxCmd.PlayOnCreature(enemy, "vfx/vfx_attack_slash");
         }
     }

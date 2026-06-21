@@ -34,7 +34,7 @@ public class SleepBuffPower : BasicBuffPower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            await PowerCmd.Apply<SleepBase>(target, DynamicVars["count"].IntValue, Owner, null);
+            await PowerCmd.Apply<SleepBase>(choiceContext, target, DynamicVars["count"].IntValue, Owner, null);
         }
     }
 }

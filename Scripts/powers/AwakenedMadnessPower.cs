@@ -18,7 +18,7 @@ public class AwakenedMadnessPower : LipulaCurseBasePower
         if (dealer == Owner && props.IsPoweredAttack() && result.UnblockedDamage > 0)
         {
             Flash();
-            await PowerCmd.Apply<MadnessBase>(target, DynamicVars["madness"].IntValue, Owner, cardSource);
+            await PowerCmd.Apply<MadnessBase>(choiceContext, target, DynamicVars["madness"].IntValue, Owner, cardSource);
         }
     }
 

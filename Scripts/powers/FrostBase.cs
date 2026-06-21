@@ -93,7 +93,7 @@ public class FrostBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Frost>(Owner, 3, Owner, null);
+            await PowerCmd.Apply<Frost>(new ThrowingPlayerChoiceContext(), Owner, 3, Owner, null);
         }
         else
         {

@@ -4,6 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -42,17 +43,17 @@ public class NightRegent : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<IntangiblePower>(Creature, 2, Creature, null);
-        await PowerCmd.Apply<PlatingPower>(Creature, 10, Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, 10, Creature, null);
         float num = CombatState.RunState.Rng.MonsterAi.NextFloat(2);
         Log.Warn("rng num:"+num);
         if (num <= 1.0F)
         {
-            await PowerCmd.Apply<powers.OrbitPower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.OrbitPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.ArsenalPower>(Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.ArsenalPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         }
     }
 
@@ -68,8 +69,8 @@ public class NightRegent : CustomMonsterModel
                     .FromMonster(this)
                     .WithHitFx("vfx/vfx_starry_impact", "blunt_attack.mp3")
                     .Execute(null);
-                await PowerCmd.Apply<WeakPower>(targets, 2m, base.Creature, null);
-                await PowerCmd.Apply<VulnerablePower>(targets, 2m, base.Creature, null);
+                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, 2m, base.Creature, null);
+                await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, 2m, base.Creature, null);
             }, new SingleAttackIntent(HeavyDamage), new DebuffIntent()
         );
         
@@ -84,7 +85,7 @@ public class NightRegent : CustomMonsterModel
                     .WithHitFx("vfx/vfx_heavy_blunt", null, "heavy_attack.mp3")
                     .WithHitVfxSpawnedAtBase()
                     .Execute(null);
-                await CardPileCmd.AddToCombatAndPreview<Debris>(targets, PileType.Hand, 5, addedByPlayer: false);
+                await CardPileCmd.AddToCombatAndPreview<Debris>(targets, PileType.Hand, 5, null);
             }, new SingleAttackIntent(DoubleDamage), new StatusIntent(5)
         );
         
@@ -94,7 +95,7 @@ public class NightRegent : CustomMonsterModel
             {
                 await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
                 await CreatureCmd.GainBlock(Creature, ReflectBlock, ValueProp.Move, null);
-                await PowerCmd.Apply<ReflectPower>(Creature, 1, base.Creature, null);
+                await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), Creature, 1, base.Creature, null);
             }, new DefendIntent(), new BuffIntent()
         );
 

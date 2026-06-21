@@ -46,7 +46,7 @@ public class CorpsePiler : AshWarModel
             {
                 addBlood = StrengthPower.Amount;
             }
-            await PowerCmd.Apply<BloodBase>(target, DynamicVars["blood"].IntValue+addBlood, Owner.Creature, this);
+            await PowerCmd.Apply<BloodBase>(choiceContext, target, DynamicVars["blood"].IntValue+addBlood, Owner.Creature, this);
             Frost? frost = target.GetPower<Frost>();
             if (frost != null)
             {

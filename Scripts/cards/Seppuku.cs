@@ -44,9 +44,9 @@ public class Seppuku : TestCardModel
         LordOfBloodsExultation? relic = Owner.Relics.OfType<LordOfBloodsExultation>().FirstOrDefault();
         if (relic != null)
         {
-            await PowerCmd.Apply<StrengthPower>(Owner.Creature, 2, Owner.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, 2, Owner.Creature, null);
         }
-        await PowerCmd.Apply<BloodBuffPower>(Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<BloodBuffPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

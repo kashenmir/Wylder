@@ -27,7 +27,7 @@ public class ColdMiragePower : CustomPowerModel
         {
             Flash();
             isActive = false;
-            await PowerCmd.Apply<IntangiblePower>(Owner, Amount, Owner, null);
+            await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner, null);
         }
         
     }

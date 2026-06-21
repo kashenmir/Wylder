@@ -38,7 +38,7 @@ public class AcidSpraymist : CustomPotionModel
     {
         foreach (Creature enemy in base.Owner.Creature.CombatState.HittableEnemies)
         {
-            await PowerCmd.Apply<StrengthPower>(enemy, -2, base.Owner.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, enemy, -2, base.Owner.Creature, null);
         }
     }
 }

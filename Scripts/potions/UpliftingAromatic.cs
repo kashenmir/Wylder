@@ -38,8 +38,8 @@ public class UpliftingAromatic : CustomPotionModel
     {
         if (target != null)
         {
-            await PowerCmd.Apply<SlipperyPower>(target, 1, Owner.Creature, null);
-            await PowerCmd.Apply<StrengthPower>(target, 1, Owner.Creature, null);
+            await PowerCmd.Apply<SlipperyPower>(choiceContext, target, 1, Owner.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, target, 1, Owner.Creature, null);
         }
     }
 }

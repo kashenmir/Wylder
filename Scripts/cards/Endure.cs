@@ -35,7 +35,7 @@ public class Endure : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<EndurePower>(Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<EndurePower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
     }
 
     // 升级后的效果逻辑

@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using wylder.Scripts.powers;
@@ -28,7 +29,7 @@ public class LipulaChoose6 : TestCardModel, KnowledgeDemon.IChoosable
     
     public async Task OnChosen()
     {
-        await PowerCmd.Apply<LipulaDebuff6Power>(Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<LipulaDebuff6Power>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, this);
     }
     
     protected override void OnUpgrade()

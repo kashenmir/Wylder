@@ -25,7 +25,7 @@ public class RupturePower : CustomPowerModel
     {
         if (target.IsPlayer && result.UnblockedDamage > 0)
         {
-            await PowerCmd.Apply<StrengthPower>(base.Owner, base.Amount, base.Owner, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner, base.Amount, base.Owner, null);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -33,8 +34,8 @@ public class LipulaChoose3 : TestCardModel, KnowledgeDemon.IChoosable
     
     public async Task OnChosen()
     {
-        await PowerCmd.Apply<ArtifactPower>(base.Owner.Creature, base.DynamicVars["s"].BaseValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<LipulaDebuff3Power>(base.Owner.Creature, 1, base.Owner.Creature, this);
+        await PowerCmd.Apply<ArtifactPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["s"].BaseValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<LipulaDebuff3Power>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1, base.Owner.Creature, this);
     }
     
     protected override void OnUpgrade()

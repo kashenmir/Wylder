@@ -34,7 +34,7 @@ public class FrostBuffPower : BasicBuffPower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            await PowerCmd.Apply<FrostBase>(target, DynamicVars["count"].IntValue, Owner, null);
+            await PowerCmd.Apply<FrostBase>(choiceContext, target, DynamicVars["count"].IntValue, Owner, null);
         }
     }
 }
