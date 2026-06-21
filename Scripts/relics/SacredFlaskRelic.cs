@@ -121,7 +121,7 @@ public class SacredFlaskRelic : CustomRelicModel
         }
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player == Owner && combatState.RoundNumber <= 1)
         {

@@ -52,8 +52,8 @@ public class WarriorJarShard : CustomRelicModel
         }
         return 1.5m;
     }
-    
-    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+
+    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         Status = RelicStatus.Active;
         return Task.CompletedTask;

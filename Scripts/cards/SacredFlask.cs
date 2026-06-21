@@ -58,12 +58,12 @@ public class SacredFlask : TestCardModel
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
     }
     
-    protected override PileType GetResultPileType()
+    protected override PileType GetResultPileTypeForCardPlay()
     {
-        PileType resultPileType = base.GetResultPileType();
-        if (resultPileType != PileType.Discard)
+        PileType resultPileTypeForCardPlay = base.GetResultPileTypeForCardPlay();
+        if (resultPileTypeForCardPlay != PileType.Discard)
         {
-            return resultPileType;
+            return resultPileTypeForCardPlay;
         }
         return PileType.Hand;
     }
@@ -73,7 +73,7 @@ public class SacredFlask : TestCardModel
         return (await CreateInHand(owner, 1, combatState)).FirstOrDefault();
     }
 
-    public static async Task<IEnumerable<CardModel>> CreateInHand(Player owner, int count, CombatState combatState)
+    public static async Task<IEnumerable<CardModel>> CreateInHand(Player owner, int count, ICombatState combatState)
     {
         if (count == 0)
         {
@@ -88,7 +88,7 @@ public class SacredFlask : TestCardModel
         {
             cards.Add(combatState.CreateCard<SacredFlask>(owner));
         }
-        await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, addedByPlayer: true);
+        await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, owner);
         return cards;
     }
     
