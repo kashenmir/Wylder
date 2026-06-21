@@ -32,7 +32,7 @@ public class Entry
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         Log.Debug("Mod initialized!");
         var assembly = Assembly.GetExecutingAssembly();
-        RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
+        //RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
         // 自动注册内容
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
         FmodStudioDeferredBankRegistration.RegisterBank("res://wylder/audios/Wylder.bank");

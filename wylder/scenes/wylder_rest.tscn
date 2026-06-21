@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://fykfx0ds6bgi"]
 
 [ext_resource type="Texture2D" uid="uid://btb1643slr74u" path="res://wylder/scenes/wylder_rest.png" id="1_nh0nu"]
-[ext_resource type="Script" path="res://Scripts/characters/WylderRestSiteCharacter.cs" id="1_ptg6f"]
-[ext_resource type="Script" path="res://Scripts/characters/WylderSelectionReticle.cs" id="3_uyrb5"]
+[ext_resource type="Script" uid="uid://cg5gwrar3w0v5" path="res://Scripts/characters/WylderRestSiteCharacter.cs" id="1_uyrb5"]
+[ext_resource type="Script" uid="uid://bi7u50dx5ifya" path="res://Scripts/characters/WylderSelectionReticle.cs" id="3_qytbw"]
 
 [node name="TestCharacterRestSite" type="Node2D"]
-script = ExtResource("1_ptg6f")
+script = ExtResource("1_uyrb5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -25,7 +25,7 @@ offset_left = -153.0
 offset_top = -350.0
 offset_right = 267.0
 offset_bottom = 320.0
-script = ExtResource("3_uyrb5")
+script = ExtResource("3_qytbw")
 
 [node name="Hitbox" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
