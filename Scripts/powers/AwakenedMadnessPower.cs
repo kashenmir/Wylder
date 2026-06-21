@@ -27,7 +27,7 @@ public class AwakenedMadnessPower : LipulaCurseBasePower
         if (target == Owner && props.IsPoweredAttack() && result.UnblockedDamage > 0)
         {
             Flash();
-            await CardPileCmd.AddToCombatAndPreview<Mad>([Owner], PileType.Discard, 1, addedByPlayer: false);
+            await CardPileCmd.AddToCombatAndPreview<Mad>([Owner], PileType.Discard, 1, null);
         }
     }
 }

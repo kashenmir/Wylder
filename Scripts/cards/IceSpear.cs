@@ -59,7 +59,7 @@ public class IceSpear : AshWarModel
         AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        int frostValue = attackCommand.Results.Sum((DamageResult r) => r.UnblockedDamage);
+        int frostValue = attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.UnblockedDamage);
         if (this.IsUpgraded)
         {
             frostValue *= 2;

@@ -1,18 +1,13 @@
 ﻿using BaseLib.Abstracts;
 using Godot;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
-using MegaCrit.Sts2.Core.DevConsole;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
-using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.cards;
@@ -25,7 +20,7 @@ public class IntegrationOfIntelligencePower : CustomPowerModel
 
     public override PowerStackType StackType => PowerStackType.Counter;
     
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
     public override int DisplayAmount => DynamicVars["count"].IntValue;
     
@@ -39,7 +34,7 @@ public class IntegrationOfIntelligencePower : CustomPowerModel
     
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (dealer == Owner && props.IsPoweredAttack() && DynamicVars["count"].IntValue > 0 && Owner.Player != null && Check(25))
+        if (dealer == Owner && props.IsPoweredAttack() && DynamicVars["count"].IntValue > 0 && Owner.Player != null && Owner.Player.PlayerRng.Rewards.NextFloat(1F)<0.25F)
         {
             Log.Info($"Owner={Owner}, dealer={dealer}");
             Flash();
@@ -50,17 +45,9 @@ public class IntegrationOfIntelligencePower : CustomPowerModel
             }
             if (monsterPos.HasValue)
             {
-                VfxCmd.PlayVfx(monsterPos.Value, "vfx/vfx_coin_explosion_regular");
+                VfxCmd.PlayVfx(monsterPos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
             }
-            if (!RunManager.Instance.IsSinglePlayerOrFakeMultiplayer)
-            {
-                Player me = LocalContext.GetMe(RunManager.Instance.DebugOnlyGetState());
-                RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(
-                    new ConsoleCmdGameAction(me, "gold 20", CombatManager.Instance.IsInProgress));
-            } else
-            {
-                await PlayerCmd.GainGold(20, Owner.Player);
-            }
+            await PlayerCmd.GainGold(20, Owner.Player);
             DynamicVars["count"].UpgradeValueBy(-20);
             InvokeDisplayAmountChanged();
         }
@@ -78,15 +65,5 @@ public class IntegrationOfIntelligencePower : CustomPowerModel
             DynamicVars["count"].UpgradeValueBy(20);
             InvokeDisplayAmountChanged();
         }
-    }
-    
-    /// <summary>
-    /// 检查是否命中指定概率
-    /// </summary>
-    /// <param name="percent">概率百分比 (0-100)</param>
-    /// <returns>命中返回 true，否则返回 false</returns>
-    public static bool Check(int percent)
-    {
-        return _random.Next(0, 100) < percent;
     }
 }

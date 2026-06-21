@@ -40,7 +40,7 @@ public class RotBase : CustomPowerModel
         DynamicVars["max"].UpgradeValueBy(increase);
     }
 
-    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext playerChoiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power is not RotBase || Amount < DynamicVars["max"].IntValue  || amount <= 0 || power.Owner != Owner)
         {
@@ -70,7 +70,7 @@ public class RotBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Rot>(new ThrowingPlayerChoiceContext(), Owner, 5, Owner, null);
+            await PowerCmd.Apply<Rot>(playerChoiceContext, Owner, 5, Owner, null);
         }
         else
         {
@@ -79,7 +79,7 @@ public class RotBase : CustomPowerModel
     }
 
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Enemy)
         {

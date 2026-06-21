@@ -21,7 +21,7 @@ public class NightFormPower : CustomPowerModel
 
     public override PowerStackType StackType => PowerStackType.Single;
     
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("card", 0)];
         
@@ -42,7 +42,7 @@ public class NightFormPower : CustomPowerModel
         }
     }
     
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (Owner.Player !=null && player == Owner.Player)
         {
@@ -68,7 +68,7 @@ public class NightFormPower : CustomPowerModel
                 if (cardModel != null)
                 {
                     cardModel.SetToFreeThisTurn();
-                    await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
+                    await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, null);
                 }
             }
         }

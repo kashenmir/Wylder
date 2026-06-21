@@ -9,12 +9,12 @@ namespace wylder.Scripts.powers;
 
 public class DemonEyePower : LipulaCurseBasePower
 {
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner.Player)
         {
             return;
         }
-        await CardPileCmd.AddToCombatAndPreview<Mad>(player.Creature, PileType.Hand, 1, addedByPlayer: false);
+        await CardPileCmd.AddToCombatAndPreview<Mad>(player.Creature, PileType.Hand, 1, null);
     }
 }

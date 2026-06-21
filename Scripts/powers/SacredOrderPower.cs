@@ -12,7 +12,7 @@ public class SacredOrderPower : CustomPowerModel
 
     public override PowerStackType StackType => PowerStackType.Single;
     
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
     // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
     public override string? CustomPackedIconPath => "res://wylder/powers/sacred_order_power.png";

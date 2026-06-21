@@ -63,12 +63,12 @@ public class Shot : AshWarModel
         base.DynamicVars.Damage.UpgradeValueBy(2m);
     }
     
-    public static async Task<CardModel?> CreateInHand(Player owner, CombatState combatState, int damage)
+    public static async Task<CardModel?> CreateInHand(Player owner, ICombatState combatState, int damage)
     {
         return (await CreateInHand(owner, 1, combatState, damage)).FirstOrDefault();
     }
 
-    public static async Task<IEnumerable<CardModel>> CreateInHand(Player owner, int count, CombatState combatState, int damage)
+    public static async Task<IEnumerable<CardModel>> CreateInHand(Player owner, int count, ICombatState combatState, int damage)
     {
         if (count == 0)
         {
@@ -85,7 +85,7 @@ public class Shot : AshWarModel
             shot.updateDamage(damage);
             shots.Add(shot);
         }
-        await CardPileCmd.AddGeneratedCardsToCombat(shots, PileType.Hand, addedByPlayer: true);
+        await CardPileCmd.AddGeneratedCardsToCombat(shots, PileType.Hand, owner);
         return shots;
     }
 

@@ -47,7 +47,7 @@ public class LipulaDebuff4Power : CustomPowerModel
         return count - 1;
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Player && DynamicVars["count"].IntValue > 0)
         {

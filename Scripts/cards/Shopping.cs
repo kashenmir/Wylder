@@ -72,7 +72,7 @@ public class Shopping : TestCardModel
                     money = 20;
                 }
                 await PlayerCmd.LoseGold(money, Owner);
-                await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
+                await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, null);
                 return;
             }
         }

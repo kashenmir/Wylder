@@ -40,7 +40,7 @@ public class PoisonBase : CustomPowerModel
         DynamicVars["max"].UpgradeValueBy(increase);
     }
 
-    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext playerChoiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power is not PoisonBase || Amount < DynamicVars["max"].IntValue || amount <= 0 || power.Owner != Owner)
         {
@@ -70,7 +70,7 @@ public class PoisonBase : CustomPowerModel
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Poison>(new ThrowingPlayerChoiceContext(), Owner, 10, Owner, null);
+            await PowerCmd.Apply<Poison>(playerChoiceContext, Owner, 10, Owner, null);
         }
         else
         {
@@ -79,7 +79,7 @@ public class PoisonBase : CustomPowerModel
     }
 
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Enemy)
         {

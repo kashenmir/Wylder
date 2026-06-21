@@ -19,7 +19,7 @@ public class GoldenBackPower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/golden_defend_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/golden_defend_power.png";
     
-    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (amount == 0m || power.GetTypeForAmount(amount) != PowerType.Debuff || power.Owner != Owner || applier == null || power is ITemporaryPower)
         {
@@ -30,7 +30,7 @@ public class GoldenBackPower : CustomPowerModel
         foreach (Creature hittableEnemy in CombatState.HittableEnemies)
         {
             
-            damageTasks.Add(DoDamage(new ThrowingPlayerChoiceContext(), [hittableEnemy], Amount));
+            damageTasks.Add(DoDamage(choiceContext, [hittableEnemy], Amount));
         }
         await Task.WhenAll(damageTasks);
     }
@@ -51,7 +51,7 @@ public class GoldenBackPower : CustomPowerModel
     }
 
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Enemy)
         {

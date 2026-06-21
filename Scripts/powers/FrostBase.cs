@@ -54,7 +54,7 @@ public class FrostBase : CustomPowerModel
         DynamicVars["max"].UpgradeValueBy(increase);
     }
     
-    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power is not FrostBase || Amount < DynamicVars["max"].IntValue || amount <= 0 || power.Owner != Owner)
         {
@@ -86,14 +86,14 @@ public class FrostBase : CustomPowerModel
                 NGaseousImpactVfx child = NGaseousImpactVfx.Create(nCreature.VfxSpawnPosition, new Color("#84A7A9"));
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(child);
             }
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner,
+            await CreatureCmd.Damage(choiceContext, Owner,
             (int)(base.DynamicVars.Damage.IntValue + Owner.MaxHp * 0.05m), ValueProp.Unblockable | ValueProp.Unpowered,
             null, null);
         }
         if (Owner.IsAlive)
         {
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Frost>(new ThrowingPlayerChoiceContext(), Owner, 3, Owner, null);
+            await PowerCmd.Apply<Frost>(choiceContext, Owner, 3, Owner, null);
         }
         else
         {
@@ -102,7 +102,7 @@ public class FrostBase : CustomPowerModel
     }
 
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Enemy)
         {

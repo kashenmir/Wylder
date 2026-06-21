@@ -48,7 +48,7 @@ public class WildStrike : AshWarModel
             .Execute(choiceContext);
         await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
         CardModel card = base.CombatState.CreateCard<Dazed>(base.Owner);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, addedByPlayer: true));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, null));
         DynamicVars["count"].UpgradeValueBy(countDazed(base.Owner)-DynamicVars["count"].IntValue);
         await Cmd.Wait(0.5f);
     }
@@ -58,9 +58,9 @@ public class WildStrike : AshWarModel
         DynamicVars["count"].UpgradeValueBy(countDazed(base.Owner)-DynamicVars["count"].IntValue);
     }
     
-    protected override PileType GetResultPileType()
+    protected override PileType GetResultPileTypeForCardPlay()
     {
-        PileType resultPileType = base.GetResultPileType();
+        PileType resultPileType = base.GetResultPileTypeForCardPlay();
         if (resultPileType != PileType.Discard)
         {
             return resultPileType;

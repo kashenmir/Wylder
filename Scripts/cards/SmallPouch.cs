@@ -37,7 +37,7 @@ public class SmallPouch : TestCardModel
             {
                 CardCmd.Upgrade(cardModel);
             }
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, null);
         }
     }
 

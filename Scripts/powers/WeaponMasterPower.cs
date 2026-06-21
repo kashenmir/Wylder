@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -45,13 +46,13 @@ public class WeaponMasterPower : CustomPowerModel
                     select c, base.Amount, base.Owner.Player.RunState.Rng.CombatCardGeneration).ToList();
                 foreach (CardModel item in list)
                 {
-                    await CardPileCmd.AddGeneratedCardToCombat(item, PileType.Hand, addedByPlayer: true);
+                    await CardPileCmd.AddGeneratedCardToCombat(item, PileType.Hand, null);
                 }
             }
         }
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Player)
         {
@@ -66,7 +67,7 @@ public class WeaponMasterPower : CustomPowerModel
                     .ToList();
                 foreach (CardModel item in list)
                 {
-                    await CardPileCmd.AddGeneratedCardToCombat(item, PileType.Hand, addedByPlayer: true);
+                    await CardPileCmd.AddGeneratedCardToCombat(item, PileType.Hand, null);
                 }
                 data.etherealCount = 0;
             }

@@ -64,7 +64,7 @@ public class CravingFlask : TestCardModel
         await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         if (playsSeen == maxPlays)
         {
-            VfxCmd.PlayFullScreenInCombat("vfx/vfx_dramatic_entrance_fullscreen");
+            VfxCmd.PlayFullScreenInCombat("vfx/vfx_dramatic_entrance_fullscreen", Owner.Creature);
             await CardCmd.Exhaust(choiceContext,this, false, false);
             SacredFlaskRelic? relic = Owner.Relics.OfType<SacredFlaskRelic>().FirstOrDefault();
             SacredFlaskRelicNew? relicNew = Owner.Relics.OfType<SacredFlaskRelicNew>().FirstOrDefault();

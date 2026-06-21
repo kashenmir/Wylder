@@ -15,7 +15,7 @@ public class BasicBuffPower : CustomPowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
     
     //附魔回合结束减少一层
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == CombatSide.Enemy)
         {

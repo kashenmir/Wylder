@@ -43,7 +43,7 @@ public class CopyWeapon : TestCardModel
             for (int i = 0; i < base.DynamicVars.Cards.IntValue; i++)
             {
                 CardModel card = selection.CreateClone();
-                await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
+                await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, null);
             }
         }
     }

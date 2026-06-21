@@ -49,7 +49,7 @@ public class Poison : CustomPowerModel
     }
 
     // 1. 核心逻辑：回合开始造成伤害
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side,IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side != Owner.Side || !Owner.IsAlive)
         {

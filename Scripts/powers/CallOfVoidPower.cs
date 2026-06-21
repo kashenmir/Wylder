@@ -46,12 +46,7 @@ public class CallOfVoidPower : CustomPowerModel
     {
         if (card.Affliction == null)
         {
-            Hexed? hexed = await CardCmd.Afflict<Hexed>(card, 1);
-            if (hexed != null && !card.Keywords.Contains(CardKeyword.Ethereal))
-            {
-                CardCmd.ApplyKeyword(card, CardKeyword.Ethereal);
-                hexed.AppliedEthereal = true;
-            }
+            await CardCmd.Afflict<Hexed>(card, base.Amount);
         }
     }
 }

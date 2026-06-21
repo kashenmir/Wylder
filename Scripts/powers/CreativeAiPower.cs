@@ -20,7 +20,7 @@ public class CreativeAiPower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/creative_ai_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/creative_ai_power.png";
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         for (int i = 0; i < base.Amount; i++)
         {
@@ -29,7 +29,7 @@ public class CreativeAiPower : CustomPowerModel
                 select c, 1, player.RunState.Rng.CombatCardGeneration).FirstOrDefault();
             if (cardModel != null)
             {
-                await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
+                await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, null);
             }
         }
     }

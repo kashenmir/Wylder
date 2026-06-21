@@ -49,7 +49,7 @@ public class TakersFlame : AshWarModel
                 await PowerCmd.Remove(frost);
             }
         }
-        await CreatureCmd.Heal(Owner.Creature, (int)(attackCommand.Results.Sum((DamageResult r) => r.UnblockedDamage)*DynamicVars["count"].IntValue*0.5m));
+        await CreatureCmd.Heal(Owner.Creature, (int)(attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.UnblockedDamage)*DynamicVars["count"].IntValue*0.5m));
     }
 
     protected override void OnUpgrade()

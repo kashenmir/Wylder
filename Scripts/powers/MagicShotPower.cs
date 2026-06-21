@@ -20,7 +20,7 @@ public class MagicShotPower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/magic_shot_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/magic_shot_power.png";
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Side)
         {
@@ -31,7 +31,7 @@ public class MagicShotPower : CustomPowerModel
         {
             if (result.Sum((DamageResult r) => r.UnblockedDamage) > 0)
             {
-                await CardPileCmd.AddToCombatAndPreview<Mad>(Owner, PileType.Hand, 2, addedByPlayer: false);
+                await CardPileCmd.AddToCombatAndPreview<Mad>(Owner, PileType.Hand, 2, null);
             }
             await PowerCmd.Remove(this);
         }

@@ -50,9 +50,8 @@ public class Rot : CustomPowerModel
         // 5. 如果没有 HeatPower，返回 false，表示不修改数值，正常施加
         return false;
     }
-
     // 1. 核心逻辑：回合开始造成伤害
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side != Owner.Side || !Owner.IsAlive)
         {
