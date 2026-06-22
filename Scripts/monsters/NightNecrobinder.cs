@@ -77,7 +77,7 @@ public class NightNecrobinder : CustomMonsterModel
                     .WithHitFx("vfx/vfx_attack_slash")
                     .WithHitVfxSpawnedAtBase()
                     .Execute(null);
-                await CardPileCmd.AddToCombatAndPreview<NightSoul>(targets, PileType.Draw, 4, null);
+                await CardPileCmd.AddToCombatAndPreview<NightSoul>(targets, PileType.Draw, 4, null, CardPilePosition.Random);
             }, new SingleAttackIntent(DoubleDamage), new StatusIntent(4)
         );
         

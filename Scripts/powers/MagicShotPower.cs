@@ -31,7 +31,7 @@ public class MagicShotPower : CustomPowerModel
         {
             if (result.Sum((DamageResult r) => r.UnblockedDamage) > 0)
             {
-                await CardPileCmd.AddToCombatAndPreview<Mad>(Owner, PileType.Hand, 2, null);
+                await CardPileCmd.AddToCombatAndPreview<Mad>(Owner, PileType.Hand, 1, null);
             }
             await PowerCmd.Remove(this);
         }

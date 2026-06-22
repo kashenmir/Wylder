@@ -91,7 +91,7 @@ public class NightDefect : CustomMonsterModel
                         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
                     }
                 }
-                await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Draw, OverclockCount, null);
+                await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Draw, OverclockCount, null, CardPilePosition.Top);
             }, new StatusIntent(OverclockCount)
         );
         
@@ -102,8 +102,8 @@ public class NightDefect : CustomMonsterModel
                 await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
                 await CreatureCmd.GainBlock(Creature, BoostBlock, ValueProp.Move, null);
                 List<Task> statusTasks = new List<Task>();
-                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, 2, null));
-                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, 2, null));
+                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, 2, null, CardPilePosition.Random));
+                statusTasks.Add(CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, 2, null, CardPilePosition.Random));
                 await Task.WhenAll(statusTasks);
             }, new DefendIntent(), new StatusIntent(4)
         );

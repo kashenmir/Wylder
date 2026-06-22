@@ -240,7 +240,7 @@
   "WYLDER-FALSE_BLESSING_POWER.smartDescription": "所有技能牌可以免费打出，但打出后会立即失去{hpLoss}点最大生命。",
   "WYLDER-FALSE_BLESSING_POWER.title": "虚伪的赐福",
   "WYLDER-MAGIC_SHOT_POWER.description": "回合结束时受到{Amount}点伤害并移除此状态，如果不能完全格挡这次伤害，向手牌中添加两张[gold]发狂[/gold]。",
-  "WYLDER-MAGIC_SHOT_POWER.smartDescription": "回合结束时受到{Amount}点伤害并移除此状态，如果不能完全格挡这次伤害，向手牌中添加两张[gold]发狂[/gold]。",
+  "WYLDER-MAGIC_SHOT_POWER.smartDescription": "回合结束时受到{Amount}点伤害并移除此状态，如果不能完全格挡这次伤害，向手牌中添加一张[gold]发狂[/gold]。",
   "WYLDER-MAGIC_SHOT_POWER.title": "炼金法阵",
   "WYLDER-CHAOTIC_COST_POWER.description": "抽到的每张牌费用随机变化。",
   "WYLDER-CHAOTIC_COST_POWER.smartDescription": "抽到的每张牌费用随机变化。",

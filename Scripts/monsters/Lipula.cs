@@ -156,7 +156,7 @@ public class Lipula : CustomMonsterModel
 					.Execute(null);
 				await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 				SfxCmd.Play(AttackSfx);
-				await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Draw, 1, null);
+				await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Draw, 1, null, CardPilePosition.Random);
 			}, new SingleAttackIntent(HeavyDamage),
 			new StatusIntent(1)
 		);
@@ -342,7 +342,7 @@ public class Lipula : CustomMonsterModel
 			.Execute(null);
 		await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 		SfxCmd.Play(AttackSfx);
-		await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Discard, BasicMad, null);
+		await CardPileCmd.AddToCombatAndPreview<Mad>(targets, PileType.Discard, BasicMad, null, CardPilePosition.Random);
 	}
 
 	public async Task ChangeStateMove(IReadOnlyList<Creature> targets)

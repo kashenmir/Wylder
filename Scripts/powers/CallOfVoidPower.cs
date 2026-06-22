@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.Powers;
+using STS2RitsuLib.Keywords;
 
 namespace wylder.Scripts.powers;
 
@@ -47,6 +48,11 @@ public class CallOfVoidPower : CustomPowerModel
         if (card.Affliction == null)
         {
             await CardCmd.Afflict<Hexed>(card, base.Amount);
+        }
+
+        if (!card.Keywords.Contains(CardKeyword.Ethereal))
+        {
+            CardCmd.ApplyKeyword(card, CardKeyword.Ethereal);
         }
     }
 }

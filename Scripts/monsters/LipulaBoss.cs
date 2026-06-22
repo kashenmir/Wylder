@@ -15,12 +15,12 @@ public class LipulaBoss : CustomEncounterModel
     ,ModelDb.Monster<NightSilent>(), ModelDb.Monster<NightRegent>(), ModelDb.Monster<NightNecrobinder>(), ModelDb.Monster<NightDefect>()];
 
     // 这个遭遇在那些层级出现
-    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 1; // 只在第一幕出现
+    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 3; // 只在第一幕出现
     
     public override string? CustomScenePath => "res://wylder/scenes/Lipula/lipula_boss_encounter.tscn";
 
     public override string CustomBgm => "event:/Wylder/music/act4_boss_lipula";
-    public override RoomType RoomType => RoomType.Monster;
+    public override RoomType RoomType => RoomType.Boss;
     
     // 这个遭遇是否是弱怪池
     public override bool IsWeak => false;
