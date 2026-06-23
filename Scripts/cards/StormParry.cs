@@ -26,7 +26,7 @@ public class StormParry : AshWarModel
     private const bool shouldShowInCardLibrary = true;
     public override bool CanBeGeneratedInCombat => false;
     // 卡牌的基础属性（例如这里是12点伤害）
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(16, ValueProp.Move)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     

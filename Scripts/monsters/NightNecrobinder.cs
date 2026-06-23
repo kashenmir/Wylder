@@ -47,11 +47,11 @@ public class NightNecrobinder : CustomMonsterModel
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<powers.HauntPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
+            await PowerCmd.Apply<powers.HauntPower>(new ThrowingPlayerChoiceContext(), Creature, 4, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.CallOfVoidPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
+            await PowerCmd.Apply<powers.CallOfVoidPower>(new ThrowingPlayerChoiceContext(), Creature, 4, Creature, null);
         }
     }
 

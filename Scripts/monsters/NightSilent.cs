@@ -53,7 +53,7 @@ public class NightSilent : CustomMonsterModel
         }
         else
         {
-            await PowerCmd.Apply<powers.AfterimagePower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.AfterimagePower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
         }
     }
 

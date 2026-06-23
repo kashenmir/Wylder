@@ -15,7 +15,7 @@ public class LipulaBoss : CustomEncounterModel
     ,ModelDb.Monster<NightSilent>(), ModelDb.Monster<NightRegent>(), ModelDb.Monster<NightNecrobinder>(), ModelDb.Monster<NightDefect>()];
 
     // 这个遭遇在那些层级出现
-    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 3; // 只在第一幕出现
+    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 4; // 只在第一幕出现
     
     public override string? CustomScenePath => "res://wylder/scenes/Lipula/lipula_boss_encounter.tscn";
 

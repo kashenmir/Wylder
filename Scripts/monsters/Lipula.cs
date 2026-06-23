@@ -33,10 +33,10 @@ namespace wylder.Scripts.monsters;
 public class Lipula : CustomMonsterModel
 {
 	// 根据进阶提高最小血量，进阶8及以上为120，否则为100
-	public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1200, 1000);
+	public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1000, 800);
 
 	// 根据进阶提高最大血量，进阶8及以上为140，否则为120
-	public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1200, 1000);
+	public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1000, 800);
 
 	public bool IsChangeState = false;
 	
@@ -321,7 +321,7 @@ public class Lipula : CustomMonsterModel
 		}
 		base.Creature.HpDisplay = HpDisplay.Normal;
 		UpdateVisual(_picture2);
-		await PowerCmd.Apply<HardenedShellPower>(new ThrowingPlayerChoiceContext(), base.Creature, 300m, base.Creature, null);
+		await PowerCmd.Apply<HardenedShellPower>(new ThrowingPlayerChoiceContext(), base.Creature, 200m, base.Creature, null);
 		await PowerCmd.Apply<LipulaChangeStatePower>(new ThrowingPlayerChoiceContext(), Creature, Creature.MaxHp * 0.75m, Creature, null);
 		await Cmd.CustomScaledWait(0.2f, 0.6f);
 		NRunMusicController.Instance?.UpdateMusicParameter("Progress", 2f);

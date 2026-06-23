@@ -68,7 +68,7 @@ public class NightDefect : CustomMonsterModel
             {
                 //await CreatureCmd.TriggerAnim(base.Creature, "Attack", 0.5f);
                 await DamageCmd 
-                    .Attack(4)
+                    .Attack(5)
                     .WithHitCount(GunkUpHits)
                     .FromMonster(this)
                     .WithHitFx(null, null, "blunt_attack.mp3")
