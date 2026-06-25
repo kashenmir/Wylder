@@ -165,7 +165,7 @@ public class Lipula : CustomMonsterModel
 			"BASIC_STAND", async targets =>
 			{
 				await CreatureCmd.GainBlock(Creature, BasicBlock, ValueProp.Move, null);
-				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, IsChangeState?5:3, Creature, null);
 				if (IsChangeState)
 				{
 				await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 2, Creature, null);
@@ -184,7 +184,7 @@ public class Lipula : CustomMonsterModel
 						}
 					} 
 					int strengthPower = this.Creature.GetPowerAmount<StrengthPower>();
-					await PowerCmd.Apply<MagicShotPower>(new ThrowingPlayerChoiceContext(), targets, 15+strengthPower, Creature, null);
+					await PowerCmd.Apply<MagicShotPower>(new ThrowingPlayerChoiceContext(), targets, 20+strengthPower*2, Creature, null);
 				}
 			}, new DefendIntent(), new BuffIntent()
 			);

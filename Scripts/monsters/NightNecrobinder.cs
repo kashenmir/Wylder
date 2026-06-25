@@ -51,7 +51,7 @@ public class NightNecrobinder : CustomMonsterModel
         }
         else
         {
-            await PowerCmd.Apply<powers.CallOfVoidPower>(new ThrowingPlayerChoiceContext(), Creature, 4, Creature, null);
+            await PowerCmd.Apply<powers.CallOfVoidPower>(new ThrowingPlayerChoiceContext(), Creature, 5, Creature, null);
         }
     }
 

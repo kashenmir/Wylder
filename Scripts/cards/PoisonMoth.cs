@@ -24,7 +24,7 @@ public class PoisonMoth : AshWarModel
     // 是否在卡牌图鉴中显示
     private const bool shouldShowInCardLibrary = true;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new IntVar("poison", 25m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move), new IntVar("poison", 30m)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonBase>(), HoverTipFactory.FromPower<Poison>()];
 
@@ -48,13 +48,13 @@ public class PoisonMoth : AshWarModel
         }
         else
         {
-            await PowerCmd.Apply<PoisonBase>(choiceContext, cardPlay.Target, 6, cardPlay.Target, null);
+            await PowerCmd.Apply<PoisonBase>(choiceContext, cardPlay.Target, 7, cardPlay.Target, null);
         }
     }
 
     protected override void OnUpgrade()
     {
         base.DynamicVars.Damage.UpgradeValueBy(3m);
-        DynamicVars["poison"].UpgradeValueBy(7m);
+        DynamicVars["poison"].UpgradeValueBy(6m);
     }
 }

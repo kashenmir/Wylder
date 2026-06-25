@@ -52,11 +52,16 @@ public class NightDefect : CustomMonsterModel
         Log.Warn("rng num:"+num);
         if (num <= 1.0f)
         {
-            await PowerCmd.Apply<powers.CoolantPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+            int playerCount = CombatState.Players.Count;
+            if (playerCount >= 3)
+            {
+                playerCount -= 1;
+            }
+            await PowerCmd.Apply<powers.CoolantPower>(new ThrowingPlayerChoiceContext(), Creature, playerCount, Creature, null);
         }
         else
         {
-            await PowerCmd.Apply<powers.CreativeAiPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+            await PowerCmd.Apply<powers.CreativeAiPower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
         }
     }
 

@@ -31,9 +31,9 @@ public class EochaidDancingBlade : AshWarModel
     
     private const string _increaseKey = "Increase";
 
-    private const int _baseDamage = 5;
+    private const int _baseDamage = 8;
 
-    private int _currentDamage = 5;
+    private int _currentDamage = 8;
 
     private int _increasedDamage;
 
@@ -110,6 +110,6 @@ public class EochaidDancingBlade : AshWarModel
 
     private void UpdateDamage()
     {
-        CurrentDamage = 5 + IncreasedDamage;
+        CurrentDamage = 8 + IncreasedDamage;
     }
 }
