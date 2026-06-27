@@ -17,6 +17,8 @@ public class LipulaBoss : CustomEncounterModel
     // 这个遭遇在那些层级出现
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 4; // 只在第一幕出现
     
+    public override string BossNodePath => "res://images/map/placeholder/" + base.Id.Entry.ToLowerInvariant() + "_icon";
+    
     public override string? CustomScenePath => "res://wylder/scenes/Lipula/lipula_boss_encounter.tscn";
 
     public override string CustomBgm => "event:/Wylder/music/act4_boss_lipula";

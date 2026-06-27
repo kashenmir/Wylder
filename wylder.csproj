@@ -35,6 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="wylder\localization\eng\acts.json" />
         <Content Include="wylder\localization\eng\ancients.json" />
         <Content Include="wylder\localization\eng\cards.json" />
         <Content Include="wylder\localization\eng\card_keywords.json" />
@@ -45,6 +46,7 @@
         <Content Include="wylder\localization\eng\powers.json" />
         <Content Include="wylder\localization\eng\relics.json" />
         <Content Include="wylder\localization\eng\static_hover_tips.json" />
+        <Content Include="wylder\localization\zhs\acts.json" />
         <Content Include="wylder\localization\zhs\ancients.json" />
         <Content Include="wylder\localization\zhs\cards.json" />
         <Content Include="wylder\localization\zhs\card_keywords.json" />
@@ -58,9 +60,15 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="localization\eng\" />
+        <Folder Include="localization\zhs\" />
         <Folder Include="wylder\images\cards\" />
         <Folder Include="wylder\images\relics\" />
         <Folder Include="wylder\powers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Scripts\patchs\StartRunLobbyPatch2.cs" />
     </ItemGroup>
 
     <!-- 自动复制dll和json -->
