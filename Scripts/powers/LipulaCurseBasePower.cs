@@ -6,7 +6,7 @@ namespace wylder.Scripts.powers;
 
 public class LipulaCurseBasePower : CustomPowerModel
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Single;
     

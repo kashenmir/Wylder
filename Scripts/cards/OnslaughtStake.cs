@@ -74,7 +74,7 @@ public class OnslaughtStake : TestCardModel
     }
 
     // 卡牌的基础属性（例如这里是20点伤害）
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(30, ValueProp.Move), new Charges(maxPower), new IntVar("count", maxPower)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(40, ValueProp.Move), new Charges(maxPower), new IntVar("count", maxPower)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [StunIntent.GetStaticHoverTip()];
     

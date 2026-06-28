@@ -46,6 +46,15 @@ public class TimeDevourPower : CustomPowerModel
             await OnDeathEffect();
         }
     }
+    
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    {
+        if (base.Owner != creature)
+        {
+            return;
+        }
+        await OnDeathEffect();
+    }
 
     public override async Task AfterCombatEnd(CombatRoom _)
     {
@@ -54,10 +63,15 @@ public class TimeDevourPower : CustomPowerModel
 
     private async Task ApplyClockToAllPlayers()
     {
-        foreach (Creature creature in CombatState.HittableEnemies.ToList())
+        foreach (Creature creature in CombatState.Creatures.ToList())
         {
             if (creature.IsPlayer && creature.IsAlive)
             {
+                ClockCountPower? clock = creature.GetPower<ClockCountPower>();
+                if (clock != null)
+                {
+                    continue;
+                }
                 await PowerCmd.Apply<ClockCountPower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars["clockAmount"].IntValue, Owner, null);
             }
         }
@@ -66,18 +80,21 @@ public class TimeDevourPower : CustomPowerModel
     private async Task OnDeathEffect()
     {
         await RemoveAllClockFromPlayers();
-        foreach (Creature creature in CombatState.HittableEnemies.ToList())
+        if (CombatState.CurrentSide == CombatSide.Player)
         {
-            if (creature.IsPlayer && creature.IsAlive && creature.Player != null)
+            foreach (Creature creature in CombatState.Creatures.ToList())
             {
-                PlayerCmd.EndTurn(creature.Player, canBackOut: false);
+                if (creature.IsPlayer && creature.IsAlive && creature.Player != null)
+                {
+                    PlayerCmd.EndTurn(creature.Player, canBackOut: false);
+                }
             }
         }
     }
 
     private async Task RemoveAllClockFromPlayers()
     {
-        foreach (Creature creature in CombatState.HittableEnemies.ToList())
+        foreach (Creature creature in CombatState.Creatures.ToList())
         {
             if (creature.IsPlayer)
             {

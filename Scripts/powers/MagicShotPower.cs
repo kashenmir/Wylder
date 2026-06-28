@@ -5,6 +5,9 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.cards;
 
@@ -25,6 +28,11 @@ public class MagicShotPower : CustomPowerModel
         if (side != base.Owner.Side)
         {
             return;
+        }
+        NFireBurningVfx? child = NFireBurningVfx.Create(Owner, 1f, goingRight: false);
+        if (child != null)
+        {
+            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
         }
         IEnumerable<DamageResult> result = await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, base.Amount, ValueProp.Unpowered, null, null);
         if (base.Owner.IsAlive)

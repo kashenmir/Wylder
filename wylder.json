@@ -6,6 +6,15 @@
   "version": "1.0.0",
   "has_pck": true,         
   "has_dll": true,        
-  "dependencies": ["BaseLib","STS2-RitsuLib"],     
+  "dependencies": [
+    {
+    "id": "BaseLib",
+    "min_version": "v3.3.0"
+    },
+    {
+      "id": "STS2-RitsuLib",
+      "min_version": "v0.4.40"
+    }
+  ],     
   "affects_gameplay": true 
 }

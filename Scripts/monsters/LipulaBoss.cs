@@ -12,7 +12,8 @@ public class LipulaBoss : CustomEncounterModel
 {
     // 所有可能出现的怪物
     public override IEnumerable<MonsterModel> AllPossibleMonsters => [ModelDb.Monster<Lipula>(), ModelDb.Monster<Guardbot>(), ModelDb.Monster<NightIronclad>()
-    ,ModelDb.Monster<NightSilent>(), ModelDb.Monster<NightRegent>(), ModelDb.Monster<NightNecrobinder>(), ModelDb.Monster<NightDefect>()];
+    ,ModelDb.Monster<NightSilent>(), ModelDb.Monster<NightWatcher>(),
+    ModelDb.Monster<NightRegent>(), ModelDb.Monster<NightNecrobinder>(), ModelDb.Monster<NightDefect>()];
 
     // 这个遭遇在那些层级出现
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 4; // 只在第一幕出现

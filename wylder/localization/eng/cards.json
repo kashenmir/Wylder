@@ -162,7 +162,7 @@
   "WYLDER-REGAL_ROAR.title": "Regal Roar",
   "WYLDER-REGAL_ROAR.description": "{IfUpgraded:show:Gain {Energy:energyIcons()}. |}All Attack cards cost an additional {Energy:energyIcons()} this turn but deal double damage",
   "WYLDER-WARM_ROCK.title": "Warm Rock",
-  "WYLDER-WARM_ROCK.description": "At the end of the next {count:diff()} turns, heal 1 HP.",
+  "WYLDER-WARM_ROCK.description": "At the end of the next {count:diff()} turns, all allies heal 1 HP.",
   "WYLDER-GOLDEN_BACK.title": "Golden Tree Retaliation",
   "WYLDER-GOLDEN_BACK.description": "Gain {Block:diff()} [gold]Block[/gold]. Each time you are attacked or have a negative status applied this turn, deal {Damage:diff()} damage to all enemies.",
   "WYLDER-MARSON.title": "Hehe, I Must Survive",

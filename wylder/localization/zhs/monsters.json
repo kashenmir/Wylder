@@ -37,5 +37,8 @@
   "WYLDER-NIGHT_DEFECT.name": "黑夜构装体",
   "WYLDER-NIGHT_DEFECT.moves.GUNK_UP.title": "污秽打击",
   "WYLDER-NIGHT_DEFECT.moves.OVERCLOCK.title": "超频",
-  "WYLDER-NIGHT_DEFECT.moves.BOOST_AWAY.title": "高速脱离"
+  "WYLDER-NIGHT_DEFECT.moves.BOOST_AWAY.title": "高速脱离",
+  "WYLDER-NIGHT_WATCHER.name": "黑夜审判者",
+  "WYLDER-NIGHT_WATCHER.moves.RAGNAROK.title": "诸神黄昏",
+  "WYLDER-NIGHT_WATCHER.moves.HEAVY_BLOW.title": "当头棒喝"
 }

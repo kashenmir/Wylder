@@ -162,7 +162,7 @@
   "WYLDER-REGAL_ROAR.title": "王者嘶吼",
   "WYLDER-REGAL_ROAR.description": "{IfUpgraded:show:获得{Energy:energyIcons()}。|}本回合所有攻击牌额外消耗{Energy:energyIcons()}且造成的伤害翻倍",
   "WYLDER-WARM_ROCK.title": "温热石",
-  "WYLDER-WARM_ROCK.description": "下{count:diff()}个回合结束时，治疗自身1点生命。",
+  "WYLDER-WARM_ROCK.description": "下{count:diff()}个回合结束时，所有玩家回复1点生命。",
   "WYLDER-GOLDEN_BACK.title": "黄金树奉还",
   "WYLDER-GOLDEN_BACK.description": "获得{Block:diff()}点[gold]格挡[/gold]。本回合每次受到攻击或负面状态施加时，对所有敌人造成{Damage:diff()}点伤害。",
   "WYLDER-MARSON.title": "嘻嘻,我一定要活下去",

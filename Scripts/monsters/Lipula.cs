@@ -184,7 +184,7 @@ public class Lipula : CustomMonsterModel
 						}
 					} 
 					int strengthPower = this.Creature.GetPowerAmount<StrengthPower>();
-					await PowerCmd.Apply<MagicShotPower>(new ThrowingPlayerChoiceContext(), targets, 20+strengthPower*2, Creature, null);
+					await PowerCmd.Apply<MagicShotPower>(new ThrowingPlayerChoiceContext(), targets, 10+strengthPower*2, Creature, null);
 				}
 			}, new DefendIntent(), new BuffIntent()
 			);
@@ -292,7 +292,7 @@ public class Lipula : CustomMonsterModel
 			}
 			else
 			{
-				MonsterModel testMonster = ModelDb.Monster<NightIronclad>();
+				MonsterModel testMonster = ModelDb.Monster<NightWatcher>();
 				if (_freeNodes.Count == 0)
 					continue;
 
@@ -410,7 +410,8 @@ public class Lipula : CustomMonsterModel
 			else
 			{
 				await CreatureCmd.Heal(creature, 99999);
-				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, 4, Creature,  null);
+				await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), creature, 10, Creature, null);
+				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, 5, Creature,  null);
 			}
 		}
 		if (ChooseList.Count == 0)

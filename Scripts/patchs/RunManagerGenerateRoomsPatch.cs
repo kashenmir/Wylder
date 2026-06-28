@@ -59,8 +59,9 @@ public class RunManagerGenerateRoomsPatch
             //
             // 唯一修改的地方
             //
+            int count = Act4SelectionState.SelectedBoss == Act4SelectionState.BossOption.None ? 1 : 2;
             if (
-                i == state.Acts.Count - 2
+                i == state.Acts.Count - count
                 && state.AscensionLevel >= (int)AscensionLevel.DoubleBoss
             )
             {

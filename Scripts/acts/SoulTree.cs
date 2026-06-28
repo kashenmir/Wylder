@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
+using wylder.Scripts.ancient;
 using wylder.Scripts.monsters;
 
 namespace wylder.Scripts.acts;
@@ -19,9 +20,7 @@ public sealed class SoulTree : ActModel
 	];
 
 	public override IEnumerable<AncientEventModel> AllAncients => [
-		ModelDb.AncientEvent<Nonupeipe>(),
-		ModelDb.AncientEvent<Tanx>(),
-		ModelDb.AncientEvent<Vakuu>()
+		ModelDb.AncientEvent<Gallie>()
 	];
 
 	public override IEnumerable<EventModel> AllEvents => [

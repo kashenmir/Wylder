@@ -37,5 +37,8 @@
   "WYLDER-NIGHT_DEFECT.name": "Night Defect",
   "WYLDER-NIGHT_DEFECT.moves.GUNK_UP.title": "Foul Strike",
   "WYLDER-NIGHT_DEFECT.moves.OVERCLOCK.title": "Overclock",
-  "WYLDER-NIGHT_DEFECT.moves.BOOST_AWAY.title": "Boost Away"
+  "WYLDER-NIGHT_DEFECT.moves.BOOST_AWAY.title": "Boost Away",
+  "WYLDER-NIGHT_WATCHER.name": "Night Watcher",
+  "WYLDER-NIGHT_WATCHER.moves.RAGNAROK.title": "Ragnarok",
+  "WYLDER-NIGHT_WATCHER.moves.HEAVY_BLOW.title": "Heavy Blow"
 }

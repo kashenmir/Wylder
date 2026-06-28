@@ -2,7 +2,13 @@
   "WYLDER-ACID_SPRAYMIST.title": "Acid Spraymist",
   "WYLDER-ACID_SPRAYMIST.description": "All enemies lose 2 [gold]Strength[/gold].",
   "WYLDER-UPLIFTING_AROMATIC.title": "Uplifting Aromatic",
-  "WYLDER-UPLIFTING_AROMATIC.description": "Gain 1 [gold]Strength[/gold], 1 [gold]Wraith Form[/gold].",
+  "WYLDER-UPLIFTING_AROMATIC.description": "All allies Gain 1 [gold]Strength[/gold], 1 [gold]Wraith Form[/gold].",
   "WYLDER-BLOODBOIL_AROMATIC.title": "Bloodboil Aromatic",
-  "WYLDER-BLOODBOIL_AROMATIC.description": "For 3 turns, attack damage dealt and received is increased by 50%."
+  "WYLDER-BLOODBOIL_AROMATIC.description": "For 3 turns, attack damage dealt and received is increased by 50%.",
+  "WYLDER-OPALINE_BUBBLETEAR.title": "Opaline Bubbletear",
+  "WYLDER-OPALINE_BUBBLETEAR.description": "Gain 1 [gold]Buffer[/gold].",
+  "WYLDER-CRIMSONWHORL_BUBBLETEAR.title": "Crimsonwhorl Bubbletear",
+  "WYLDER-CRIMSONWHORL_BUBBLETEAR.description": "Gain 1 turn of [gold]Crimsonwhorl[/gold]. When taking unblocked attack damage, heal 3 HP. Decreases by 1 at the end of the enemy turn.",
+  "WYLDER-SCARLET_DEW_BUBBLETEAR.title": "Scarlet Dew Bubbletear",
+  "WYLDER-SCARLET_DEW_BUBBLETEAR.description": "Gain 20 turns of [gold]Scarlet Dew[/gold]. At the end of your turn, heal 2 HP and decrease by 1."
 }

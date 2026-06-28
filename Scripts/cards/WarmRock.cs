@@ -33,7 +33,11 @@ public class WarmRock : TestCardModel
     // 打出时的效果逻辑
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<WarmRockPower>(choiceContext, Owner.Creature, DynamicVars["count"].IntValue, Owner.Creature, null);
+        if (Owner.Creature.CombatState != null)
+        {
+            await PowerCmd.Apply<WarmRockPower>(choiceContext, Owner.Creature.CombatState.Allies,
+                DynamicVars["count"].IntValue, Owner.Creature, null);
+        }
     }
 
     // 升级后的效果逻辑

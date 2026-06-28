@@ -4,13 +4,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace wylder.Scripts.powers;
 
 public class ClockCountPower : CustomPowerModel
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -36,6 +36,7 @@ public class ClockCountPower : CustomPowerModel
             _pointer = 0;
             InvokeDisplayAmountChanged();
             PlayerCmd.EndTurn(Owner.Player, canBackOut: false);
+            await PowerCmd.Apply<StrengthPower>(context, base.CombatState.HittableEnemies, 2, null, null);
         }
     }
 }

@@ -2,7 +2,13 @@
   "WYLDER-ACID_SPRAYMIST.title": "酸蚀香",
   "WYLDER-ACID_SPRAYMIST.description": "所有敌人失去两点[gold]力量[/gold]。",
   "WYLDER-UPLIFTING_AROMATIC.title": "振奋香",
-  "WYLDER-UPLIFTING_AROMATIC.description": "获得一点[gold]力量[/gold]，一层[gold]滑溜[/gold]。",
+  "WYLDER-UPLIFTING_AROMATIC.description": "所有玩家获得一点[gold]力量[/gold]，一层[gold]滑溜[/gold]。",
   "WYLDER-BLOODBOIL_AROMATIC.title": "狂热香",
-  "WYLDER-BLOODBOIL_AROMATIC.description": "三回合内造成和受到的攻击伤害提升50%。"
+  "WYLDER-BLOODBOIL_AROMATIC.description": "三回合内造成和受到的攻击伤害提升50%。",
+  "WYLDER-OPALINE_BUBBLETEAR.title": "珍珠泡露滴",
+  "WYLDER-OPALINE_BUBBLETEAR.description": "获得一层[gold]缓冲[/gold]。",
+  "WYLDER-CRIMSONWHORL_BUBBLETEAR.title": "红旋泡露滴",
+  "WYLDER-CRIMSONWHORL_BUBBLETEAR.description": "获得一回合[gold]红旋露滴特效[/gold]：受到未被格挡的攻击伤害时回复3点生命，回合结束时减少一层。",
+  "WYLDER-SCARLET_DEW_BUBBLETEAR.title": "漫红露滴",
+  "WYLDER-SCARLET_DEW_BUBBLETEAR.description": "获得20回合[gold]漫红露滴特效[/gold]：回合结束时回复2点生命并减少一层。"
 }

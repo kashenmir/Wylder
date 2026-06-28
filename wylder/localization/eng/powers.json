@@ -239,7 +239,7 @@
   "WYLDER-FALSE_BLESSING_POWER.description": "All Skill cards cost 0 to play, but you immediately lose 2 max HP after playing them.",
   "WYLDER-FALSE_BLESSING_POWER.smartDescription": "All Skill cards cost 0 to play, but you immediately lose {hpLoss} max HP after playing them.",
   "WYLDER-FALSE_BLESSING_POWER.title": "False Blessing",
-  "WYLDER-MAGIC_SHOT_POWER.description": "At the end of your turn, take {Amount} damage and remove this status. If you cannot fully Block this damage, add 1 [gold]Madness[/gold] to your hand.",
+  "WYLDER-MAGIC_SHOT_POWER.description": "At the end of your turn, take {Amount} damage and remove this status. If you cannot fully Block this damage, add 2 [gold]Madness[/gold] to your hand.",
   "WYLDER-MAGIC_SHOT_POWER.smartDescription": "At the end of your turn, take {Amount} damage and remove this status. If you cannot fully Block this damage, add 1 [gold]Madness[/gold] to your hand.",
   "WYLDER-MAGIC_SHOT_POWER.title": "Alchemy Circle",
   "WYLDER-CHAOTIC_COST_POWER.description": "The cost of each drawn card is randomized.",
@@ -260,7 +260,16 @@
   "WYLDER-CLOCK_COUNT_POWER.description": "Each card played increases the clock hand by 1. When the hand reaches 12, immediately end the current turn and reset the hand to 0.",
   "WYLDER-CLOCK_COUNT_POWER.smartDescription": "Each card played increases the clock hand by 1. When the hand reaches {max}, immediately end the current turn and reset the hand to 0.",
   "WYLDER-CLOCK_COUNT_POWER.title": "Clock Count",
-  "WYLDER-TIME_DEVOUR_POWER.description": "When gained and at the start of your turn, apply 1 [gold]Clock Count[/gold] to all players. Upon death, remove [gold]Clock Count[/gold] from all players and forcibly end the player's turn.",
+  "WYLDER-TIME_DEVOUR_POWER.description": "At the start of your turn, [purple]Night Adjudicator[/purple] applies [gold]Clock Count[/gold] to all players. Upon [purple]Night Adjudicator[/purple]'s death, remove [gold]Clock Count[/gold] from all players and forcibly end the player's turn.",
   "WYLDER-TIME_DEVOUR_POWER.smartDescription": "When gained and at the start of your turn, apply {clockAmount} [gold]Clock Count[/gold] to all players. Upon death, remove [gold]Clock Count[/gold] from all players and forcibly end the player's turn.",
-  "WYLDER-TIME_DEVOUR_POWER.title": "Time Devour"
+  "WYLDER-TIME_DEVOUR_POWER.title": "Time Devour",
+  "WYLDER-CRIMSONWHORL_POWER.description": "When taking unblocked attack damage, heal 3 HP. Decreases by 1 at the end of the enemy turn.",
+  "WYLDER-CRIMSONWHORL_POWER.smartDescription": "When taking unblocked attack damage, heal {heal} HP. Decreases by 1 at the end of the enemy turn.",
+  "WYLDER-CRIMSONWHORL_POWER.title": "Crimsonwhorl",
+  "WYLDER-SCARLET_DEW_POWER.description": "At the end of your turn, heal 2 HP and decrease by 1.",
+  "WYLDER-SCARLET_DEW_POWER.smartDescription": "For the next {heal} turns, at the end of your turn, heal 2 HP and decrease by 1.",
+  "WYLDER-SCARLET_DEW_POWER.title": "Scarlet Dew",
+  "WYLDER-MENTAL_FORTRESS_POWER.description": "When [purple]Night Adjudicator[/purple] gains a buff, double the stacks. When gaining a debuff, halve the stacks (rounded down). Whenever [purple]Night Adjudicator[/purple] gains any power, gain {Amount} Block.",
+  "WYLDER-MENTAL_FORTRESS_POWER.smartDescription": "When [purple]Night Adjudicator[/purple] gains a buff, double the stacks. When gaining a debuff, halve the stacks (rounded down). Whenever [purple]Night Adjudicator[/purple] gains any power, gain {Amount} Block.",
+  "WYLDER-MENTAL_FORTRESS_POWER.title": "Mental Fortress"
 }

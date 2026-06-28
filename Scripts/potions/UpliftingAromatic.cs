@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -22,7 +23,7 @@ public class UpliftingAromatic : CustomPotionModel
     public override PotionUsage Usage => PotionUsage.CombatOnly;
 
     // 目标类型
-    public override TargetType TargetType => TargetType.Self;
+    public override TargetType TargetType => TargetType.AllAllies;
 
     // 定义动态变量
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
@@ -36,10 +37,10 @@ public class UpliftingAromatic : CustomPotionModel
     
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        if (target != null)
+        if (Owner.Creature.CombatState!=null)
         {
-            await PowerCmd.Apply<SlipperyPower>(choiceContext, target, 1, Owner.Creature, null);
-            await PowerCmd.Apply<StrengthPower>(choiceContext, target, 1, Owner.Creature, null);
+            await PowerCmd.Apply<SlipperyPower>(choiceContext, Owner.Creature.CombatState.Allies, 1, Owner.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature.CombatState.Allies, 1, Owner.Creature, null);
         }
     }
 }
