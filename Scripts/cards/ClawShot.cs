@@ -75,7 +75,7 @@ public class ClawShot : TestCardModel
         }
         
         CardPile? pile = Pile;
-        if (pile != null && pile.Type == PileType.Exhaust)
+        if (pile != null)
         {
             UpdateCharge();
             (DeckVersion as ClawShot)?.UpdateCharge();
@@ -125,13 +125,17 @@ public class ClawShot : TestCardModel
 
     public void UpdateCharge()
     {
-        Lune? lune = Owner.Relics.OfType<Lune>().FirstOrDefault();
-        if (lune != null)
+        if (ChargeCount < DynamicVars["Charges"].IntValue)
         {
-            ChargeCount += 3;
-        } else
-        {
-            ChargeCount += 2;
+            Lune? lune = Owner.Relics.OfType<Lune>().FirstOrDefault();
+            if (lune != null)
+            {
+                ChargeCount += 3;
+            }
+            else
+            {
+                ChargeCount += 2;
+            }
         }
     }
 

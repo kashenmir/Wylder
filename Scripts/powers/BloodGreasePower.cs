@@ -14,7 +14,7 @@ public class BloodGreasePower : BasicBuffPower
     public override string? CustomPackedIconPath => "res://wylder/powers/blood_grease_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/blood_grease_power.png";
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("count", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("count", 2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BloodBase>()];
     

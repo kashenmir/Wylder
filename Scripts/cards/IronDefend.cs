@@ -25,7 +25,7 @@ public class IronDefend : TestCardModel
     private const bool shouldShowInCardLibrary = true;
     
     // 卡牌的基础属性（例如这里是12点伤害）
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(2, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(2, ValueProp.Unpowered)];
     
     public override bool GainsBlock => true;
 

@@ -39,6 +39,8 @@ public class Lipula : CustomMonsterModel
 	public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1000, 800);
 
 	public bool IsChangeState = false;
+
+	public bool IsCallGuilty = false;
 	
 	private int _originalHp;
 
@@ -152,7 +154,7 @@ public class Lipula : CustomMonsterModel
 					.Attack(HeavyDamage)
 					.FromMonster(this)
 					.WithAttackerFx(null, AttackSfx)
-					.WithHitFx("vfx/vfx_attack_blunt")
+					.WithHitFx("vfx/vfx_heavy_blunt", null, "heavy_attack.mp3")
 					.Execute(null);
 				await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
 				SfxCmd.Play(AttackSfx);
@@ -198,6 +200,7 @@ public class Lipula : CustomMonsterModel
 		conditionalBranchState.AddState(basicAttack, () => !IsChangeState);
 		
 		_changeState = changeState;
+		_callGuilty = callGuilty;
 		// 或者你也可以创建RandomBranchState（随机意图分支）和ConditionalBranchState（条件意图分支）来实现更复杂的状态转换逻辑
 
 		// 设置状态转换，意图1后接意图2，意图2后接意图1
@@ -328,6 +331,8 @@ public class Lipula : CustomMonsterModel
 	}
 
 	public static MoveState _changeState;
+
+	public static MoveState _callGuilty;
 	
 	// 意图1执行实际效果
 	private async Task BasicAttackMove(IReadOnlyList<Creature> targets)
@@ -473,6 +478,7 @@ public class Lipula : CustomMonsterModel
 		{
 			await PowerCmd.Remove(power);
 		}
+		IsCallGuilty = true;
 	}
 
 	private async Task cleanCurse(IReadOnlyList<Creature> targets)
@@ -585,5 +591,21 @@ public class Lipula : CustomMonsterModel
 		body.Scale *= new Vector2(-1f, 1f);
 		node.Visuals.Visible = true;
 		return Task.CompletedTask;
+	}
+	
+	public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+	{
+		if (side != this.Creature.Side || this.Creature.Monster==null || !IsChangeState || IsCallGuilty)
+		{
+			return;
+		}
+	
+		if (CombatState != null && !this.Creature.IsDead)
+		{
+			if (this.Creature.Monster.NextMove.FollowUpStateId != Lipula._callGuilty.StateId)
+			{
+				this.Creature.Monster.NextMove.FollowUpState = _callGuilty;
+			}
+		}
 	}
 }

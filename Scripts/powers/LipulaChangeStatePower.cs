@@ -1,6 +1,8 @@
 ﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.monsters;
@@ -44,6 +46,22 @@ public class LipulaChangeStatePower : CustomPowerModel
         if (CombatState != null && !Owner.IsDead)
         {
             base.Owner.Monster.SetMoveImmediate(Lipula._changeState, true);
+        }
+    }
+
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    {
+        if (side != Owner.Side || Owner.Monster==null || Owner.CurrentHp > Amount)
+        {
+            return;
+        }
+
+        if (CombatState != null && !Owner.IsDead)
+        {
+            if (Owner.Monster.NextMove.FollowUpStateId != Lipula._changeState.StateId)
+            {
+                Owner.Monster.NextMove.FollowUpState = Lipula._changeState;
+            }
         }
     }
 }

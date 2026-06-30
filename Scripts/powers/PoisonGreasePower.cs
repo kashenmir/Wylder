@@ -15,7 +15,7 @@ public class PoisonGreasePower : BasicBuffPower
     public override string? CustomPackedIconPath => "res://wylder/powers/poison_grease_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/poison_grease_power.png";
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("count", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("count", 2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonBase>(), HoverTipFactory.FromPower<Poison>()];
     

@@ -113,7 +113,7 @@
   "WYLDER-FIRE_GREASE_POWER.smartDescription": "{Amount}回合内，攻击伤害提高2点并变为火属性。(附魔只能存在1种)",
   "WYLDER-FIRE_GREASE_POWER.title": "火焰附魔",
   "WYLDER-POISON_GREASE_POWER.description": "每次攻击会施加2层[gold]毒素[/gold]。(附魔只能存在1种)",
-  "WYLDER-POISON_GREASE_POWER.smartDescription": "{Amount}回合内，每次攻击会施加3层[gold]毒素[/gold]。(附魔只能存在1种)",
+  "WYLDER-POISON_GREASE_POWER.smartDescription": "{Amount}回合内，每次攻击会施加2层[gold]毒素[/gold]。(附魔只能存在1种)",
   "WYLDER-POISON_GREASE_POWER.title": "毒附魔",
   "WYLDER-POISON_BUFF_POWER.description": "每次攻击会施加2层[gold]毒素[/gold]。(附魔只能存在1种)",
   "WYLDER-POISON_BUFF_POWER.smartDescription": "{Amount}回合内，每次攻击会施加2层[gold]毒素[/gold]。(附魔只能存在1种)",

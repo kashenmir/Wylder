@@ -2,9 +2,12 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.dynamicVars;
 
@@ -57,6 +60,11 @@ public class Mad : TestCardModel
             foreach (CardModel c in cards)
             {
                 await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), c);
+            }
+            NFireBurningVfx? child = NFireBurningVfx.Create(Owner.Creature, 1f, goingRight: false);
+            if (child != null)
+            {
+                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
             }
             await PlayerCmd.LoseEnergy(2, Owner);
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature, new DamageVar(10, ValueProp.Unpowered), this);
