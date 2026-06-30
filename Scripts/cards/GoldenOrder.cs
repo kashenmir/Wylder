@@ -30,7 +30,7 @@ public class GoldenOrder : AshWarModel
     // 卡牌的基础属性（例如这里是12点伤害）
     protected override IEnumerable<DynamicVar> CanonicalVars => [new Chase(8),
         new CalculationBaseVar(0m),
-        new ExtraDamageVar(8m),
+        new ExtraDamageVar(12m),
         new CalculatedDamageVar(ValueProp.Unpowered).WithMultiplier(YourCalculationFunction)];
 
     public GoldenOrder() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -78,6 +78,6 @@ public class GoldenOrder : AshWarModel
     // 升级后的效果逻辑
     protected override void OnUpgrade()
     {
-        base.DynamicVars.ExtraDamage.UpgradeValueBy(2m);
+        base.DynamicVars.ExtraDamage.UpgradeValueBy(4m);
     }
 }

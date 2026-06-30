@@ -103,7 +103,7 @@ public class OnslaughtStake : TestCardModel
         {
             UpdateCharge();
             (DeckVersion as OnslaughtStake)?.UpdateCharge();
-            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue)
+            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue && pile.Type == PileType.Exhaust)
             {
                 await CardPileCmd.Add(this, PileType.Hand);
             }

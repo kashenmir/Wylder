@@ -608,4 +608,18 @@ public class Lipula : CustomMonsterModel
 			}
 		}
 	}
+
+	public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
+		ICombatState combatState)
+	{
+		if (side != this.Creature.Side || this.Creature.Monster==null)
+		{
+			return;
+		}
+		PowerModel? power = base.Creature.GetPower<ThornsPower>();
+		if (power != null)
+		{
+			await PowerCmd.Remove(power);
+		}
+	}
 }

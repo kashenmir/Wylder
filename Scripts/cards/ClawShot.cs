@@ -79,7 +79,7 @@ public class ClawShot : TestCardModel
         {
             UpdateCharge();
             (DeckVersion as ClawShot)?.UpdateCharge();
-            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue)
+            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue && pile.Type == PileType.Exhaust)
             {
                 await CardPileCmd.Add(this, PileType.Hand);
             }

@@ -96,7 +96,7 @@ public class ClawJump : TestCardModel
         {
             UpdateCharge();
             (DeckVersion as ClawJump)?.UpdateCharge();
-            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue)
+            if (DynamicVars["count"].IntValue >= DynamicVars["Charges"].IntValue && pile.Type == PileType.Exhaust)
             {
                 await CardPileCmd.Add(this, PileType.Hand);
             }
