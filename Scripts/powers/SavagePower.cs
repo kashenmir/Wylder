@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -16,7 +17,7 @@ public class SavagePower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/basic_chase_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/basic_chase_power.png";
     
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || target == null)
         {

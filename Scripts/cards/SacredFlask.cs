@@ -58,14 +58,14 @@ public class SacredFlask : TestCardModel
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
     }
     
-    protected override PileType GetResultPileTypeForCardPlay()
+    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        PileType resultPileTypeForCardPlay = base.GetResultPileTypeForCardPlay();
-        if (resultPileTypeForCardPlay != PileType.Discard)
+        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
+        if (pileType == PileType.Discard)
         {
-            return resultPileTypeForCardPlay;
+            return (PileType.Hand, CardPilePosition.Bottom);
         }
-        return PileType.Hand;
+        return (pileType, item);
     }
     
     public static async Task<CardModel?> CreateInHand(Player owner, CombatState combatState)

@@ -35,7 +35,7 @@ public class NightSoul : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.BaseValue, base.Owner);
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this, cardPlay);
     }
 
     protected override void OnUpgrade()

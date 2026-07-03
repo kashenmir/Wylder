@@ -20,7 +20,7 @@ public class ResolvePower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/resolve_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/resolve_power.png";
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner)
         {

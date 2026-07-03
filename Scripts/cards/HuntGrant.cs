@@ -36,7 +36,7 @@ public class HuntGrant : AshWarModel
     {
     }
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         decimal baseValue = 1m;
         if (cardSource != this)
@@ -64,7 +64,7 @@ public class HuntGrant : AshWarModel
         {
             await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, 1, base.Owner.Creature, this);
         }
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }

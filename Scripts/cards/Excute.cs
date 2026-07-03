@@ -38,7 +38,7 @@ public class Excute : TestCardModel
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         if (!cardPlay.Target.Monster.IntendsToAttack)
         {
-            await DamageCmd.Attack(DynamicVars.Damage.IntValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.IntValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx(null, null, "heavy_attack.mp3")
                 .WithHitVfxNode((Creature t) => NBigSlashVfx.Create(t))
                 .WithHitVfxNode((Creature t) => NBigSlashImpactVfx.Create(t))

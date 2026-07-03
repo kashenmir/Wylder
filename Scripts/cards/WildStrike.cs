@@ -43,7 +43,7 @@ public class WildStrike : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
@@ -58,14 +58,14 @@ public class WildStrike : AshWarModel
         DynamicVars["count"].UpgradeValueBy(countDazed(base.Owner)-DynamicVars["count"].IntValue);
     }
     
-    protected override PileType GetResultPileTypeForCardPlay()
+    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        PileType resultPileType = base.GetResultPileTypeForCardPlay();
-        if (resultPileType != PileType.Discard)
+        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
+        if (pileType == PileType.Discard)
         {
-            return resultPileType;
+            return (PileType.Hand, CardPilePosition.Random);
         }
-        return PileType.Hand;
+        return (pileType, item);
     }
     
     private static int countDazed(Player owner)

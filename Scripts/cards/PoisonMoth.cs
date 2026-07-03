@@ -35,14 +35,14 @@ public class PoisonMoth : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         if (cardPlay.Target.HasPower<Poison>())
         {
             Poison poison = cardPlay.Target.GetPower<Poison>();
             await PowerCmd.Remove(poison);
-            await DamageCmd.Attack(base.DynamicVars["poison"].BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(base.DynamicVars["poison"].BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
         }

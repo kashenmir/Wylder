@@ -63,7 +63,7 @@ public class QuikeShot : AshWarModel
             {
                 Log.Warn(base.Id.Entry + " exhausted attack card " + selection.Id.Entry + " that did not have an appropriate damage var!");
             }
-            damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature, damage, ValueProp.Move, selection, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
+            damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature, damage, ValueProp.Move, selection, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
             await CardCmd.Exhaust(choiceContext, selection);
             for (int i = 0; i < base.DynamicVars["count"].IntValue; i++)
             {

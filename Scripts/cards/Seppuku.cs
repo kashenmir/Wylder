@@ -40,7 +40,7 @@ public class Seppuku : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         VfxCmd.PlayOnCreatureCenter(base.Owner.Creature, "vfx/vfx_bloody_impact");
-        await CreatureCmd.Damage(choiceContext, base.Owner.Creature, base.DynamicVars["count"].IntValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
+        await CreatureCmd.Damage(choiceContext, base.Owner.Creature, base.DynamicVars["count"].IntValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, cardPlay);
         LordOfBloodsExultation? relic = Owner.Relics.OfType<LordOfBloodsExultation>().FirstOrDefault();
         if (relic != null)
         {

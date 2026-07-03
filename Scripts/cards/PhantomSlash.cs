@@ -62,13 +62,13 @@ public class PhantomSlash : TestCardModel
             {
                 Log.Warn(base.Id.Entry + " exhausted attack card " + selection.Id.Entry + " that did not have an appropriate damage var!");
             }
-            damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature, damage, ValueProp.Move, selection, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
-            await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
+            damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature, damage, ValueProp.Move, selection, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
+            await DamageCmd.Attack(damage).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
             await CardCmd.Exhaust(choiceContext, selection);
         }
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }

@@ -31,7 +31,7 @@ public class HauntPower : CustomPowerModel
                 {
                     int num = (int)((decimal)cards.Count * Amount);
                     Flash();
-                    await CreatureCmd.Damage(choiceContext, player.Creature, num, ValueProp.Unpowered, base.Owner, null);
+                    await CreatureCmd.Damage(choiceContext, player.Creature, num, ValueProp.Unpowered, null, null);
                     VfxCmd.PlayOnCreatureCenter(player.Creature, "vfx/vfx_attack_blunt");
                 }   
             }

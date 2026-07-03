@@ -23,7 +23,7 @@ public class RegalRoarPower : CustomPowerModel
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("count", 1), new EnergyVar(1)];
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner)
         {

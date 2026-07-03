@@ -23,7 +23,7 @@ public class ColdMiragePower : CustomPowerModel
     
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        if (power is Frost && isActive)
+        if (power is Frost && isActive && amount>0)
         {
             Flash();
             isActive = false;

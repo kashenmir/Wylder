@@ -29,7 +29,7 @@ public class WarriorJarShard : CustomRelicModel
     // 大图标（原版256x256）
     protected override string BigIconPath => $"res://wylder/images/relics/{GetType().Name}.png";
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack())
         {

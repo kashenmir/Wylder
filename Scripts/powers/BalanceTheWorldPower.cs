@@ -29,7 +29,7 @@ public class BalanceTheWorldPower : CustomPowerModel
     public override string? CustomPackedIconPath => "res://wylder/powers/balance_the_world_power.png";
     public override string? CustomBigIconPath => "res://wylder/powers/balance_the_world_power.png";
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner)
         {

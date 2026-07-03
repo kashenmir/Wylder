@@ -38,7 +38,7 @@ public class BecomeLighting : AshWarModel
     {
     }
     
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (cardSource != this)
         {
@@ -71,7 +71,7 @@ public class BecomeLighting : AshWarModel
                 await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
             }
         }
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue+addDamage).WithHitCount(attackCount).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue+addDamage).WithHitCount(attackCount).FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

@@ -67,7 +67,7 @@ public class Mad : TestCardModel
                 NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
             }
             await PlayerCmd.LoseEnergy(2, Owner);
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature, new DamageVar(10, ValueProp.Unpowered), this);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature, new DamageVar(10, ValueProp.Unpowered), this, null);
         }
     }
 
