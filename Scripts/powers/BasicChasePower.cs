@@ -49,6 +49,15 @@ public class BasicChasePower : ChasePowerModel
         return Amount;
     }
     
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power,
+        decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power is BasicChasePower && power.Owner == base.Owner && amount>0 && cardSource !=null)
+        {
+            isInActive = true;
+        }
+    }
+    
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner.Player || isInActive)

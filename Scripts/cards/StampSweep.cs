@@ -36,6 +36,11 @@ public class StampSweep : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
+        AoeChasePower? aoeChasePower = Owner.Creature.GetPower<AoeChasePower>();
+        if (aoeChasePower != null)
+        {
+            await PowerCmd.Remove(aoeChasePower);
+        }
         await PowerCmd.Apply<AoeChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
     }
 

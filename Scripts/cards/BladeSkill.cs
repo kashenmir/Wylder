@@ -26,7 +26,7 @@ public class BladeSkill : AshWarModel
     private const bool shouldShowInCardLibrary = true;
     
     // 卡牌的基础属性（例如这里是12点伤害）
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move), new Chase(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move), new Chase(2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BloodBase>()];
     
@@ -39,12 +39,11 @@ public class BladeSkill : AshWarModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<BloodChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<BloodChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Block.UpgradeValueBy(1m);
         DynamicVars["Chase"].UpgradeValueBy(1m);
     }
 }

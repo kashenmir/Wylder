@@ -52,7 +52,7 @@ public class BlackWave : AshWarModel
                 await PowerCmd.Apply<BlackWavePower>(choiceContext, enemy, DynamicVars["count"].BaseValue, base.Owner.Creature, this);
             }
         }
-        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<BasicChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

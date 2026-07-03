@@ -25,7 +25,28 @@ public class AoeChasePower : ChasePowerModel
     
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
-        return 0;
+        if (!props.IsPoweredAttack())
+        {
+            return 0m;
+        }
+        if (cardSource == null)
+        {
+            return 0m;
+        }
+        if (!cardSource.Tags.Contains(CardTag.Strike))
+        {
+            return 0m;
+        }
+        if (dealer != Owner)
+        {
+            return 0m;
+        }
+
+        if (cardSource is HeavyStrike)
+        {
+            return cardSource.DynamicVars["count"].IntValue * Amount;
+        }
+        return 3;
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)

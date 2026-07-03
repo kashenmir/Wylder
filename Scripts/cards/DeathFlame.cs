@@ -42,7 +42,7 @@ public class DeathFlame : AshWarModel
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         await PowerCmd.Apply<FrostBase>(choiceContext, cardPlay.Target, DynamicVars["frost"].IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<FrostChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, null);
+        await PowerCmd.Apply<FrostChasePower>(choiceContext, Owner.Creature, DynamicVars["Chase"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

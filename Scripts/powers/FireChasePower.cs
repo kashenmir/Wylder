@@ -59,6 +59,15 @@ public class FireChasePower : ChasePowerModel
         }
     }
     
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power,
+        decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power is FireChasePower && power.Owner == base.Owner && amount>0 && cardSource !=null)
+        {
+            isInActive = true;
+        }
+    }
+    
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
         if (dealer == Owner && props.IsPoweredAttack() && cardSource!=null && cardSource.Tags.Contains(CardTag.Strike))

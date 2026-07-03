@@ -12,7 +12,7 @@ namespace wylder.Scripts.powers;
 
 public class BloodChasePower : ChasePowerModel
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("blood", 5m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("blood", 7m)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BloodBase>()];
     
@@ -32,6 +32,15 @@ public class BloodChasePower : ChasePowerModel
 
         if (cardPlay.Card is not Suibu && cardPlay.Card is not HuntStep) {
             await PowerCmd.Remove(this);
+        }
+    }
+    
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power,
+        decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power is BloodChasePower && power.Owner == base.Owner && amount>0 && cardSource !=null)
+        {
+            isInActive = true;
         }
     }
     
