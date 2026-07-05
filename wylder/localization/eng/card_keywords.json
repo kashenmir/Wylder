@@ -1,4 +1,30 @@
 ﻿{
   "TEST-ASHWAR.description": "This is a Skill card",
-  "TEST-ASHWAR.title": "Skill"
+  "TEST-ASHWAR.title": "Skill",
+
+  "TEST-CARIAN_SWORD.description": "This card belongs to Carian Sword sorcery",
+  "TEST-CARIAN_SWORD.title": "Carian Sword",
+  "TEST-GRAVITY.description": "This card belongs to Gravity sorcery",
+  "TEST-GRAVITY.title": "Gravity",
+  "TEST-CRYSTALLIAN.description": "This card belongs to Crystallian sorcery",
+  "TEST-CRYSTALLIAN.title": "Crystallian",
+  "TEST-INVISIBLE.description": "This card belongs to Invisible sorcery",
+  "TEST-INVISIBLE.title": "Invisible",
+  "TEST-THORNS.description": "This card belongs to Thorns sorcery",
+  "TEST-THORNS.title": "Thorns",
+  "TEST-ORIGIN.description": "This card belongs to Origin sorcery",
+  "TEST-ORIGIN.title": "Origin",
+  "TEST-GLINTSTONE.description": "This card belongs to Glintstone sorcery",
+  "TEST-GLINTSTONE.title": "Glintstone",
+  "TEST-DEATH.description": "This card belongs to Death sorcery",
+  "TEST-DEATH.title": "Death",
+  "TEST-LAVA.description": "This card belongs to Lava sorcery",
+  "TEST-LAVA.title": "Lava",
+
+  "TEST-CAPITAL_DRAGON.description": "This card belongs to Capital Dragon incantation",
+  "TEST-CAPITAL_DRAGON.title": "Capital Dragon",
+  "TEST-GOLDEN_ORDER.description": "This card belongs to Golden Order incantation",
+  "TEST-GOLDEN_ORDER.title": "Golden Order",
+  "TEST-GIANT_FLAME.description": "This card belongs to Giant Flame incantation",
+  "TEST-GIANT_FLAME.title": "Giant Flame"
 }

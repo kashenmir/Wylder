@@ -271,5 +271,17 @@
   "WYLDER-SCARLET_DEW_POWER.title": "漫红露滴",
   "WYLDER-MENTAL_FORTRESS_POWER.description": "[purple]黑夜审判者[/purple]获得正面效果时获得的层数翻倍，获得负面效果时获得的层数减半，并且每次获得效果后还会获得{Amount}点格挡。",
   "WYLDER-MENTAL_FORTRESS_POWER.smartDescription": "[purple]黑夜审判者[/purple]获得正面效果时获得的层数翻倍，获得负面效果时获得的层数减半，并且每次获得效果后还会获得{Amount}点格挡。",
-  "WYLDER-MENTAL_FORTRESS_POWER.title": "心灵堡垒"
+  "WYLDER-MENTAL_FORTRESS_POWER.title": "心灵堡垒",
+  "WYLDER-PURE_MAGIC_POWER.description": "这个目标的身上残留了魔力属性痕。回合结束减少1层。",
+  "WYLDER-PURE_MAGIC_POWER.smartDescription": "这个目标的身上残留了魔力属性痕。回合结束减少1层。",
+  "WYLDER-PURE_MAGIC_POWER.title": "魔力痕",
+  "WYLDER-PURE_FIRE_POWER.description": "这个目标的身上残留了火焰属性痕。回合结束减少1层。",
+  "WYLDER-PURE_FIRE_POWER.smartDescription": "这个目标的身上残留了火焰属性痕。回合结束减少1层。",
+  "WYLDER-PURE_FIRE_POWER.title": "火焰痕",
+  "WYLDER-PURE_LIGHTING_POWER.description": "这个目标的身上残留了雷电属性痕。回合结束减少1层。",
+  "WYLDER-PURE_LIGHTING_POWER.smartDescription": "这个目标的身上残留了雷电属性痕。回合结束减少1层。",
+  "WYLDER-PURE_LIGHTING_POWER.title": "雷电痕",
+  "WYLDER-PURE_HOLY_POWER.description": "这个目标的身上残留了神圣属性痕。回合结束减少1层。",
+  "WYLDER-PURE_HOLY_POWER.smartDescription": "这个目标的身上残留了神圣属性痕。回合结束减少1层。",
+  "WYLDER-PURE_HOLY_POWER.title": "神圣痕"
 }

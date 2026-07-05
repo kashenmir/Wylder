@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using wylder.Scripts.dynamicVars;
+using wylder.Scripts.keywords;
 
 namespace wylder.Scripts.cards;
 

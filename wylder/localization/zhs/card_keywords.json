@@ -1,4 +1,30 @@
 ﻿{
   "TEST-ASHWAR.description": "这是一张战技牌",
-  "TEST-ASHWAR.title": "战技"
+  "TEST-ASHWAR.title": "战技",
+
+  "TEST-CARIAN_SWORD.description": "这张牌属于卡利亚剑法术",
+  "TEST-CARIAN_SWORD.title": "卡利亚剑",
+  "TEST-GRAVITY.description": "这张牌属于重力法术",
+  "TEST-GRAVITY.title": "重力",
+  "TEST-CRYSTALLIAN.description": "这张牌属于结晶法术",
+  "TEST-CRYSTALLIAN.title": "结晶",
+  "TEST-INVISIBLE.description": "这张牌属于隐形法术",
+  "TEST-INVISIBLE.title": "隐形",
+  "TEST-THORNS.description": "这张牌属于荆棘法术",
+  "TEST-THORNS.title": "荆棘",
+  "TEST-ORIGIN.description": "这张牌属于起源法术",
+  "TEST-ORIGIN.title": "起源",
+  "TEST-GLINTSTONE.description": "这张牌属于辉石法术",
+  "TEST-GLINTSTONE.title": "辉石",
+  "TEST-DEATH.description": "这张牌属于死亡法术",
+  "TEST-DEATH.title": "死亡",
+  "TEST-LAVA.description": "这张牌属于熔岩法术",
+  "TEST-LAVA.title": "熔岩",
+
+  "TEST-CAPITAL_DRAGON.description": "这张牌属于王城古龙信仰祷告",
+  "TEST-CAPITAL_DRAGON.title": "王城古龙信仰",
+  "TEST-GOLDEN_ORDER.description": "这张牌属于黄金律法祷告",
+  "TEST-GOLDEN_ORDER.title": "黄金律法",
+  "TEST-GIANT_FLAME.description": "这张牌属于巨人火焰祷告",
+  "TEST-GIANT_FLAME.title": "巨人火焰"
 }

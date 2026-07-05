@@ -44,7 +44,7 @@ public class AoeChasePower : ChasePowerModel
 
         if (cardSource is HeavyStrike)
         {
-            return cardSource.DynamicVars["count"].IntValue * Amount;
+            return cardSource.DynamicVars["count"].IntValue * 3;
         }
         return 3;
     }

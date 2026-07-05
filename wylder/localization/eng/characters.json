@@ -13,5 +13,21 @@
   "WYLDER-WYLDER.pronounSubject": "he",
   "WYLDER-WYLDER.title": "The Wylder",
   "WYLDER-WYLDER.titleObject": "The Wylder",
-  "WYLDER-WYLDER.unlockText": "Play a run with [pink]{Prerequisite}[/pink] to unlock this character."
+  "WYLDER-WYLDER.unlockText": "Play a run with [pink]{Prerequisite}[/pink] to unlock this character.",
+
+  "WYLDER-RECLUSE.aromaPrinciple": "[sine][purple]...whispering...[/purple][/sine]",
+  "WYLDER-RECLUSE.banter.alive.endTurnPing": "The incantation is ready.",
+  "WYLDER-RECLUSE.banter.dead.endTurnPing": "...mana... still...",
+  "WYLDER-RECLUSE.cardsModifierDescription": "The Recluse's cards will now appear in rewards and shops.",
+  "WYLDER-RECLUSE.cardsModifierTitle": "The Recluse Cards",
+  "WYLDER-RECLUSE.description": "A witch who walks the edge of forbidden arts.\nWielding power far beyond ordinary mortals, yet content to dwell in corners the world has forgotten.\nThe Night devoured her last refuge; to seal that boundless darkness, she set forth once more.",
+  "WYLDER-RECLUSE.eventDeathPrevention": "I haven't finished the final incantation...",
+  "WYLDER-RECLUSE.goldMonologue": "[sine]Coins... merely a mundane spell.[/sine]",
+  "WYLDER-RECLUSE.possessiveAdjective": "her",
+  "WYLDER-RECLUSE.pronounObject": "her",
+  "WYLDER-RECLUSE.pronounPossessive": "her",
+  "WYLDER-RECLUSE.pronounSubject": "she",
+  "WYLDER-RECLUSE.title": "The Recluse",
+  "WYLDER-RECLUSE.titleObject": "The Recluse",
+  "WYLDER-RECLUSE.unlockText": "Play a run with [pink]{Prerequisite}[/pink] to unlock this character."
 }

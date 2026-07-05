@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfw43qsguo5my"]
 
-[ext_resource type="Texture2D" uid="uid://mdnp1o6giemo" path="res://wylder/scenes/wylder.jpg" id="1_cg2s0"]
+[ext_resource type="Texture2D" uid="uid://ctfqc8gr2bocm" path="res://wylder/scenes/wylder_bg.png" id="1_cg2s0"]
 
 [node name="WylderBg" type="Control"]
 layout_mode = 3
@@ -36,6 +36,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -49.0
+offset_right = 120.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_cg2s0")

@@ -13,5 +13,22 @@
   "WYLDER-WYLDER.pronounSubject": "他",
   "WYLDER-WYLDER.title": "追踪者",
   "WYLDER-WYLDER.titleObject": "追踪者",
-  "WYLDER-WYLDER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
+  "WYLDER-WYLDER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
+
+  "WYLDER-RECLUSE.aromaPrinciple": "[sine][purple]……低语……[/purple][/sine]",
+  "WYLDER-RECLUSE.banter.alive.endTurnPing": "咒语已经准备好了。",
+  "WYLDER-RECLUSE.banter.dead.endTurnPing": "……法力……还在……",
+  "WYLDER-RECLUSE.cardsModifierDescription": "隐士的卡牌现在会出现在奖励和商店中。",
+  "WYLDER-RECLUSE.cardsModifierTitle": "隐士卡牌",
+  "WYLDER-RECLUSE.description": "游走于禁忌边缘的魔女。\n掌握着远超常人的法力，却甘愿隐居在世人遗忘的角落。\n黑夜吞噬了她最后的栖身之所；为了封印那无边的黑暗，她重新踏上了旅途。",
+  "WYLDER-RECLUSE.eventDeathPrevention": "我还没有念完最后的咒语……",
+  "WYLDER-RECLUSE.goldMonologue": "[sine]金币……不过是世俗的咒语罢了。[/sine]",
+  "WYLDER-RECLUSE.possessiveAdjective": "她的",
+  "WYLDER-RECLUSE.pronounObject": "她",
+  "WYLDER-RECLUSE.pronounPossessive": "她的",
+  "WYLDER-RECLUSE.pronounSubject": "她",
+  "WYLDER-RECLUSE.title": "隐士",
+  "WYLDER-RECLUSE.titleObject": "隐士",
+  "WYLDER-RECLUSE.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
+  "WYLDER-RECLUSE.quitGetMagic": "这个生物没有附着任何[pink]属性痕[/pink]。"
 }

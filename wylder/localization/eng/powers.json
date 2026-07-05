@@ -271,5 +271,17 @@
   "WYLDER-SCARLET_DEW_POWER.title": "Scarlet Dew",
   "WYLDER-MENTAL_FORTRESS_POWER.description": "When [purple]Night Adjudicator[/purple] gains a buff, double the stacks. When gaining a debuff, halve the stacks (rounded down). Whenever [purple]Night Adjudicator[/purple] gains any power, gain {Amount} Block.",
   "WYLDER-MENTAL_FORTRESS_POWER.smartDescription": "When [purple]Night Adjudicator[/purple] gains a buff, double the stacks. When gaining a debuff, halve the stacks (rounded down). Whenever [purple]Night Adjudicator[/purple] gains any power, gain {Amount} Block.",
-  "WYLDER-MENTAL_FORTRESS_POWER.title": "Mental Fortress"
+  "WYLDER-MENTAL_FORTRESS_POWER.title": "Mental Fortress",
+  "WYLDER-PURE_MAGIC_POWER.description": "Traces of magic linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_MAGIC_POWER.smartDescription": "Traces of magic linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_MAGIC_POWER.title": "Magic Trace",
+  "WYLDER-PURE_FIRE_POWER.description": "Traces of fire linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_FIRE_POWER.smartDescription": "Traces of fire linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_FIRE_POWER.title": "Fire Trace",
+  "WYLDER-PURE_LIGHTING_POWER.description": "Traces of lightning linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_LIGHTING_POWER.smartDescription": "Traces of lightning linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_LIGHTING_POWER.title": "Lightning Trace",
+  "WYLDER-PURE_HOLY_POWER.description": "Traces of holy linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_HOLY_POWER.smartDescription": "Traces of holy linger on this target. Decreases by 1 at the end of the turn.",
+  "WYLDER-PURE_HOLY_POWER.title": "Holy Trace"
 }

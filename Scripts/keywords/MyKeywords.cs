@@ -5,19 +5,63 @@ namespace wylder.Scripts.keywords;
 
 public class MyKeywords
 {
-    // 自定义枚举的名字。最终会变成{前缀}-{枚举值大写}的形式，例如TEST-UNIQUE
     [CustomEnum("CHARGES")]
-    // 放在原版卡牌描述的位置，这里是卡牌描述的前面
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Charges;
     
     [CustomEnum("ASHWAR")]
-    // 放在原版卡牌描述的位置，这里是卡牌描述的前面
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Ashwar;
     
     [CustomEnum("COUNTS")]
-    // 放在原版卡牌描述的位置，这里是卡牌描述的前面
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Counts;
+
+    [CustomEnum("CARIAN_SWORD")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword CarianSword;
+
+    [CustomEnum("GRAVITY")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Gravity;
+
+    [CustomEnum("CRYSTALLIAN")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Crystallian;
+
+    [CustomEnum("INVISIBLE")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Invisible;
+
+    [CustomEnum("THORNS")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Thorns;
+
+    [CustomEnum("ORIGIN")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Origin;
+
+    [CustomEnum("GLINTSTONE")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Glintstone;
+
+    [CustomEnum("DEATH")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Death;
+
+    [CustomEnum("LAVA")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Lava;
+
+    [CustomEnum("CAPITAL_DRAGON")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword CapitalDragon;
+
+    [CustomEnum("GOLDEN_ORDER")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword GoldenOrder;
+
+    [CustomEnum("GIANT_FLAME")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword GiantFlame;
 }
