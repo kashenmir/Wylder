@@ -3,6 +3,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using wylder.Scripts.cards;
+using wylder.Scripts.cards.recluse;
 using wylder.Scripts.pools;
 using wylder.Scripts.relics;
 
@@ -69,22 +70,22 @@ public class Recluse : PlaceholderCharacterModel
     // 过渡音效。这个不能删。
     public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
-    public override CardPoolModel CardPool => ModelDb.CardPool<WylderCardPool>();
+    public override CardPoolModel CardPool => ModelDb.CardPool<RecluseCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<WylderRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<WylderPotionPool>();
 
     // 初始卡组
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<WylderStrike>(),
-        ModelDb.Card<WylderStrike>(),
-        ModelDb.Card<WylderStrike>(),
-        ModelDb.Card<WylderStrike>(),
-        ModelDb.Card<WylderDefend>(),
-        ModelDb.Card<WylderDefend>(),
-        ModelDb.Card<WylderDefend>(),
-        ModelDb.Card<WylderDefend>(),
-        ModelDb.Card<BucklerParry>(),
-        ModelDb.Card<ClawShot>(),
+        ModelDb.Card<RecluseStrike>(),
+        ModelDb.Card<RecluseStrike>(),
+        ModelDb.Card<RecluseStrike>(),
+        ModelDb.Card<RecluseStrike>(),
+        ModelDb.Card<RecluseDefend>(),
+        ModelDb.Card<RecluseDefend>(),
+        ModelDb.Card<RecluseDefend>(),
+        ModelDb.Card<RecluseDefend>(),
+        ModelDb.Card<AmplifyChant>(),
+        ModelDb.Card<MagmaShot>(),
     ];
 
     // 初始遗物

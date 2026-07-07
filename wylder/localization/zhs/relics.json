@@ -54,5 +54,8 @@
   "WYLDER-SCARLET_DEW_BUBBLETEAR_RELIC.flavor": "蕴含漫红之力的秘药瓶，瓶中液体如晨露般缓缓流淌。",
   "WYLDER-FIRE_POT_BUNDLE.title": "火焰壶束",
   "WYLDER-FIRE_POT_BUNDLE.description": "每场战斗开始时，将{count}张升级过且带有[gold]保留[/gold]的火焰壶加入手牌。",
-  "WYLDER-FIRE_POT_BUNDLE.flavor": "一捆精心捆扎的火焰壶，随时准备投掷。"
+  "WYLDER-FIRE_POT_BUNDLE.flavor": "一捆精心捆扎的火焰壶，随时准备投掷。",
+  "WYLDER-WITCH_BROOCH.title": "魔女胸针",
+  "WYLDER-WITCH_BROOCH.description": "深林魔女佩戴的胸针，使用者能够看到和使用元素痕。",
+  "WYLDER-WITCH_BROOCH.flavor": ""
 }

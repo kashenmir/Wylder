@@ -283,5 +283,15 @@
   "WYLDER-PURE_LIGHTING_POWER.title": "Lightning Trace",
   "WYLDER-PURE_HOLY_POWER.description": "Traces of holy linger on this target. Decreases by 1 at the end of the turn.",
   "WYLDER-PURE_HOLY_POWER.smartDescription": "Traces of holy linger on this target. Decreases by 1 at the end of the turn.",
-  "WYLDER-PURE_HOLY_POWER.title": "Holy Trace"
+  "WYLDER-PURE_HOLY_POWER.title": "Holy Trace",
+  "WYLDER-CHARGE_POWER.title": "Charge",
+  "WYLDER-CHARGE_POWER.description": "Some spells can be charged to trigger additional effects. Decreases by 1 at the end of your turn.",
+  "WYLDER-MAGMA_BURN_POWER.title": "Magma Burn",
+  "WYLDER-MAGMA_BURN_POWER.description": "At the start of turn, take 8 damage, then decrease by 1 stack.",
+  "WYLDER-FREEZING_MIST_POWER.title": "Freezing Mist",
+  "WYLDER-FREEZING_MIST_POWER.description": "At the start of your turn, apply [frost] Frost to all enemies.",
+  "WYLDER-KNIGHTS_LIGHTNING_SPEAR_POWER.title": "Knight's Lightning Spear",
+  "WYLDER-KNIGHTS_LIGHTNING_SPEAR_POWER.description": "At the end of your turn, deal [spearDamage] Lightning damage for each card in your hand. [gold]Charged[/gold]: +3 damage per card. Removed after triggering.",
+  "WYLDER-DRAGONBOLT_BLESSING_POWER.title": "Dragonbolt Blessing",
+  "WYLDER-DRAGONBOLT_BLESSING_POWER.description": "Reduce all damage taken by [reduce] this turn. Removed at the end of the enemy turn."
 }

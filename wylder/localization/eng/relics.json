@@ -54,5 +54,8 @@
   "WYLDER-SCARLET_DEW_BUBBLETEAR_RELIC.flavor": "A secret vial imbued with scarlet dew power, its contents flowing gently like morning dew.",
   "WYLDER-FIRE_POT_BUNDLE.title": "Fire Pot Bundle",
   "WYLDER-FIRE_POT_BUNDLE.description": "At the start of each combat, add {count} upgraded Fire Pots with [gold]Retain[/gold] to your hand.",
-  "WYLDER-FIRE_POT_BUNDLE.flavor": "A bundle of carefully tied fire pots, ready to be thrown at a moment's notice."
+  "WYLDER-FIRE_POT_BUNDLE.flavor": "A bundle of carefully tied fire pots, ready to be thrown at a moment's notice.",
+  "WYLDER-WITCH_BROOCH.title": "Witch Brooch",
+  "WYLDER-WITCH_BROOCH.description": "A brooch worn by the deep forest witch. The wearer can see and use elemental traces.",
+  "WYLDER-WITCH_BROOCH.flavor": ""
 }

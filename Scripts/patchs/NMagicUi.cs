@@ -11,7 +11,9 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using wylder.Scripts.cards;
+using wylder.Scripts.cards.recluse;
 using wylder.Scripts.powers;
+using wylder.Scripts.powers.recluse;
 
 namespace wylder.Scripts.patchs;
 

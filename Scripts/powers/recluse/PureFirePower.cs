@@ -1,4 +1,4 @@
-namespace wylder.Scripts.powers;
+namespace wylder.Scripts.powers.recluse;
 
 public class PureFirePower : BasicMaicPower
 {

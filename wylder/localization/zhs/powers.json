@@ -283,5 +283,15 @@
   "WYLDER-PURE_LIGHTING_POWER.title": "雷电痕",
   "WYLDER-PURE_HOLY_POWER.description": "这个目标的身上残留了神圣属性痕。回合结束减少1层。",
   "WYLDER-PURE_HOLY_POWER.smartDescription": "这个目标的身上残留了神圣属性痕。回合结束减少1层。",
-  "WYLDER-PURE_HOLY_POWER.title": "神圣痕"
+  "WYLDER-PURE_HOLY_POWER.title": "神圣痕",
+  "WYLDER-CHARGE_POWER.title": "蓄力",
+  "WYLDER-CHARGE_POWER.description": "部分法术可以蓄力释放触发额外效果。自身回合结束时减少1层。",
+  "WYLDER-MAGMA_BURN_POWER.title": "岩浆灼烧",
+  "WYLDER-MAGMA_BURN_POWER.description": "回合开始时受到8点伤害，然后减少1层。",
+  "WYLDER-FREEZING_MIST_POWER.title": "寒霜迷雾",
+  "WYLDER-FREEZING_MIST_POWER.description": "你的回合开始时，向所有敌人施加{Amount}层寒霜。",
+  "WYLDER-KNIGHTS_LIGHTNING_SPEAR_POWER.title": "骑士雷电枪",
+  "WYLDER-KNIGHTS_LIGHTNING_SPEAR_POWER.description": "你的回合结束时，每有一张手牌对其造成{Amount}点雷电伤害。",
+  "WYLDER-DRAGONBOLT_BLESSING_POWER.title": "龙雷护体",
+  "WYLDER-DRAGONBOLT_BLESSING_POWER.description": "本回合受到的所有伤害减少{Amount}。"
 }
