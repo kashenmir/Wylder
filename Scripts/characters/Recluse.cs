@@ -91,6 +91,7 @@ public class Recluse : PlaceholderCharacterModel
     // 初始遗物
     public override IReadOnlyList<RelicModel> StartingRelics => [
         ModelDb.Relic<SacredFlaskRelic>(),
+        ModelDb.Relic<WitchBrooch>(),
     ];
 
     // 攻击建筑师的攻击特效列表

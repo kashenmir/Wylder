@@ -58,14 +58,14 @@ public class WildStrike : AshWarModel
         DynamicVars["count"].UpgradeValueBy(countDazed(base.Owner)-DynamicVars["count"].IntValue);
     }
     
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+    protected override CardLocation GetResultLocationForCardPlay()
     {
-        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
-        if (pileType == PileType.Discard)
+        CardLocation resultLocationForCardPlay = base.GetResultLocationForCardPlay();
+        if (resultLocationForCardPlay.pileType == PileType.Discard)
         {
-            return (PileType.Hand, CardPilePosition.Random);
+            resultLocationForCardPlay.pileType = PileType.Hand;
         }
-        return (pileType, item);
+        return resultLocationForCardPlay;
     }
     
     private static int countDazed(Player owner)

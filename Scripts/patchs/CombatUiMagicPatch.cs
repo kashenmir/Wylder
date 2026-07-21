@@ -27,7 +27,7 @@ public class CombatUiMagicPatch
             return;
         }
 
-        if (me.Relics.OfType<SacredFlaskRelic>().FirstOrDefault() == null)
+        if (me.Relics.OfType<WitchBrooch>().FirstOrDefault() == null)
         {
             return;
         }
