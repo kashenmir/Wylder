@@ -39,7 +39,7 @@ public class MagmaShot : TestCardModel
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         await DamageCmd.Attack(damage).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
 
         if (hasCharge)

@@ -1,10 +1,16 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
+using wylder.Scripts.powers.recluse;
 
 namespace wylder.Scripts.cards.recluse;
 
@@ -17,7 +23,9 @@ public class PureFire : TestCardModel
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new IntVar("magmaBurn", 1)];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public PureFire() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -26,13 +34,24 @@ public class PureFire : TestCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(cardPlay.Target));
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
+            .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
+
+        await PowerCmd.Apply<MagmaBurnPower>(choiceContext, cardPlay.Target, DynamicVars["magmaBurn"].IntValue, Owner.Creature, this);
+    }
+
+    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
+    {
+        if (dealer == Owner.Creature && props.IsPoweredAttack() && cardSource == this)
+        {
+            await PowerCmd.Apply<PureFirePower>(choiceContext, target, 3, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(5m);
+        DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }

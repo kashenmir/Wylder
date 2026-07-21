@@ -38,7 +38,7 @@ public class LightningSpear : TestCardModel
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx("vfx/vfx_attack_lightning", "event:/sfx/characters/defect/defect_lightning_evoke", "heavy_attack.mp3")
             .Execute(choiceContext);
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars["weak"].IntValue, Owner.Creature, this);
     }

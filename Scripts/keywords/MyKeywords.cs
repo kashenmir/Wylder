@@ -68,4 +68,8 @@ public class MyKeywords
     [CustomEnum("SNOW_SORCERY")]
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword SnowSorcery;
+
+    [CustomEnum("FRENZY_FLAME")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword FrenzyFlame;
 }

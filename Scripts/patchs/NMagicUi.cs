@@ -184,6 +184,7 @@ public partial class NMagicUi : Control
             else
             {
                 Type? cardType = ResolveMagicCardType();
+                CleanMagicPowers();
                 if (cardType != null)
                 {
                     await (Task)typeof(CardPileCmd)
@@ -191,7 +192,6 @@ public partial class NMagicUi : Control
                         .MakeGenericMethod(cardType)
                         .Invoke(null, new object?[] { Player.Creature, PileType.Hand, 1, Player, CardPilePosition.Bottom });
                 }
-                CleanMagicPowers();
             }
             _running = false;
         }
