@@ -315,5 +315,11 @@
   "WYLDER-WARM_FIRE_POWER.smartDescription": "Gained {Amount} temporary Max HP. When removed or combat ends, lose {Amount} HP and reduce Max HP by {Amount}.",
   "WYLDER-ORIGIN_FORM_POWER.description": "Cards you generate deal 2x damage and Block.",
   "WYLDER-ORIGIN_FORM_POWER.smartDescription": "Cards you generate deal {Amount}x damage and Block.",
-  "WYLDER-ORIGIN_FORM_POWER.title": "Origin Form"
+  "WYLDER-ORIGIN_FORM_POWER.title": "Origin Form",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.description": "At the start of your turn, lose HP equal to the stack count, then increase stacks by 2.",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.smartDescription": "At the start of your turn, lose {Amount} HP, then increase stacks by 2.",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.title": "Night Maiden's Mist",
+  "WYLDER-UNSEEN_FORM_POWER.description": "Damage and HP loss taken is reduced to 1. Removed when you play an Attack card. Decreases by 1 at the end of the enemy turn.",
+  "WYLDER-UNSEEN_FORM_POWER.smartDescription": "Damage and HP loss taken is reduced to 1. Removed when you play an Attack card. Decreases by 1 at the end of the enemy turn.",
+  "WYLDER-UNSEEN_FORM_POWER.title": "Unseen Form"
 }

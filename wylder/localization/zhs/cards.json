@@ -319,5 +319,20 @@
   "WYLDER-ETERNAL_DARKNESS.title": "亘古黑暗",
   "WYLDER-ETERNAL_DARKNESS.description": "2回合内，为你生成的牌都会被立刻消耗并使你获得{block:diff()}点格挡。",
   "WYLDER-ORIGIN_FORM.title": "起源形态",
-  "WYLDER-ORIGIN_FORM.description": "你战斗中生成卡牌的伤害与格挡的基础数值变为{amount:diff()}倍。"
+  "WYLDER-ORIGIN_FORM.description": "你战斗中生成卡牌的伤害与格挡的基础数值变为{amount:diff()}倍。",
+  "WYLDER-NIGHT_MAIDENS_MIST.title": "黑夜女巫烟雾",
+  "WYLDER-NIGHT_MAIDENS_MIST.description": "给予所有敌人{amount:diff()}层[gold]黑夜女巫烟雾[/gold]。[gold]消耗[/gold]。",
+  "WYLDER-STARS_OF_RUIN.title": "毁灭流星",
+  "WYLDER-STARS_OF_RUIN.description": "造成{Damage:diff()}点[blue]魔力伤害[/blue]{hitCount:diff()}次。[gold]蓄力[/gold]时：消耗1层[gold]蓄力[/gold]，改为造成{Damage:diff()}点[blue]魔力伤害[/blue]{chargeHitCount:diff()}次。",
+  "WYLDER-UNSEEN_FORM.title": "隐形身躯",
+  "WYLDER-UNSEEN_FORM.description": "获得{amount:diff()}层[gold]隐形身躯[/gold]。",
+
+  "WYLDER-AMBUSH_SHARD.title": "奇袭魔砾",
+  "WYLDER-AMBUSH_SHARD.description": "造成{Damage:diff()}点[blue]魔力伤害[/blue]。",
+  "WYLDER-NIGHT_COMET.title": "黑夜彗星",
+  "WYLDER-NIGHT_COMET.description": "造成{Damage:diff()}+目标格挡值的[blue]魔力伤害[/blue]。[gold]蓄力[/gold]时：消耗1层[gold]蓄力[/gold]，额外造成{chargeBonus:diff()}点伤害。",
+  "WYLDER-LITANY_OF_PROPER_DEATH.title": "纠死圣律",
+  "WYLDER-LITANY_OF_PROPER_DEATH.description": "所有敌人失去{strLoss:diff()}点力量，被附着{holy:diff()}层[orange]纯圣[/orange]。如果敌人是爪牙，还会失去{minionHpLoss:diff()}点生命。",
+  "WYLDER-RADAGONS_RINGS.title": "拉达冈的光环",
+  "WYLDER-RADAGONS_RINGS.description": "对所有敌人造成{Damage:diff()}点[orange]神圣伤害[/orange]{hitCount:diff()}次。"
 }

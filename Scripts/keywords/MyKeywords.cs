@@ -72,4 +72,8 @@ public class MyKeywords
     [CustomEnum("FRENZY_FLAME")]
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword FrenzyFlame;
+
+    [CustomEnum("SLY")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Sly;
 }

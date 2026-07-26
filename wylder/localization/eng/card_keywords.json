@@ -32,5 +32,8 @@
   "WYLDER-SNOW_SORCERY.title": "Snow Sorcery",
 
   "WYLDER-FRENZY_FLAME.description": "This card belongs to Frenzied Flame incantation",
-  "WYLDER-FRENZY_FLAME.title": "Frenzied Flame"
+  "WYLDER-FRENZY_FLAME.title": "Frenzied Flame",
+
+  "WYLDER-SLY.description": "This card belongs to Sly sorcery",
+  "WYLDER-SLY.title": "Sly"
 }

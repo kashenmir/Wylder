@@ -319,5 +319,20 @@
   "WYLDER-ETERNAL_DARKNESS.title": "Eternal Darkness",
   "WYLDER-ETERNAL_DARKNESS.description": "Gain an effect: For 2 turns, each card you generate is immediately exhausted, then you gain {block:diff()} Block.",
   "WYLDER-ORIGIN_FORM.title": "Origin Form",
-  "WYLDER-ORIGIN_FORM.description": "Gain {amount:diff()} [gold]Origin Form[/gold]. Cards you generate during combat deal 2x damage and Block."
+  "WYLDER-ORIGIN_FORM.description": "Gain {amount:diff()} [gold]Origin Form[/gold]. Cards you generate during combat deal 2x damage and Block.",
+  "WYLDER-NIGHT_MAIDENS_MIST.title": "Night Maiden's Mist",
+  "WYLDER-NIGHT_MAIDENS_MIST.description": "Apply {amount:diff()} [gold]Night Maiden's Mist[/gold] to all enemies. [gold]Exhaust[/gold].",
+  "WYLDER-STARS_OF_RUIN.title": "Stars of Ruin",
+  "WYLDER-STARS_OF_RUIN.description": "Deal {Damage:diff()} magic affinity damage {hitCount:diff()} times. [gold]Charged[/gold]: Consume 1 [gold]Charge[/gold], deal {Damage:diff()} magic affinity damage {chargeHitCount:diff()} times instead.",
+  "WYLDER-UNSEEN_FORM.title": "Unseen Form",
+  "WYLDER-UNSEEN_FORM.description": "Gain {amount:diff()} [gold]Unseen Form[/gold].",
+
+  "WYLDER-AMBUSH_SHARD.title": "Ambush Shard",
+  "WYLDER-AMBUSH_SHARD.description": "Deal {Damage:diff()} magic affinity damage.",
+  "WYLDER-NIGHT_COMET.title": "Night Comet",
+  "WYLDER-NIGHT_COMET.description": "Deal {Damage:diff()} + target's Block magic affinity damage. [gold]Charged[/gold]: Consume 1 [gold]Charge[/gold], deal {chargeBonus:diff()} extra damage.",
+  "WYLDER-LITANY_OF_PROPER_DEATH.title": "Litany of Proper Death",
+  "WYLDER-LITANY_OF_PROPER_DEATH.description": "All enemies lose {strLoss:diff()} Strength and gain {holy:diff()} stacks of [orange]Pure Holy[/orange]. If the enemy is a Minion, it also loses {minionHpLoss:diff()} HP.",
+  "WYLDER-RADAGONS_RINGS.title": "Radagon's Rings",
+  "WYLDER-RADAGONS_RINGS.description": "Deal {Damage:diff()} holy affinity damage to all enemies {hitCount:diff()} times."
 }

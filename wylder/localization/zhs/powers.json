@@ -313,5 +313,11 @@
   "WYLDER-WARM_FIRE_POWER.smartDescription": "获得了{Amount}点[gold]临时最大生命[/gold]。",
   "WYLDER-ORIGIN_FORM_POWER.description": "你生成的牌造成2倍伤害与格挡。",
   "WYLDER-ORIGIN_FORM_POWER.smartDescription": "你生成的牌造成{Amount}倍伤害与格挡。",
-  "WYLDER-ORIGIN_FORM_POWER.title": "起源形态"
+  "WYLDER-ORIGIN_FORM_POWER.title": "起源形态",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.description": "回合开始时失去等于层数的生命，然后层数+2。",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.smartDescription": "回合开始时失去{Amount}点生命，然后层数+2。",
+  "WYLDER-NIGHT_MAIDENS_MIST_POWER.title": "黑夜女巫烟雾",
+  "WYLDER-UNSEEN_FORM_POWER.description": "受到的伤害和生命损失降为0，打出攻击牌时移除此效果。敌方回合结束时减少1层。",
+  "WYLDER-UNSEEN_FORM_POWER.smartDescription": "{Amount}回合内受到的伤害和生命损失降为0，打出攻击牌时移除此效果。敌方回合结束时减少1层。",
+  "WYLDER-UNSEEN_FORM_POWER.title": "隐形身躯"
 }
